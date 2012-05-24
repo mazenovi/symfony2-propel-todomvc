@@ -63,6 +63,17 @@ $ app/console propel:database:create
 ``` bash
 $ app/console propel:build --insert-sql
 ```
+
+* visit /app_dev.php/todos/
+
+* generate assets
+
+``` bash
+$ app/console assetic:dump --env=prod --no-debug
+```
+
+* visit /app.php/todos/
+
 # Roadmap (probably a new project)
 
 * fix BaseObject.yml problem with the jms serializer
