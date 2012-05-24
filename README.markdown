@@ -2,7 +2,7 @@ symfony2-propel-todomvc
 =======================
 
 Symfony2 + Propel variation around todomvc theme (see [http://addyosmani.github.com/todomvc/](http://addyosmani.github.com/todomvc/)
-Big thanks to [https://github.com/willdurand](@willdurand) for his precious help
+Big thanks to [@willdurand](https://github.com/willdurand) for his precious help
 
 # How to install
 
@@ -68,5 +68,5 @@ $ app/console propel:build --insert-sql
 * fix BaseObject.yml problem with the jms serializer
 * better structure for the backbone part
 * think to gracefull degradation no javascript mod
-* A myTodoMVC version with FOSUserBundle and FOSFacebookBundle
+* A myTodoMVC version with [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle) and [FOSFacebookBundle](https://github.com/FriendsOfSymfony/FOSFacebookBundle.git)
 * Add TwitterBoostrap
