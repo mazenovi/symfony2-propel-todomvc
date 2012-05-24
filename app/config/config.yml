@@ -1,0 +1,89 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+
+framework:
+    #esi:             ~
+    #translator:      { fallback: %locale% }
+    secret:          %secret%
+    charset:         UTF-8
+    router:          { resource: "%kernel.root_dir%/config/routing.yml" }
+    form:            true
+    csrf_protection: true
+    validation:      { enable_annotations: true }
+    templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
+    default_locale:  %locale%
+    session:
+        auto_start:     true
+
+# Twig Configuration
+twig:
+    debug:            %kernel.debug%
+    strict_variables: %kernel.debug%
+
+# Assetic Configuration
+assetic:
+    debug:          %kernel.debug%
+    use_controller: false
+    filters:
+        cssrewrite: ~
+        compass:
+            sass: /var/lib/gems/1.8/gems/sass-3.1.12/bin/sass
+            bin: /var/lib/gems/1.8/gems/compass-0.11.7/bin/compass
+        sass:
+            bin: /var/lib/gems/1.8/gems/sass-3.1.12/bin/sass
+            compass: /var/lib/gems/1.8/gems/compass-0.11.7/bin/compass
+        yui_css:
+            jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
+        yui_js:
+            jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
+
+# Propel Configuration
+propel:
+    path:       "%kernel.root_dir%/../vendor/propel/propel1"
+    phing_path: "%kernel.root_dir%/../vendor/pear-phing"
+    dbal:
+        driver:               mysql
+        user:                 %database_user%
+        password:             %database_password%
+        dsn:                  mysql:host=%database_host%;dbname=%database_name%;charset=UTF8
+        options:              {}
+        attributes:           {}
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: %mailer_transport%
+    host:      %mailer_host%
+    username:  %mailer_user%
+    password:  %mailer_password%
+    spool:     { type: memory }
+
+sensio_framework_extra:
+    view:    { annotations: false }
+    router:  { annotations: true }
+
+jms_serializer:
+    metadata:
+        directories:
+            propel:
+                namespace_prefix: ''
+                path: "@MazenoviTodoMVCBundle/Resources/config/serializer"
+
+fos_rest:
+    view:
+        default_engine: twig
+        force_redirects:
+            html: true
+        formats:
+            json: true
+            xml: true
+        templating_formats:
+            html: true
+        failed_validation: HTTP_BAD_REQUEST
+    format_listener:
+        default_priorities: [html, json, '*/*']
+        prefer_extension: true
+    # see also https://github.com/FriendsOfSymfony/FOSRestBundle/blob/master/Resources/doc/3-listener-support.md#Query fetcher listener
+    # see also https://github.com/liip/LiipHelloBundle/blob/query_param-proof-of-concept/Controller/RestController.php#L25
+    # must be force
+    query_fetcher_listener: force

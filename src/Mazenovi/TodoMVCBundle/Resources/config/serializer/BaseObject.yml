@@ -1,0 +1,10 @@
+BaseObject:
+    properties:
+        _new:
+            exclude: true
+        _deleted:
+            exclude: true
+        modifiedColumns:
+            exclude: true
+        virtualColumns:
+            exclude: true

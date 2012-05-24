@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database defaultIdMethod="native" name="default" namespace="Mazenovi\TodoMVCBundle\Model">
+  <table name="todo">
+    <column autoIncrement="true" name="id" primaryKey="true" required="true" type="INTEGER" />
+    <column name="content" type="LONGVARCHAR" />
+    <column name="done" type="BOOLEAN" />
+  </table>
+</database>

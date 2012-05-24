@@ -1,0 +1,10 @@
+Mazenovi\TodoMVCBundle\Model\om\BaseTodo:
+    properties:
+        startCopy:
+            exclude: true
+        alreadyInSave:
+            exclude: true
+        alreadyInValidation:
+            exclude: true
+        validationFailures:
+            exclude: true

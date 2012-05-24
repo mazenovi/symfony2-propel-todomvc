@@ -1,0 +1,61 @@
+symfony2-propel-todomvc
+=======================
+
+Symfony2 + Propel variation around todomvc theme (see [http://addyosmani.github.com/todomvc/](http://addyosmani.github.com/todomvc/)
+Big thanks to [https://github.com/willdurand](@willdurand) for his precious help
+
+# How to install
+
+configure your db connections in app/config/paramaters.yml
+
+configure your compass, sass, and yuo compressor paths in app/config/config.yml. Something like:
+
+``` yml
+assetic:
+    filters:
+        compass:
+            sass: /var/lib/gems/1.8/gems/sass-3.1.12/bin/sass
+            bin: /var/lib/gems/1.8/gems/compass-0.11.7/bin/compass
+        sass:
+            bin: /var/lib/gems/1.8/gems/sass-3.1.12/bin/sass
+            compass: /var/lib/gems/1.8/gems/compass-0.11.7/bin/compass
+        yui_css:
+            jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
+        yui_js:
+            jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
+```
+
+Run in your shell the nexts commands lines
+
+	* download composer
+
+		> wget http://getcomposer.org/composer.phar
+
+	* install required bundles
+
+		> php composer.phar install
+
+	* chmod cache and log
+
+		> chmod -R 777 app/cache
+		> chmod -R 777 app/logs
+
+	* publish assets
+
+		> php app/console assets:install web
+
+	* create the database 
+
+		> app/console propel:database:create
+
+	* build your model and your database
+
+		> app/console propel:build --insert-sql
+
+# Roadmap (probably a new project)
+
+* fix BaseObject.yml problem with the jms serializer
+* better structure for the backbone part
+* think to gracefull degradation no javascript mod
+* A myTodoMVC version with FOSUserBundle and FOSFacebookBundle
+* Add TwitterBoostrap
