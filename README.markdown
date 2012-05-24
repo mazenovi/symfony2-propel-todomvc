@@ -27,31 +27,31 @@ assetic:
 
 Run in your shell the nexts commands lines
 
-	* download composer
-
-		> wget http://getcomposer.org/composer.phar
-
-	* install required bundles
-
-		> php composer.phar install
-
-	* chmod cache and log
-
-		> chmod -R 777 app/cache
-		> chmod -R 777 app/logs
-
-	* publish assets
-
-		> php app/console assets:install web
-
-	* create the database 
-
-		> app/console propel:database:create
-
-	* build your model and your database
-
-		> app/console propel:build --insert-sql
-
+* download composer
+``` bash
+$ wget http://getcomposer.org/composer.phar
+```
+* install required bundles
+``` bash
+$ php composer.phar install
+```
+* chmod cache and log
+``` bash
+$ chmod -R 777 app/cache
+$ chmod -R 777 app/logs
+```
+* publish assets
+``` bash
+$ php app/console assets:install web
+```
+* create the database 
+``` bash
+$ app/console propel:database:create
+```
+* build your model and your database
+``` bash
+$ app/console propel:build --insert-sql
+```
 # Roadmap (probably a new project)
 
 * fix BaseObject.yml problem with the jms serializer
