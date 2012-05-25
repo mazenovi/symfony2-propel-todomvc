@@ -2,5 +2,8 @@
 /app/bootstrap*
 /app/cache/*
 /app/logs/*
+/app/propel
 /vendor/
+src/Mazenovi/TodoMVCBundle/Model/map/
+src/Mazenovi/TodoMVCBundle/Model/om/
 composer.phar
