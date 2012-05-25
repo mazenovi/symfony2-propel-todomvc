@@ -8,7 +8,7 @@ use Mazenovi\TodoMVCBundle\Model\om\BaseTodoPeer;
 /**
  * Skeleton subclass for performing query and update operations on the 'todo' table.
  *
- * 
+ *
  *
  * You should add additional methods to this class to meet the
  * application requirements.  This class will only be generated as
@@ -16,6 +16,6 @@ use Mazenovi\TodoMVCBundle\Model\om\BaseTodoPeer;
  *
  * @package    propel.generator.src.Mazenovi.TodoMVCBundle.Model
  */
-class TodoPeer extends BaseTodoPeer {
-
+class TodoPeer extends BaseTodoPeer
+{
 } // TodoPeer
