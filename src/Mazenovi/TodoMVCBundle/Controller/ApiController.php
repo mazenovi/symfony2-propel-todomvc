@@ -17,7 +17,6 @@ use FOS\RestBundle\Controller\Annotations\Prefix,
 use Mazenovi\TodoMVCBundle\Model\TodoQuery,
     Mazenovi\TodoMVCBundle\Model\Todo;
 
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * @Route("todos")
@@ -93,6 +92,7 @@ class DefaultController extends Controller
         $todo->setContent($values['content']);
         $todo->setDone($values['done']);
         $todo->save();
+
         return $values;
     }
 
