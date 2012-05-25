@@ -17,13 +17,10 @@ use FOS\RestBundle\Controller\Annotations\Prefix,
 use Mazenovi\TodoMVCBundle\Model\TodoQuery,
     Mazenovi\TodoMVCBundle\Model\Todo;
 
-
 /**
  * @Route("todos")
- * @NamePrefix("todos_rest_")
  */
-
-class DefaultController extends Controller
+class ApiController extends Controller
 {
     /**
      * For Rest Routing
@@ -69,7 +66,7 @@ class DefaultController extends Controller
         $todo->save();
 
         $url = $this->get('router')->generate(
-            'mazenovi_todomvc_default_show',
+            'mazenovi_todomvc_api_show',
             array('id' => $todo->getId()),
             true
         );
@@ -85,15 +82,14 @@ class DefaultController extends Controller
      * @View(statusCode=200)
      * @View()
      */
-    public function updateAction(Request $request)
+    public function updateAction(Todo $todo)
     {
         $values = $request->request->all();
-        $todo = TodoQuery::create()->findOneById($request->get('id'));
         $todo->setContent($values['content']);
         $todo->setDone($values['done']);
         $todo->save();
 
-        return $values;
+        return $todo;
     }
 
     /**
@@ -103,9 +99,8 @@ class DefaultController extends Controller
      * @Method({"DELETE"})
      * @View(statusCode=200)
      */
-    public function deleteAction(Request $request)
+    public function deleteAction(Todo $todo)
     {
-        $todo = TodoQuery::create()->findOneById($request->get('id'));
         $todo->delete();
     }
-    }
+}

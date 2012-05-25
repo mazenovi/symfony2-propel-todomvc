@@ -1,3 +1,3 @@
-MazenoviTodoMVCBundle:
-  resource:  "@MazenoviTodoMVCBundle/Controller/DefaultController.php"
+mazenovi_todomvc_api:
+  resource:  "@MazenoviTodoMVCBundle/Controller/ApiController.php"
   type: annotation
