@@ -60,12 +60,13 @@ sensio_framework_extra:
     view:    { annotations: false }
     router:  { annotations: true }
 
+
 jms_serializer:
     metadata:
         directories:
             propel:
                 namespace_prefix: ''
-                path: "@MazenoviTodoMVCBundle/Resources/config/serializer"
+                path: @MazenoviTodoMVCBundle/Resources/config/serializer
 
 fos_rest:
     view:
