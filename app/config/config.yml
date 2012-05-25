@@ -28,11 +28,11 @@ assetic:
     filters:
         cssrewrite: ~
         compass:
-            sass: /var/lib/gems/1.8/gems/sass-3.1.12/bin/sass
-            bin: /var/lib/gems/1.8/gems/compass-0.11.7/bin/compass
+            sass: /usr/bin/sass
+            bin:  /usr/bin/compass
         sass:
-            bin: /var/lib/gems/1.8/gems/sass-3.1.12/bin/sass
-            compass: /var/lib/gems/1.8/gems/compass-0.11.7/bin/compass
+            bin:        /usr/bin/sass
+            compass:    /usr/bin/compass
         yui_css:
             jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
         yui_js:
