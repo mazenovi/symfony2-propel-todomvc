@@ -40,25 +40,20 @@ class DefaultController extends Controller
     */
     public function indexAction()
     {
-		return TodoQuery::create()->find();
-        /*
-        return array(
-        	'todos' => $todos,
-        );
-        */
+        return TodoQuery::create()->find();
     }
 
     /**
     * Create a new todo.
     *
-    * @Route("/", defaults = { "_format" = "~" })    
+    * @Route("/", defaults = { "_format" = "~" })
     * @Method({"POST"})
     * @View(statusCode=201)
     */
     public function createAction(Request $request)
     {
         $values = $request->request->all();
-        $todo = new Todo();        
+        $todo = new Todo();
         $todo->setContent($values['content']);
         $todo->save();
     }
@@ -74,7 +69,7 @@ class DefaultController extends Controller
     public function updateAction(Request $request)
     {
         $values = $request->request->all();
-        $todo = TodoQuery::create()->findOneById($request->get('id'));        
+        $todo = TodoQuery::create()->findOneById($request->get('id'));
         $todo->setContent($values['content']);
         $todo->setDone($values['done']);
         $todo->save();
@@ -90,7 +85,7 @@ class DefaultController extends Controller
     */
     public function deleteAction(Request $request)
     {
-        $todo = TodoQuery::create()->findOneById($request->get('id'));        
+        $todo = TodoQuery::create()->findOneById($request->get('id'));
         $todo->delete();
     }
 }
