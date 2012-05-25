@@ -77,7 +77,6 @@ $ app/console assetic:dump --env=prod --no-debug
 
 # Roadmap (probably a new project)
 
-* <strike>fix BaseObject.yml problem with the jms serializer</strike>
 * better structure for the backbone part
 * think to gracefull degradation no javascript mod
 * add TwitterBoostrap
