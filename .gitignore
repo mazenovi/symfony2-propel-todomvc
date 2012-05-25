@@ -3,4 +3,6 @@
 /app/cache/*
 /app/logs/*
 /vendor/
+*/om/*
+*/map/*
 composer.phar
