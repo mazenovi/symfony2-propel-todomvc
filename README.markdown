@@ -77,8 +77,8 @@ $ app/console assetic:dump --env=prod --no-debug
 
 # Roadmap (probably a new project)
 
-* fix BaseObject.yml problem with the jms serializer
+* -fix-BaseObject.yml-problem-with-the-jms-serializer-
 * better structure for the backbone part
 * think to gracefull degradation no javascript mod
-* A myTodoMVC version with [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle) and [FOSFacebookBundle](https://github.com/FriendsOfSymfony/FOSFacebookBundle.git)
-* Add TwitterBoostrap
+* add TwitterBoostrap
+* a myTodoMVC version with [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle) and [FOSFacebookBundle](https://github.com/FriendsOfSymfony/FOSFacebookBundle.git)
