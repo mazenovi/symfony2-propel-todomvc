@@ -82,7 +82,7 @@ class ApiController extends Controller
      * @View(statusCode=200)
      * @View()
      */
-    public function updateAction(Todo $todo)
+    public function updateAction(Request $request, Todo $todo)
     {
         $values = $request->request->all();
         $todo->setContent($values['content']);
@@ -99,7 +99,7 @@ class ApiController extends Controller
      * @Method({"DELETE"})
      * @View(statusCode=200)
      */
-    public function deleteAction(Todo $todo)
+    public function deleteAction(Request $request, Todo $todo)
     {
         $todo->delete();
     }
