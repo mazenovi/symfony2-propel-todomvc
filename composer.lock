@@ -1,5 +1,5 @@
 {
-    "hash": "5716cf13d907a43cbff64aede593162d",
+    "hash": "3f5305ca794ce210e257551d2880d6bb",
     "packages": [
         {
             "package": "doctrine/common",
@@ -236,6 +236,32 @@
             "version": "v2.2.2"
         },
         {
+            "package": "behat/mink",
+            "version": "v1.4.0"
+        },
+        {
+            "package": "behat/mink-browserkit-driver",
+            "version": "dev-master",
+            "source-reference": "97fa7d67ab5afb13d74515c15ef5c0cab12c0bc0",
+            "commit-date": "1341477260"
+        },
+        {
+            "package": "behat/mink-extension",
+            "version": "dev-master",
+            "source-reference": "2fc55fdd358b121b5439acc76be6fa654ebe2e28",
+            "commit-date": "1341477571"
+        },
+        {
+            "package": "behat/mink-sahi-driver",
+            "version": "dev-master",
+            "source-reference": "0a6c2b42c712a62d744051eb90aac0163c6a893a",
+            "commit-date": "1341477311"
+        },
+        {
+            "package": "behat/sahi-client",
+            "version": "v1.0.1"
+        },
+        {
             "package": "behat/symfony2-extension",
             "version": "dev-master",
             "source-reference": "v1.0.0",
@@ -246,6 +272,12 @@
             "version": "dev-master",
             "source-reference": "c8b3c4c3d07c3469dd7bfc758e1e631a723e3bb7",
             "commit-date": "1341812348"
+        },
+        {
+            "package": "kriswallsmith/buzz",
+            "version": "dev-master",
+            "source-reference": "2ba5da13b1b03590f0164b3fb61578078d671fcc",
+            "commit-date": "1341070218"
         }
     ],
     "aliases": [
@@ -271,6 +303,7 @@
         "manymules/json2js-bundle": 20,
         "friendsofsymfony/rest-bundle": 20,
         "behat/behat": 0,
-        "guzzle/guzzle": 20
+        "guzzle/guzzle": 20,
+        "behat/mink": 0
     }
 }

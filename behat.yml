@@ -3,6 +3,13 @@ default:
     name: progress
   extensions:
     Behat\Symfony2Extension\Extension:
+      mink_driver: true
       kernel:
         env: test
         debug: true
+    Behat\MinkExtension\Extension:
+      base_url: http://todo/app_dev.php
+      #base_url:  'http://en.wikipedia.org/'
+      default_session: symfony2
+      javascript_session: sahi
+      sahi: ~

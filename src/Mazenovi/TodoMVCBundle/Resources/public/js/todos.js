@@ -238,6 +238,11 @@ $(function(){
     // Lazily show the tooltip that tells you to press `enter` to save
     // a new todo item, after one second.
     showTooltip: function(e) {
+      if (e.keyCode == 13)
+      {     
+         Todos.create(this.newAttributes());
+         this.input.val('');
+      }
       var tooltip = this.$(".ui-tooltip-top");
       var val = this.input.val();
       tooltip.fadeOut();

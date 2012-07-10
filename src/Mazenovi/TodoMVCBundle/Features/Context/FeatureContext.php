@@ -35,6 +35,7 @@ class FeatureContext extends BehatContext implements KernelAwareInterface
     {
         $this->parameters = $parameters;
         $this->useContext('RestContext', new RestContext($parameters));
+        $this->useContext('BrowserContext', new BrowserContext($parameters));
     }
 
     /**
