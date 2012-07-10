@@ -26,6 +26,12 @@
         "friendsofsymfony/rest-bundle": "dev-master",
         "jms/metadata": "dev-master as 1.1.2-dev"
     },
+    "require-dev": {
+        "behat/behat": "2.4.*@stable",
+        "guzzle/guzzle": "dev-master",
+        "behat/symfony2-extension": "*"
+
+    },
     "scripts": {
         "post-install-cmd": [
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",

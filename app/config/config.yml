@@ -27,11 +27,11 @@ assetic:
     filters:
         cssrewrite: ~
         compass:
-            sass: /usr/bin/sass
-            bin:  /usr/bin/compass
+            sass: /usr/local/bin/sass
+            bin:  /usr/local/bin/compass
         sass:
-            bin:        /usr/bin/sass
-            compass:    /usr/bin/compass
+            bin:        /usr/local/bin/sass
+            compass:    /usr/local/bin/compass
         yui_css:
             jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
         yui_js:
@@ -83,3 +83,6 @@ fos_rest:
         prefer_extension: true
     # see also https://github.com/FriendsOfSymfony/FOSRestBundle/blob/master/Resources/doc/3-listener-support.md#Query fetcher listener
     # see also https://github.com/liip/LiipHelloBundle/blob/query_param-proof-of-concept/Controller/RestController.php#L25
+parameters:
+    behat:
+        base_url: http://todo/app_dev.php

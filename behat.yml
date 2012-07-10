@@ -1,0 +1,8 @@
+default:
+  formatter:
+    name: progress
+  extensions:
+    Behat\Symfony2Extension\Extension:
+      kernel:
+        env: test
+        debug: true

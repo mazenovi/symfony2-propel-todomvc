@@ -1,5 +1,5 @@
 {
-    "hash": "8e4f9885d9aa6f1e529d21f9bfdc6337",
+    "hash": "5716cf13d907a43cbff64aede593162d",
     "packages": [
         {
             "package": "doctrine/common",
@@ -8,27 +8,38 @@
         {
             "package": "doctrine/dbal",
             "version": "2.2.x-dev",
-            "source-reference": "f3effdb752519bfc7842a1005fd4cef55f7661e8"
+            "source-reference": "b961a3fce6bf220f1dca47d7d747b9074bea4730",
+            "commit-date": "1341779435"
         },
         {
             "package": "doctrine/doctrine-bundle",
             "version": "dev-master",
-            "source-reference": "74632539010f1f8887e8afadf41a732efce971c1"
+            "source-reference": "c9ea46d1f0c48bb88bb87b44214fe44e03c0c692",
+            "commit-date": "1341405737"
         },
         {
             "package": "doctrine/orm",
             "version": "2.2.x-dev",
-            "source-reference": "1f9435de5c3739551d73e4706405987d4ead6d9b"
+            "source-reference": "5d2a3bcb3b467f41ee58575764f3ba84937f76e4",
+            "commit-date": "1341676080"
         },
         {
             "package": "friendsofsymfony/rest",
             "version": "dev-master",
-            "source-reference": "d9f772ddb9bb4fd0d952fa45cf0e5e76510b111c"
+            "alias-pretty-version": "0.7.x-dev",
+            "alias-version": "0.7.9999999.9999999-dev"
+        },
+        {
+            "package": "friendsofsymfony/rest",
+            "version": "dev-master",
+            "source-reference": "5ea703f5a3f5c7110cadeccb91b212c0eb7ea2d0",
+            "commit-date": "1339701893"
         },
         {
             "package": "friendsofsymfony/rest-bundle",
             "version": "dev-master",
-            "source-reference": "1fd512952a31f6db90be63636fab73369994737a"
+            "source-reference": "db40cf0203e74ad15d018c5650ff77931b915029",
+            "commit-date": "1341581983"
         },
         {
             "package": "jms/aop-bundle",
@@ -45,14 +56,14 @@
         {
             "package": "jms/metadata",
             "version": "dev-master",
-            "source-reference": "a2ae95448bd13bcfbba5f7fead40b379a84da02d"
+            "alias-pretty-version": "1.1.2-dev",
+            "alias-version": "1.1.2.0-dev"
         },
         {
             "package": "jms/metadata",
             "version": "dev-master",
-            "source-reference": "a2ae95448bd13bcfbba5f7fead40b379a84da02d",
-            "alias-pretty-version": "1.1.2-dev",
-            "alias-version": "1.1.2.0-dev"
+            "source-reference": "dbfbb15b3ffdf96c5ff14e5cd4451d78a7083a36",
+            "commit-date": "1339680164"
         },
         {
             "package": "jms/security-extra-bundle",
@@ -61,39 +72,48 @@
         {
             "package": "jms/serializer-bundle",
             "version": "dev-master",
-            "source-reference": "904e41c55e795939b487d956ab5ebba5baebdc23"
+            "alias-pretty-version": "0.9.x-dev",
+            "alias-version": "0.9.9999999.9999999-dev"
+        },
+        {
+            "package": "jms/serializer-bundle",
+            "version": "dev-master",
+            "source-reference": "6df19222b597ab6f44c67dde4499766a5ca1fb99",
+            "commit-date": "1341570103"
         },
         {
             "package": "kriswallsmith/assetic",
             "version": "dev-master",
-            "source-reference": "1a1b5f963db158a1065343fab617d25ce351a2dc",
             "alias-pretty-version": "1.1.x-dev",
             "alias-version": "1.1.9999999.9999999-dev"
         },
         {
             "package": "kriswallsmith/assetic",
             "version": "dev-master",
-            "source-reference": "1a1b5f963db158a1065343fab617d25ce351a2dc"
+            "source-reference": "d6f89a3170c5280ad554347dc113eb25fdf00ad7",
+            "commit-date": "1339515714"
         },
         {
             "package": "manymules/backbonejs-bundle",
             "version": "dev-master",
-            "source-reference": "v0.9.2"
+            "source-reference": "1c64c4d442b87e24d4e3877026bc13b7bd2306cb",
+            "commit-date": "1341345362"
         },
         {
             "package": "manymules/jquery-bundle",
             "version": "dev-master",
-            "source-reference": "v1.7.2"
+            "source-reference": "v1.7.2",
+            "commit-date": "1334413634"
         },
         {
             "package": "manymules/json2js-bundle",
             "version": "dev-master",
-            "source-reference": "v2011-10-19"
+            "source-reference": "v2011-10-19",
+            "commit-date": "1334407582"
         },
         {
             "package": "manymules/underscorejs-bundle",
-            "version": "dev-master",
-            "source-reference": "v1.3.3"
+            "version": "v1.3.3"
         },
         {
             "package": "monolog/monolog",
@@ -106,105 +126,128 @@
         {
             "package": "propel/propel-bundle",
             "version": "1.1.x-dev",
-            "source-reference": "fec399e4a95a2773e5375eee5b8b1eeff0687015"
+            "source-reference": "ebd2133f6194cc3755ba0b19cea3dbb07f608f66",
+            "commit-date": "1341598130"
         },
         {
             "package": "propel/propel1",
             "version": "dev-master",
-            "source-reference": "f511569ae2c469cf52598ed2f709cc97dc5e6168",
             "alias-pretty-version": "1.6.x-dev",
             "alias-version": "1.6.9999999.9999999-dev"
         },
         {
             "package": "propel/propel1",
             "version": "dev-master",
-            "source-reference": "f511569ae2c469cf52598ed2f709cc97dc5e6168"
+            "source-reference": "8ace328adf696d4ed265ad79c02e3d2777c233bc",
+            "commit-date": "1341474478"
         },
         {
             "package": "sensio/distribution-bundle",
             "version": "dev-master",
-            "source-reference": "b35ee4438b4d2351e8115cbf318c461b90fd8c7f"
+            "source-reference": "b2b18d749d0ed24b48d1932b21f3e8b1e8d9c1f2",
+            "commit-date": "1341919005"
         },
         {
             "package": "sensio/framework-extra-bundle",
             "version": "dev-master",
-            "source-reference": "e00b525b14784ea4f21c14945e58b4a76a530a6a"
+            "alias-pretty-version": "2.1.x-dev",
+            "alias-version": "2.1.9999999.9999999-dev"
+        },
+        {
+            "package": "sensio/framework-extra-bundle",
+            "version": "dev-master",
+            "source-reference": "4f54e5d5fb3b54fb107892684018f3704934c48d",
+            "commit-date": "1341126219"
         },
         {
             "package": "sensio/generator-bundle",
             "version": "dev-master",
-            "source-reference": "0813379920dcaa4b06361501f654379383d75f16"
+            "source-reference": "43ed45c48db18e4a0e48aec0c098f42e56e22d36",
+            "commit-date": "1340138445"
         },
         {
             "package": "swiftmailer/swiftmailer",
             "version": "dev-master",
-            "source-reference": "9895567cec5a13d1a43db5053defbaad260c1b87"
+            "alias-pretty-version": "4.2.x-dev",
+            "alias-version": "4.2.9999999.9999999-dev"
         },
         {
             "package": "swiftmailer/swiftmailer",
             "version": "dev-master",
-            "source-reference": "9895567cec5a13d1a43db5053defbaad260c1b87",
-            "alias-pretty-version": "4.1.x-dev",
-            "alias-version": "4.1.9999999.9999999-dev"
+            "source-reference": "f51b5f33c83b48faea75f1285f99a2e8f1c66f75",
+            "commit-date": "1341746460"
         },
         {
             "package": "symfony/assetic-bundle",
             "version": "dev-master",
-            "source-reference": "61c9f363e73b4ecbb72f81eb62675260a1132048"
+            "source-reference": "8fe7b898b08103c1d6fce64c3e279a7afd61adfc",
+            "commit-date": "1340234971"
         },
         {
             "package": "symfony/monolog-bundle",
             "version": "dev-master",
-            "source-reference": "51a25acc57f4c027b28f0305976b887e2da6250a"
-        },
-        {
-            "package": "symfony/swiftmailer-bridge",
-            "version": "dev-master",
-            "source-reference": "408eb09f5799d393ddc3d916ec3667857fb3a20d",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
-        },
-        {
-            "package": "symfony/swiftmailer-bridge",
-            "version": "dev-master",
-            "source-reference": "408eb09f5799d393ddc3d916ec3667857fb3a20d"
+            "source-reference": "v2.1.0-BETA2",
+            "commit-date": "1341078487"
         },
         {
             "package": "symfony/swiftmailer-bundle",
             "version": "dev-master",
-            "source-reference": "71e1789868665cf94dc7831f645625fd0f70aac6"
+            "source-reference": "v2.1.0-BETA2",
+            "commit-date": "1341509614"
         },
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "45849ce306eaf22c1e957168f1778341dde61f45"
-        },
-        {
-            "package": "symfony/symfony",
-            "version": "dev-master",
-            "source-reference": "45849ce306eaf22c1e957168f1778341dde61f45",
             "alias-pretty-version": "2.1.x-dev",
             "alias-version": "2.1.9999999.9999999-dev"
         },
         {
+            "package": "symfony/symfony",
+            "version": "dev-master",
+            "source-reference": "6782c78b9529548a5fa7041d1a7baaa08f7090b1",
+            "commit-date": "1341926729"
+        },
+        {
             "package": "twig/extensions",
             "version": "dev-master",
-            "source-reference": "feb6d3f10c411e2631997c0a905aa581c80305c1"
+            "source-reference": "feb6d3f10c411e2631997c0a905aa581c80305c1",
+            "commit-date": "1337599699"
         },
         {
             "package": "twig/twig",
             "version": "dev-master",
-            "source-reference": "573a36097146b319e5fb36546a0377c7440bbfe3"
+            "alias-pretty-version": "1.9.x-dev",
+            "alias-version": "1.9.9999999.9999999-dev"
         },
         {
             "package": "twig/twig",
             "version": "dev-master",
-            "source-reference": "573a36097146b319e5fb36546a0377c7440bbfe3",
-            "alias-pretty-version": "1.8.x-dev",
-            "alias-version": "1.8.9999999.9999999-dev"
+            "source-reference": "584a1a30b9f8249e9b79e83f0dc551edd9ae4d05",
+            "commit-date": "1341924981"
         }
     ],
-    "packages-dev": null,
+    "packages-dev": [
+        {
+            "package": "behat/behat",
+            "version": "v2.4.2"
+        },
+        {
+            "package": "behat/gherkin",
+            "version": "v2.2.2"
+        },
+        {
+            "package": "behat/symfony2-extension",
+            "version": "dev-master",
+            "source-reference": "v1.0.0",
+            "commit-date": "1341475375"
+        },
+        {
+            "package": "guzzle/guzzle",
+            "version": "dev-master",
+            "source-reference": "c8b3c4c3d07c3469dd7bfc758e1e631a723e3bb7",
+            "commit-date": "1341812348"
+        }
+    ],
     "aliases": [
         {
             "package": "jms/metadata",
@@ -225,6 +268,9 @@
         "sensio/generator-bundle": 20,
         "propel/propel-bundle": 20,
         "manymules/backbonejs-bundle": 20,
-        "friendsofsymfony/rest-bundle": 20
+        "manymules/json2js-bundle": 20,
+        "friendsofsymfony/rest-bundle": 20,
+        "behat/behat": 0,
+        "guzzle/guzzle": 20
     }
 }
