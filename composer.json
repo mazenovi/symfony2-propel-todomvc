@@ -4,6 +4,7 @@
     "autoload": {
         "psr-0": { "": "src/" }
     },
+    "minimum-stability": "dev",
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": "2.1.*",
@@ -20,6 +21,8 @@
         "jms/di-extra-bundle": "1.0.*",
         "propel/propel-bundle": "1.1.x-dev",
         "manymules/backbonejs-bundle": "dev-master",
+        "manymules/jquery-bundle": ">1.7",
+        "manymules/json2js-bundle": "dev-master",
         "friendsofsymfony/rest-bundle": "dev-master",
         "jms/metadata": "dev-master as 1.1.2-dev"
     },
