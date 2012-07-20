@@ -47,6 +47,9 @@ propel:
         options:              {}
         attributes:           {}
 
+    build_properties:
+        propel.mysql.tableType: InnoDB
+
 # Swiftmailer Configuration
 swiftmailer:
     transport: %mailer_transport%
