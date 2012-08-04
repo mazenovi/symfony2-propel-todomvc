@@ -1,0 +1,22 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block content_title %}Register{% endblock content_title %}
+
+{% block content %}
+
+	<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+		{{ form_widget(form) }}
+    				    				
+		<a onclick="$(this).closest('form').submit()" class="btn btn-primary">
+			{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}
+		</a>
+
+		or
+
+		<a  href="{{ url('fos_user_registration_register')}}" class="btn btn-success" >
+			{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}
+		</a>
+
+	</form>		
+
+{% endblock content %}

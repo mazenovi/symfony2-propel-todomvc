@@ -19,14 +19,22 @@ class AppKernel extends Kernel
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new Propel\PropelBundle\PropelBundle(),
-            new ManyMules\BackboneJSBundle\ManyMulesBackboneJSBundle(),
-            new ManyMules\JQueryBundle\ManyMulesJQueryBundle(),
-            new ManyMules\JSON2JSBundle\ManyMulesJSON2JSBundle(),
-            new ManyMules\UnderscoreJSBundle\ManyMulesUnderscoreJSBundle(),
+            new ManyMules\ManyMulesBackboneJsBundle\ManyMulesBackboneJsBundle(),
+            new ManyMules\ManyMulesJQueryBundle\ManyMulesJQueryBundle(),
+            new ManyMules\ManyMulesJson2JsBundle\ManyMulesJson2JsBundle(),
+            new ManyMules\ManyMulesUnderscoreJsBundle\ManyMulesUnderscoreJsBundle(),
+            new ManyMules\ManyMulesRequireJsBundle\ManyMulesRequireJsBundle(),               
             // two lines to enable FOSRest
             new JMS\SerializerBundle\JMSSerializerBundle($this),
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new FOS\RestBundle\FOSRestBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
+            new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
+            new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Mazenovi\TodoMVCBundle\MazenoviTodoMVCBundle(),
+            new Mazenovi\UserBundle\MazenoviUserBundle(),
+            new Mazenovi\ToolBoxBundle\MazenoviToolBoxBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

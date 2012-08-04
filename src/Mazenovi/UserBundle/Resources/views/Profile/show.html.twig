@@ -1,0 +1,13 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block content_title %}Show Profile{% endblock content_title %}
+
+{% block content %}
+	<div class="fos_user_user_show">
+	    <p>{{ 'profile.show.username'|trans({}, 'FOSUserBundle') }}: {{ user.username }}</p>
+	    <p>{{ 'profile.show.email'|trans({}, 'FOSUserBundle') }}: {{ user.email }}</p>
+	</div>
+	<a  href="{{ url('fos_user_profile_edit')}}" class="btn btn-success" >
+		{{ 'profile.edit.submit'|trans({}, 'FOSUserBundle') }}
+	</a>
+{% endblock content %}

@@ -3,37 +3,78 @@ jms_security_extra:
     expressions: true
 
 security:
+    #encoders:
+    #    Symfony\Component\Security\Core\User\User: plaintext
+
     encoders:
-        Symfony\Component\Security\Core\User\User: plaintext
+        FOS\UserBundle\Model\UserInterface: sha512
+
+    #role_hierarchy:
+    #    ROLE_ADMIN:       ROLE_USER
+    #    ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
-        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+        ROLE_SUPER_ADMIN: ROLE_ADMIN
+
+    #providers:
+    #    in_memory:
+    #        memory:
+    #            users:
+    #                user:  { password: userpass, roles: [ 'ROLE_USER' ] }
+    #                admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
 
     providers:
-        in_memory:
-            memory:
-                users:
-                    user:  { password: userpass, roles: [ 'ROLE_USER' ] }
-                    admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
+        fos_userbundle:
+            id: fos_user.user_provider.username
 
     firewalls:
-        dev:
-            pattern:  ^/(_(profiler|wdt)|css|images|js)/
-            security: false
-
-        login:
-            pattern:  ^/demo/secured/login$
-            security: false
-
-        secured_area:
-            pattern:    ^/demo/secured/
+        main:
+            pattern: ^/
             form_login:
-                check_path: /demo/secured/login_check
-                login_path: /demo/secured/login
+                provider: fos_userbundle
+                # redirect to /todos after login
+                always_use_default_target_path: true
+                default_target_path: /todos
+                csrf_provider: form.csrf_provider
             logout:
-                path:   /demo/secured/logout
-                target: /demo/
+                # redirect to /todos after logout
+                target: /todos
+            anonymous:    true        #dev:
+        secured_area:
+            pattern:    ^/
+            form_login:
+                provider: fos_userbundle
+                login_path: /connect/
+                check_path: /login/login_check
+            anonymous:    true
+            oauth:
+                resource_owners:
+                    github:             "/login/check-github"
+                    google:             "/login/check-google"
+                    facebook:           "/login/check-facebook"
+                    my_custom_provider: "/login/check-custom"
+                login_path:        /connect
+                failure_path:      /connect
+
+                # FOSUB integration
+                oauth_user_provider:
+                    service: hwi_oauth.user.provider.fosub_bridge
+        #    pattern:  ^/(_(profiler|wdt)|css|images|js)/
+        #    security: false
+
+        #login:
+        #    pattern:  ^/demo/secured/login$
+        #    security: false
+
+        #secured_area:
+        #    pattern:    ^/demo/secured/
+        #    form_login:
+        #        check_path: /demo/secured/login_check
+        #        login_path: /demo/secured/login
+        #    logout:
+        #        path:   /demo/secured/logout
+        #        target: /demo/
             #anonymous: ~
             #http_basic:
             #    realm: "Secured Demo Area"
@@ -41,3 +82,7 @@ security:
     access_control:
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
         #- { path: ^/_internal/secure, roles: IS_AUTHENTICATED_ANONYMOUSLY, ip: 127.0.0.1 }
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/todos, role: IS_AUTHENTICATED_ANONYMOUSLY }

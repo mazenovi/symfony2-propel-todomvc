@@ -1,0 +1,18 @@
+{% extends "MazenoviUserBundle::layout.html.twig" %}
+
+{% block content_title %}Edit Profile{% endblock content_title %}
+
+{% block content %}
+	<form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
+		{{ form_widget(form) }}
+		<div>
+			<a onclick="$(this).closest('form').submit()" class="btn btn-primary">
+				{{ 'profile.edit.submit'|trans({}, 'FOSUserBundle') }}
+			</a>
+			<a  href="{{ url('fos_user_profile_show')}}" class="btn btn-success" >
+				{#{ 'profile.show.submit'|trans({}, 'FOSUserBundle') }#}
+				Show
+			</a>
+		</div>
+	</form>
+{% endblock content %}

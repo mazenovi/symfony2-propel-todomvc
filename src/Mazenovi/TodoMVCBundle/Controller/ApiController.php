@@ -17,31 +17,44 @@ use FOS\RestBundle\Controller\Annotations\Prefix,
 use Mazenovi\TodoMVCBundle\Model\TodoQuery,
     Mazenovi\TodoMVCBundle\Model\Todo;
 
-/**
- * @Route("todos")
- */
+use FOS\UserBundle\Propel\User;
+
 class ApiController extends Controller
 {
     /**
      * For Rest Routing
      * see http://www.slideshare.net/Wombert/designing-http-interfaces-and-restful-web-services-phpday2012-20120520#65
      * see http://www.slideshare.net/Wombert/designing-http-interfaces-and-restful-web-services-phpday2012-20120520#66
+     * see http://en.wikipedia.org/wiki/HATEOAS
      */
 
     /**
      * List all todos.
      *
-     * @Route("/", defaults = { "_format" = "~" })
+     * @Route("/todos/", defaults = { "_format" = "~" }, name="mazenovi_todomvc_api_index", options={"expose"=true})
      * @Method({"GET"})
      * @View()
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
+        //$request->headers->set('X-CSRF-Token',$this->get('form.csrf_provider')->generateCsrfToken('csrf'));
         return TodoQuery::create()->find();
     }
 
     /**
-     * @Route("/{id}", defaults = { "_format" = "~" })
+     * List all user's todos.
+     *
+     * @Route("/users/{id}/todos/", defaults = { "_format" = "~" }, requirements = { "id" = "\d+" }, name="mazenovi_todomvc_api_listuser", options={"expose"=true})
+     * @Method({"GET"})
+     * @View()
+     */
+    public function listUserAction(User $user)
+    {
+        return $user->getTodos();
+    }
+
+    /**
+     * @Route("/todos/{id}", defaults = { "_format" = "~" })
      * @Method({"GET"})
      * @View()
      */
@@ -53,16 +66,20 @@ class ApiController extends Controller
     /**
      * Create a new todo.
      *
-     * @Route("/", defaults = { "_format" = "~" })
+     * @Route("/todos/", defaults = { "_format" = "~" })
      * @Method({"POST"})
      * @View(statusCode=201)
      */
     public function createAction(Request $request)
     {
         $values = $request->request->all();
-
+        $user = $this->container->get('security.context')->getToken()->getUser();
         $todo = new Todo();
-        $todo->setContent($values['content']);
+        $todo->setTitle($values['title']);
+        if(is_object($user))
+        {
+            $todo->setFosUserId($user->getId());
+        }
         $todo->save();
 
         $url = $this->get('router')->generate(
@@ -77,7 +94,7 @@ class ApiController extends Controller
     /**
      * update an existing todo.
      *
-     * @Route("/{id}", defaults = { "_format" = "~" }, requirements = { "id" = "\d+" })
+     * @Route("/todos/{id}", defaults = { "_format" = "~" }, requirements = { "id" = "\d+" })
      * @Method({"PUT"})
      * @View(statusCode=200)
      * @View()
@@ -85,8 +102,8 @@ class ApiController extends Controller
     public function updateAction(Request $request, Todo $todo)
     {
         $values = $request->request->all();
-        $todo->setContent($values['content']);
-        $todo->setDone($values['done']);
+        $todo->setTitle($values['title']);
+        $todo->setCompleted($values['completed']);
         $todo->save();
 
         return $todo;
@@ -95,7 +112,7 @@ class ApiController extends Controller
     /**
      * delete an existing todo.
      *
-     * @Route("/{id}", defaults = { "_format" = "~" }, requirements = { "id" = "\d+" })
+     * @Route("/todos/{id}", defaults = { "_format" = "~" }, requirements = { "id" = "\d+" })
      * @Method({"DELETE"})
      * @View(statusCode=200)
      */

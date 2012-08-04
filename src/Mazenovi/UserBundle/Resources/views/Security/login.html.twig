@@ -1,0 +1,91 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block error %}
+
+	{% if error %}
+		<div>{{ error|trans({}, 'FOSUserBundle') }}</div>
+	{% endif %}
+
+{% endblock error %}
+
+{% block content_title %}Login{% endblock content_title %}
+
+{% block content %}
+
+<div class="login">
+
+	<div class="auth" style="float: right; width: 40%">
+
+		Authentification
+		<ul>
+			<li>
+				<a data-toggle="tab" href="#login2">
+					<img class="icon16" src="https://hwiconnect.net/img/social/google_16.png">
+					Google
+				</a>
+			</li>
+			<li>
+				<a data-toggle="tab" href="#login3">
+					<img class="icon16" src="https://hwiconnect.net/img/social/facebook_16.png">
+					Facebook
+				</a>
+			</li>
+			<li>
+				<a data-toggle="tab" href="#login4">
+					<img class="icon16" src="https://hwiconnect.net/img/social/windows_16.png">
+					Windows Live
+				</a>
+			</li>
+			<li>
+				<a data-toggle="tab" href="#login5">
+					<img class="icon16" src="https://hwiconnect.net/img/social/github_16.png">
+					GitHub
+				</a>
+			</li>
+			<li>
+				<a data-toggle="tab" href="#login6">
+					<img class="icon16" src="https://hwiconnect.net/img/social/twitter_16.png">
+					Twitter
+				</a>
+			</li>
+			<li>
+				<a data-toggle="tab" href="#login7">
+					<img class="icon16" src="https://hwiconnect.net/img/social/linkedin_16.png">
+					LinkedIn
+				</a>
+			</li>
+		</ul>
+	</div>
+
+	<form action="{{ path("fos_user_security_check") }}" onkeypress="if (event.keyCode == 13) $(this).submit()" method="post" class="fos_user_login">
+					
+		<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+						
+		<div class="control-group">
+			<label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
+			<input type="text" id="username" name="_username" value="{{ last_username }}" />
+		</div>
+
+		<div class="control-group">
+			<label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
+			<input type="password" id="password" name="_password" />
+		</div>
+
+		<div class="control-group">
+			<input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+			<label for="remember_me" class="checkbox inline">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+		</div>
+
+		<a href="#" class="btn btn-primary" onclick="$(this).closest('form').submit()">
+			{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}
+		</a>
+
+		or
+
+		<a href="{{ url('fos_user_registration_register')}}" class="btn btn-success">
+			{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}
+		</a>
+
+	</form>
+
+{% endblock content %}

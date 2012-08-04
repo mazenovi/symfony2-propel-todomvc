@@ -1,0 +1,6 @@
+# marche pas AU SECOURS @couac !!
+# http://jmsyst.com/bundles/JMSSerializerBundle/master/reference/yml_reference
+Mazenovi\TodoMVCBundle\Model\Todo:
+    virual_properties:
+        getDisplayName:
+            # marche pas AU SECOURS @couac!!serialized_name: displayName

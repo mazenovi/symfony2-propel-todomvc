@@ -2,7 +2,11 @@
 <database defaultIdMethod="native" name="default" namespace="Mazenovi\TodoMVCBundle\Model">
   <table name="todo">
     <column autoIncrement="true" name="id" primaryKey="true" required="true" type="INTEGER" />
-    <column name="content" type="LONGVARCHAR" />
-    <column name="done" type="BOOLEAN" />
+    <column name="title" type="LONGVARCHAR" />
+    <column name="completed" type="BOOLEAN" />
+    <column name="fos_user_id" required="false" type="integer" />
+	<foreign-key foreignTable="fos_user">
+		<reference local="fos_user_id" foreign="id" />
+	</foreign-key>
   </table>
 </database>

@@ -1,0 +1,12 @@
+{% extends "MazenoviTodoMVCBundle::list.html.twig" %}
+
+{% block mark_all %}
+
+  {#% if (is_granted('ROLE_ADMIN')) or (app.user and (app.request.attributes.get('id') == app.user.id)) %#}
+
+    <input id="toggle-all" type="checkbox">
+    <label for="toggle-all">Mark all as complete</label>
+
+  {#% endif %#}
+
+{% endblock mark_all %}

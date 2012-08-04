@@ -5,6 +5,7 @@ imports:
 framework:
     #esi:             ~
     #translator:      { fallback: %locale% }
+    translator: ~
     secret:          %secret%
     router:          { resource: "%kernel.root_dir%/config/routing.yml" }
     form:            true
@@ -83,6 +84,83 @@ fos_rest:
         prefer_extension: true
     # see also https://github.com/FriendsOfSymfony/FOSRestBundle/blob/master/Resources/doc/3-listener-support.md#Query fetcher listener
     # see also https://github.com/liip/LiipHelloBundle/blob/query_param-proof-of-concept/Controller/RestController.php#L25
+    # must be force
+    #param_fetcher_listener: force
+
+fos_user:
+    service:
+        mailer: fos_user.mailer.noop
+    user_class:  FOS\UserBundle\Propel\User
+    # @couac how to extend without UserProxy?
+    #user_class:  Mazenovi\UserBundle\Entity\UserProxy
+    #user_class:  Mazenovi\UserBundle\Entity\User
+    #propel_user_class: FOS\UserBundle\Propel\User
+    db_driver: propel
+    firewall_name: main
+
+hwi_oauth:
+    # name of the firewall in which this bundle is active, this setting MUST be set
+    firewall_name: secured_area
+    resource_owners:
+        any_name:
+            type:                facebook
+            client_id:           <client_id>
+            client_secret:       <client_secret>
+            scope:               ""
+    # optional FOSUserBundle integration
+    fosub:
+        # try 30 times to check if a username is available (foo, foo1, foo2 etc)
+        username_iterations: 30
+
+        # mapping between resource owners (see below) and properties
+        properties:
+            github: githubId
+            google: googleId
+            facebook: facebookId
+            my_custom_provider: customId
 parameters:
     behat:
         base_url: http://todo/app_dev.php
+
+mopa_bootstrap:
+    navbar: ~
+    form:
+        render_fieldset: false
+        show_legend: false
+
+services:
+    mopa_bootstrap.navbar:
+        class: %mopa_bootstrap.navbar.generic%
+        arguments:
+            # first argument: a named array of menues:
+            - { leftmenu: @todo.navbar_main_menu=, rightmenu: @todo.navbar_right_menu= }
+            # second argument: a named array of FormType Classes  
+            - { searchform: Mazenovi\TodoMVCBundle\Form\Type\SearchFormType }
+            # third argument: a named array of options
+            - { title: "Todos", titleRoute: "mazenovi_todomvc_api_index", fixedTop: true, isFluid: true, template:MazenoviTodoMVCBundle:Navbar:navbar.html.twig }
+        tags:
+            # The alias is used to retrieve the navbar in templates
+            - { name: mopa_bootstrap.navbar, alias: todoNavbar }
+
+    todo.navbar_menu_builder:
+        class: Mazenovi\TodoMVCBundle\Navbar\NavbarMenuBuilder
+        scope: request
+        arguments: [ '@knp_menu.factory', '@security.context' ]
+
+    todo.navbar_main_menu:
+        class: Knp\Menu\MenuItem
+        factory_service: todo.navbar_menu_builder
+        factory_method: createMainMenu
+        arguments: [ '@request' ]
+        scope: request
+        tags:
+            - { name: knp_menu.menu, alias: main }
+
+    todo.navbar_right_menu:
+        class: Knp\Menu\MenuItem
+        factory_service: todo.navbar_menu_builder
+        factory_method: createRightSideDropdownMenu
+        arguments: [ '@request' ]
+        scope: request
+        tags:
+            - { name: knp_menu.menu, alias: main }

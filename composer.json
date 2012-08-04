@@ -5,6 +5,52 @@
         "psr-0": { "": "src/" }
     },
     "minimum-stability": "dev",
+    "repositories": {
+        "TypehintableBehavior": {
+            "type": "package",
+            "package": {
+                "name": "TypehintableBehavior",
+                "version": "master",
+                "source": {
+                    "url": "git://github.com/willdurand/TypehintableBehavior.git",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
+        },
+        "twitter/bootstrap": {
+            "type": "package",
+            "package": {
+                "version": "master", 
+                "name": "twitter/bootstrap",
+                "source": {
+                    "url": "https://github.com/twitter/bootstrap.git",
+                    "type": "git",
+                "reference": "master"
+                },
+                "dist": {
+                    "url": "https://github.com/twitter/bootstrap/zipball/master",
+                    "type": "zip"
+                }
+            }
+        },
+        "thomas-mcdonald/bootstrap-sass": {
+            "type":"package",
+            "package": {
+                "version":"dev-master",
+                "name":"thomas-mcdonald/bootstrap-sass",
+                "source": {
+                    "url":"https://github.com/thomas-mcdonald/bootstrap-sass.git",
+                    "type":"git",
+                    "reference":"master"
+                },
+                "dist": {
+                    "url":"https://github.com/thomas-mcdonald/bootstrap-sass/zipball/master",
+                    "type":"zip"
+                }
+            }
+        }
+    },
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": "2.1.*",
@@ -19,12 +65,22 @@
         "sensio/generator-bundle": "dev-master",
         "jms/security-extra-bundle": "1.1.*",
         "jms/di-extra-bundle": "1.0.*",
+        "propel/propel1": "1.6.x-dev",
         "propel/propel-bundle": "1.1.x-dev",
-        "manymules/backbonejs-bundle": "dev-master",
-        "manymules/jquery-bundle": ">1.7",
-        "manymules/json2js-bundle": "dev-master",
+        "TypehintableBehavior": "master",
+        "friendsofsymfony/jsrouting-bundle": "dev-master",
         "friendsofsymfony/rest-bundle": "dev-master",
-        "jms/metadata": "dev-master as 1.1.2-dev"
+        "friendsofsymfony/user-bundle": "*",
+        "hwi/oauth-bundle": "*",
+        "jms/metadata": "dev-master as 1.1.2-dev",
+        "manymules/backbonejs-bundle": "*",
+        "manymules/jquery-bundle": ">1.7",
+        "manymules/json2js-bundle": "*",
+        "manymules/requirejs-bundle": "*",
+        "twitter/bootstrap": "master",
+        "mopa/bootstrap-bundle": "dev-master",
+        "knplabs/knp-menu-bundle": "dev-master",
+        "thomas-mcdonald/bootstrap-sass": "dev-master"        
     },
     "require-dev": {
         "behat/behat": "2.4.*@stable",
@@ -34,18 +90,19 @@
         "behat/mink-extension": "*",      
         "behat/mink-browserkit-driver":  "*",                
         "behat/mink-sahi-driver":  "*"
-
     },
     "scripts": {
         "post-install-cmd": [
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Mopa\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::postInstallSymlinkTwitterBootstrapSass"
         ],
         "post-update-cmd": [
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Mopa\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::postInstallSymlinkTwitterBootstrapSass"
         ]
     },
     "config": {

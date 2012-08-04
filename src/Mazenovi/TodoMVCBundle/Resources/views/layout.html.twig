@@ -1,98 +1,111 @@
+{% from 'MopaBootstrapBundle::flash.html.twig' import session_flash %}
+
 <!DOCTYPE html>
+
+{% block html_tag %}
 <html>
+{% endblock html_tag %}
 
-  <head>
-    <title>Backbone.js</title>
+{% block head %}
+<head>
+    <meta charset="UTF-8" />
+    {% block head_style %}
 
-    {% block stylesheets %}
-      {% stylesheets '@MazenoviTodoMVCBundle/Resources/public/css/todos.css.scss'
-                      filter='compass'
-      %}
-        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" media="all" />
-      {% endstylesheets %}
-    {% endblock %}
+        {% stylesheets filter='compass' '@MopaBootstrapBundle/Resources/public/sass/mopabootstrapbundle.scss' %}
+            <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+        {% endstylesheets %}
+        <link rel="stylesheet" href="/bundles/mazenovitodomvc/css/base.css">
 
-    {% javascripts  '@ManyMulesJQueryBundle/Resources/public/jquery.js'
-                    '@ManyMulesJSON2JSBundle/Resources/public/json2.js'
-                    '@ManyMulesUnderscoreJSBundle/Resources/public/underscore.js'
-                    '@ManyMulesBackboneJSBundle/Resources/public/backbone.js'
-                    '@MazenoviTodoMVCBundle/Resources/public/js/todos.js'
-                    filter='yui_js' %}
-            <script src="{{ asset_url }}"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    {% endblock head_style %}
+
+    {% block head_script %}
+
+        {% javascripts  '@ManyMulesJQueryBundle/Resources/public/js/jquery.js' filter='yui_js' %}
+                <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+    
+    {% endblock head_script %}
+
+    <title>{% block title %}Backbone.js{% endblock title %}</title>
+    
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+    
+    {% block head_bottom %}
+    {% endblock head_bottom %}
+</head>
+{% endblock head %}
+
+{% block body_tag %}
+<body data-spy="scroll">
+{% endblock body_tag %}
+
+{% block body_start %}
+{% endblock body_start %}
+
+{% block body %}
+
+   
+
+    {% block container %}
+
+    <section id="todoapp">
+
+        <header id="header">
+            {{ mopa_bootstrap_navbar('todoNavbar', { 'template': 'MopaBootstrapBundle:Navbar:navbar.html.twig' }) }}
+            <h1>{% block content_title %}{% endblock content_title %}</h1>
+            {% block new_todo %}{% endblock new_todo %}
+        </header>
+
+        {% block error %}{% endblock error %}
+    
+        <section id="main">
+            {% block content %}{% endblock content %}              
+            <ul id="todo-list"></ul>
+        </section>
+        
+        <footer id="footer" style="display: none;"></footer>
+
+    </section>
+
+    <footer id="info">
+        <p>Double-click to edit a todo</p>
+        <p>
+            Written by <a href="http://addyosmani.github.com/todomvc/">Addy Osmani</a>,<br />
+            Symfonized and Propelized by <a href="http://mazenod.fr/">Vincent Mazenod</a>.
+        </p>
+    </footer>
+
+    {% endblock container %}
+
+    {% block foot_script %}
+    {# To only use a subset or add more js overwrite and copy paste this block
+    To speed up page loads save a copy of jQuery in your project and override this block to include the correct path
+    Otherwise the regeneration is done on every load in dev more with use_controller: true
+     #}
+    {% javascripts
+        'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'
+        '@MopaBootstrapBundle/Resources/bootstrap-sass/vendor/assets/javascripts/bootstrap-transition.js'
+        '@MopaBootstrapBundle/Resources/bootstrap-sass/vendor/assets/javascripts/bootstrap-modal.js'
+        '@MopaBootstrapBundle/Resources/bootstrap-sass/vendor/assets/javascripts/bootstrap-dropdown.js'
+        '@MopaBootstrapBundle/Resources/bootstrap-sass/vendor/assets/javascripts/bootstrap-scrollspy.js'
+        '@MopaBootstrapBundle/Resources/bootstrap-sass/vendor/assets/javascripts/bootstrap-tab.js'
+        '@MopaBootstrapBundle/Resources/bootstrap-sass/vendor/assets/javascripts/bootstrap-tooltip.js'
+        '@MopaBootstrapBundle/Resources/bootstrap-sass/vendor/assets/javascripts/bootstrap-popover.js'
+        '@MopaBootstrapBundle/Resources/bootstrap-sass/vendor/assets/javascripts/bootstrap-alert.js'
+        '@MopaBootstrapBundle/Resources/bootstrap-sass/vendor/assets/javascripts/bootstrap-button.js'
+        '@MopaBootstrapBundle/Resources/bootstrap-sass/vendor/assets/javascripts/bootstrap-collapse.js'
+        '@MopaBootstrapBundle/Resources/bootstrap-sass/vendor/assets/javascripts/bootstrap-carousel.js'
+        '@MopaBootstrapBundle/Resources/bootstrap-sass/vendor/assets/javascripts/bootstrap-typeahead.js'
+        '@MopaBootstrapBundle/Resources/public/js/mopabootstrap-collection.js'
+        '@MopaBootstrapBundle/Resources/public/js/mopabootstrap-subnav.js'
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
-  </head>
+    {% endblock foot_script %}
 
-  <body>
-
-  	{% block body %}{% endblock %}
-
-    <!-- Todo App Interface -->
-
-    <div id="todoapp">
-
-      <div class="title">
-        <h1>Todos</h1>
-      </div>
-
-      <div class="content">
-
-        <div id="create-todo">
-          <input id="new-todo" placeholder="What needs to be done?" type="text" />
-          <span class="ui-tooltip-top" style="display:none;">Press Enter to save this task</span>
-        </div>
-
-        <div id="todos">
-          <input class="check mark-all-done" id="mark-all-as-done" type="checkbox"/>
-          <label for="check-all">Mark all as complete</label>
-          <ul id="todo-list"></ul>
-        </div>
-
-        <div id="todo-stats"></div>
-
-      </div>
-
-    </div>
-
-
-    <div id="credits">
-      Created by
-      <br />
-      <a href="http://jgn.me/">J&eacute;r&ocirc;me Gravel-Niquet</a>. <br />Cleanup, edits: <a href="http://addyosmani.com">Addy Osmani</a>.
-      <br />Symfonized and Propelized by <a href="http://mazenod.fr/">Vincent Mazenod</a>.
-    </div>
-
-    <!-- Templates -->
-
-    <script type="text/template" id="item-template">
-      <div class="todo <%= done ? 'done' : '' %>">
-        <div class="display">
-          <input class="check" type="checkbox" <%= done ? 'checked="checked"' : '' %> />
-          <label class="todo-content"><%= content %></label>
-          <span class="todo-destroy"></span>
-        </div>
-        <div class="edit">
-          <input class="todo-input" type="text" value="<%= content %>" />
-        </div>
-      </div>
-    </script>
-
-    <script type="text/template" id="stats-template">
-      <% if (total) { %>
-        <span class="todo-count">
-          <span class="number"><%= remaining %></span>
-          <span class="word"><%= remaining == 1 ? 'item' : 'items' %></span> left.
-        </span>
-      <% } %>
-      <% if (done) { %>
-        <span class="todo-clear">
-          <a href="#">
-            Clear <span class="number-done"><%= done %></span>
-            completed <span class="word-done"><%= done == 1 ? 'item' : 'items' %></span>
-          </a>
-        </span>
-      <% } %>
-    </script>
-
-  </body>
-
+{% endblock body %}
+</body>
 </html>
+
