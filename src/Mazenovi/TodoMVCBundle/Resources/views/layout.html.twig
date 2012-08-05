@@ -11,8 +11,8 @@
     <meta charset="UTF-8" />
     {% block head_style %}
 
-        {% stylesheets filter='compass' '@MopaBootstrapBundle/Resources/public/sass/mopabootstrapbundle.scss' %}
-            <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+        {% stylesheets '@MopaBootstrapBundle/Resources/public/less/mopabootstrapbundle.less' %}
+            <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="screen" />
         {% endstylesheets %}
         <link rel="stylesheet" href="/bundles/mazenovitodomvc/css/base.css">
 
@@ -86,18 +86,18 @@
      #}
     {% javascripts
         'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'
-        '@MopaBootstrapBundle/Resources/bootstrap-sass/vendor/assets/javascripts/bootstrap-transition.js'
-        '@MopaBootstrapBundle/Resources/bootstrap-sass/vendor/assets/javascripts/bootstrap-modal.js'
-        '@MopaBootstrapBundle/Resources/bootstrap-sass/vendor/assets/javascripts/bootstrap-dropdown.js'
-        '@MopaBootstrapBundle/Resources/bootstrap-sass/vendor/assets/javascripts/bootstrap-scrollspy.js'
-        '@MopaBootstrapBundle/Resources/bootstrap-sass/vendor/assets/javascripts/bootstrap-tab.js'
-        '@MopaBootstrapBundle/Resources/bootstrap-sass/vendor/assets/javascripts/bootstrap-tooltip.js'
-        '@MopaBootstrapBundle/Resources/bootstrap-sass/vendor/assets/javascripts/bootstrap-popover.js'
-        '@MopaBootstrapBundle/Resources/bootstrap-sass/vendor/assets/javascripts/bootstrap-alert.js'
-        '@MopaBootstrapBundle/Resources/bootstrap-sass/vendor/assets/javascripts/bootstrap-button.js'
-        '@MopaBootstrapBundle/Resources/bootstrap-sass/vendor/assets/javascripts/bootstrap-collapse.js'
-        '@MopaBootstrapBundle/Resources/bootstrap-sass/vendor/assets/javascripts/bootstrap-carousel.js'
-        '@MopaBootstrapBundle/Resources/bootstrap-sass/vendor/assets/javascripts/bootstrap-typeahead.js'
+        '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-transition.js'
+        '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-modal.js'
+        '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-dropdown.js'
+        '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-scrollspy.js'
+        '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-tab.js'
+        '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-tooltip.js'
+        '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-popover.js'
+        '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-alert.js'
+        '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-button.js'
+        '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-collapse.js'
+        '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-carousel.js'
+        '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-typeahead.js'
         '@MopaBootstrapBundle/Resources/public/js/mopabootstrap-collection.js'
         '@MopaBootstrapBundle/Resources/public/js/mopabootstrap-subnav.js'
     %}
