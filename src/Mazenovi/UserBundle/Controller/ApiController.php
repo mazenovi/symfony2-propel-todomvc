@@ -33,7 +33,7 @@ class ApiController extends Controller
      * @Method({"GET"})
      * @View()
      */
-    public function getUserCurrentAction()
+    public function getMeAction()
     {
         return $this->get('security.context')->getToken()->getUser();
     }
@@ -45,7 +45,7 @@ class ApiController extends Controller
      * @Method({"GET"})
      * @View()
      */
-    public function getUserTokenAction()
+    public function getTokenAction()
     {
         $response = new Response();
 
@@ -54,24 +54,4 @@ class ApiController extends Controller
         return $response;
     }
 
-    /**
-     * get user roles
-     *
-     * @Route("/users/roles", defaults = { "_format" = "~" }, name="mazenovi_user_api_getuserroles", options={"expose"=true})
-     * @Method({"GET"})
-     * @View()
-     */
-    public function getUserRolesAction()
-    {
-        if(is_object($this->get('security.context')->getToken()->getUser()))
-        {
-        	$roles = $this->get('security.context')->getToken()->getUser()->getRoles();
-        }
-        else
-       	{
-       		$roles = array();
-       	}
-
-        return array( 'roles' => $roles );
-    }
  }

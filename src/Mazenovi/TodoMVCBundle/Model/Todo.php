@@ -30,6 +30,7 @@ class Todo extends BaseTodo
 
 	public function hydrate($row, $startcol = 0, $rehydrate = false)
     {
+        // @todo remove this part when serializer expose virtual_method
         $returned_value = parent::hydrate($row, $startcol = 0, $rehydrate = false);
         if($this->fos_user_id)
         {
@@ -37,6 +38,11 @@ class Todo extends BaseTodo
         	$this->username = $user->getUsername();
        	}
         return $returned_value;
+    }
+    // @todo look for a better design pattern
+    public function userHasPermission( $user, $action = null )
+    {
+        return in_array('USER_ADMIN', $user->getRoles()) || $this->username == $user->getUsername();
     }
 
 } // Todo

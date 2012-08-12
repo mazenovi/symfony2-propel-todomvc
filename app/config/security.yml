@@ -36,7 +36,7 @@ security:
                 # redirect to /todos after login
                 always_use_default_target_path: true
                 default_target_path: /todos
-                csrf_provider: form.csrf_provider
+                #csrf_provider: form.csrf_provider
             logout:
                 # redirect to /todos after logout
                 target: /todos

@@ -48,7 +48,7 @@ class ApiController extends Controller
      * @Method({"GET"})
      * @View()
      */
-    public function listUserAction(/*User $user*/)
+    public function listUserAction()
     {
         $user = $this->container->get('security.context')->getToken()->getUser();
         if(is_object($user))
@@ -109,12 +109,22 @@ class ApiController extends Controller
      */
     public function updateAction(Request $request, Todo $todo)
     {
-        $values = $request->request->all();
-        $todo->setTitle($values['title']);
-        $todo->setCompleted($values['completed']);
-        $todo->save();
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        
+        // @todo can we refactoring ACL?
+        if(is_object($user) && $todo->userHasPermission($user))
+        {
+            $values = $request->request->all();
+            $todo->setTitle($values['title']);
+            $todo->setCompleted($values['completed']);
+            $todo->save();
 
-        return $todo;
+            return $todo;
+        }
+        else
+        {
+            return false;   
+        }
     }
 
     /**
@@ -126,6 +136,16 @@ class ApiController extends Controller
      */
     public function deleteAction(Request $request, Todo $todo)
     {
-        $todo->delete();
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        
+        // @todo can we refactoring ACL?
+        if(is_object($user) && $todo->userHasPermission($user))
+        {
+            $todo->delete();
+        }
+        else
+        {
+            return false;   
+        }
     }
 }
