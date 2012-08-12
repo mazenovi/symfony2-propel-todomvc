@@ -9,9 +9,11 @@ si j'ai tout bien compris la méthode viruelle getDisplayName devrait être expo
 
 - capifony problem -> app/config/deploy.rb
 
+- Authentification via REST
+
 - protection des actions de l'Api
 
-- Authentification via REST
+
 
 
 
