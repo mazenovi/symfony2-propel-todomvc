@@ -4,9 +4,11 @@ define([
 	'backbone',
 	'collections/todos',
 	'views/todos',
+	'models/user',
+	'views/users',
 	'text!templates/stats.html',
 	'common'
-], function( $, _, Backbone, Todos, TodoView, statsTemplate, Common ) {
+], function( $, _, Backbone, Todos, TodoView, User, UserView, statsTemplate, Common ) {
 
 	var AppView = Backbone.View.extend({
 
@@ -33,9 +35,10 @@ define([
 			this.$footer = $('#footer');
 			this.$main = $('#main');
 
+			// set token as a body tag's attribute
 			// see also http://stackoverflow.com/questions/220231/accessing-http-headers-in-javascript
-      		// @zemouette la bonne solution avec le Token dans le headers / La bonne solution avec le Token dans le JSON
-      		// @zemoutte récupérer le role du user et l'injecter dans les tempaltes
+      		// @todo best style integrate token?
+      		// @todo set this token with twig will 
       		var req = new XMLHttpRequest();
       		req.open('GET', Routing.generate('mazenovi_user_api_getusertoken'), false);
       		req.setRequestHeader('Accept', 'application/json, text/javascript, */*; q=0.01');
@@ -43,10 +46,20 @@ define([
       		token = req.getResponseHeader('X-CSRF-Token');
       		$('body').attr('data-token', token);
 
+      		// get the current user from server
+      		// @todo how to share this user between class (collection) without a ne http request?
+      		// @todo set the user attribute somewhere in the dom? (is this the solution?)
+      		this.user = new User();
+			this.user.fetch();			
+			
 			Todos.on( 'add', this.addOne, this );
 			Todos.on( 'reset', this.addAll, this );
 			Todos.on( 'all', this.render, this );
 			Todos.fetch();
+
+			var view = new UserView({ model: this.user });
+			$('#new-todo').after( view.render().el );
+
 		},
 
 		// Re-rendering the App just means refreshing the statistics -- the rest
@@ -81,7 +94,7 @@ define([
 		// Add a single todo item to the list by creating a view for it, and
 		// appending its element to the `<ul>`.
 		addOne: function( todo ) {
-			var view = new TodoView({ model: todo });
+			var view = new TodoView({ model: todo, user: this.user });
 			$('#todo-list').append( view.render().el );
 		},
 
@@ -125,19 +138,28 @@ define([
 		// Clear all completed todo items, destroying their models.
 		clearCompleted: function() {
 			_.each( Todos.completed(), function( todo ) {
-				todo.clear();
+				// @todo better way to condition features
+				if( todo.userHasPermission('clear', user) )
+				{
+					todo.clear();
+				}
 			});
 
 			return false;
 		},
 
+		// toggle all user's todos
 		toggleAllComplete: function() {
 			var completed = this.allCheckbox.checked;
-
+			var user = this.user;
 			Todos.each(function( todo ) {
-				todo.save({
-					'completed': completed
-				});
+				// @todo better way to condition features
+				if( todo.userHasPermission('toggle', user) )
+				{
+					todo.save({
+						'completed': completed
+					});
+				}
 			});
 		}
 	});

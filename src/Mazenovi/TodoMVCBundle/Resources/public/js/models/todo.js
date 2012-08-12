@@ -18,8 +18,8 @@ define([
 		defaults: {
 			title: '',
 			completed: false,
+			fos_user_id: 0,
 			username: 'anonymous'
-
 		},
 
 		// Ensure that each todo created has `title`.
@@ -41,6 +41,12 @@ define([
 		// Remove this Todo from *localStorage* and delete its view.
 		clear: function() {
 			this.destroy();
+		},
+
+		// @todo search for a better design pattern to implement permissions
+		userHasPermission: function( action, user ) {
+			return jQuery.inArray('USER_ADMIN', user.get('roles')) != -1
+				|| this.get('username') ==  user.get('username');
 		}
 	});
 

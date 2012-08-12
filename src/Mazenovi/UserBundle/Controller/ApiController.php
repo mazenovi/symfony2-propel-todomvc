@@ -27,6 +27,18 @@ class ApiController extends Controller
      */
 
     /**
+     * get user
+     *
+     * @Route("/users/me", defaults = { "_format" = "~" }, name="mazenovi_user_api_getme", options={"expose"=true})
+     * @Method({"GET"})
+     * @View()
+     */
+    public function getUserCurrentAction()
+    {
+        return $this->get('security.context')->getToken()->getUser();
+    }
+
+    /**
      * get (tmp) user token
      *
      * @Route("/users/token", defaults = { "_format" = "~" }, name="mazenovi_user_api_getusertoken", options={"expose"=true}))

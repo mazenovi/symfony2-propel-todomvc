@@ -5,6 +5,7 @@ namespace Mazenovi\UserBundle\Entity;
 
 use FOS\UserBundle\Propel\User as PropelUser;
 
+// @todo how to use this user class?
 class User extends PropelUser
 {
     private $dn;

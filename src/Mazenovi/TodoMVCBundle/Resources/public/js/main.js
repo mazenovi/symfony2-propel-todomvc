@@ -28,7 +28,7 @@ require([
 ], function( AppView, Workspace ) {
 	
 	// see also http://stackoverflow.com/questions/7785079/how-use-token-authentication-with-rails-devise-and-backbone-js
-	// @zemouette où est la bonne place / quelle est la bonne façon de faire
+	// @todo où est la bonne place / quelle est la bonne façon de faire
   	Backbone.old_sync = Backbone.sync;
   	Backbone.sync = function(method, model, options) {
     	var new_options =  _.extend({

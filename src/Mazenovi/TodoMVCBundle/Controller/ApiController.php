@@ -48,9 +48,17 @@ class ApiController extends Controller
      * @Method({"GET"})
      * @View()
      */
-    public function listUserAction(User $user)
+    public function listUserAction(/*User $user*/)
     {
-        return $user->getTodos();
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        if(is_object($user))
+        {
+            return $user->getTodos();
+        }
+        else
+        {
+            return TodoQuery::create()->filterByFosUserId(null)->find();
+        }
     }
 
     /**

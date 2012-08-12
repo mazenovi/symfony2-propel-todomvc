@@ -109,6 +109,12 @@ body {
 	border-top-right-radius: 1px;
 }
 
+#header div {
+	font-size: 12px;
+	text-align: right;
+	margin-right: 5px;
+}
+
 #new-todo,
 .edit {
 	position: relative;
@@ -141,7 +147,8 @@ body {
 	background: rgba(0, 0, 0, 0.02);
 	z-index: 2;
 	box-shadow: none;
-}
+	}
+	
 
 #main {
 	position: relative;
@@ -264,8 +271,8 @@ label[for='toggle-all'] {
 #todo-list li a.author {
 	font-size: 12px;
 	position: absolute;
-	top: 35px;
-	right: 10px;
+	top: 40px;
+	right: 5px;
 }
 
 #todo-list li.completed label {

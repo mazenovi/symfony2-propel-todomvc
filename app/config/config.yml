@@ -95,10 +95,8 @@ fos_user:
     service:
         mailer: fos_user.mailer.noop
     user_class:  FOS\UserBundle\Propel\User
-    # @couac how to extend without UserProxy?
-    #user_class:  Mazenovi\UserBundle\Entity\UserProxy
+    # @todo how to use a custom class
     #user_class:  Mazenovi\UserBundle\Entity\User
-    #propel_user_class: FOS\UserBundle\Propel\User
     db_driver: propel
     firewall_name: main
 
@@ -108,8 +106,8 @@ hwi_oauth:
     resource_owners:
         any_name:
             type:                facebook
-            client_id:           <client_id>
-            client_secret:       <client_secret>
+            client_id:           %facebook_client_id%
+            client_secret:       %facebook_client_secret%
             scope:               ""
     # optional FOSUserBundle integration
     fosub:

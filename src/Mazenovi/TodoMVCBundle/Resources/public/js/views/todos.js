@@ -3,8 +3,9 @@ define([
 	'underscore',
 	'backbone',
 	'text!templates/todos.html',
+	'models/user',
 	'common'
-], function( $, _, Backbone, todosTemplate, Common ) {
+], function( $, _, Backbone, todosTemplate, User, Common ) {
 
 	var TodoView = Backbone.View.extend({
 
@@ -25,6 +26,11 @@ define([
 		// a one-to-one correspondence between a **Todo** and a **TodoView** in this
 		// app, we set a direct reference on the model for convenience.
 		initialize: function() {
+			// @todo we can save this call? true? 
+			// @todo should we return an object rather than a class in user's model?
+			this.user = new User();
+			this.user.fetch();
+
 			this.model.on( 'change', this.render, this );
 			this.model.on( 'destroy', this.remove, this );
 		},
@@ -32,7 +38,7 @@ define([
 		// Re-render the titles of the todo item.
 		render: function() {
 			var $el = $( this.el );
-
+			// @todo how to feed this template with current user to show delete button only if userHasPermission
 			$el.html( this.template( this.model.toJSON() ) );
 			$el.toggleClass( 'completed', this.model.get('completed') );
 
@@ -47,8 +53,12 @@ define([
 
 		// Switch this view into `"editing"` mode, displaying the input field.
 		edit: function() {
-			$( this.el ).addClass('editing');
-			this.input.focus();
+			// @todo better way to condition features
+			if(this.model.userHasPermission('toggle', this.user))
+			{
+				$( this.el ).addClass('editing');
+				this.input.focus();
+			}
 		},
 
 		// Close the `"editing"` mode, saving changes to the todo.
@@ -73,7 +83,11 @@ define([
 
 		// Remove the item, destroy the model.
 		clear: function() {
-			this.model.clear();
+			// @todo better way to condition features
+			if(this.model.userHasPermission('toggle', this.user))
+			{
+				this.model.clear();
+			}
 		}
 	});
 

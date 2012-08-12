@@ -13,6 +13,6 @@ parameters:
 
     locale:            en
     secret:            ThisTokenIsNotSoSecretChangeIt
-    
-    facebook_client_id:           140122896127409
-    facebook_client_secret:       ff280cb848f2ce20f57e45ddfdeef34d
+
+    facebook_client_id:           1000000000000000
+    facebook_client_secret:       ThisTokenIsNotSoSecretChangeIt

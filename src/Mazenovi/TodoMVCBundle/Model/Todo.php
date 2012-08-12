@@ -24,10 +24,7 @@ class Todo extends BaseTodo
 
 	public function getDisplayName()
 	{
-		// Marche pas @couac AU SECOURS!!
-		//return $this->getUser()->getUsername();
-		//return UserQuery::create()->findPk($this->getFosUserId());
-		//return $this->getFosUserId();
+		// @todo this value should be return in JSON response's todo
 		return 'pipo';
 	}
 

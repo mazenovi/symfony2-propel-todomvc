@@ -23,7 +23,13 @@ set :shared_children,     [app_path + "/logs", web_path + "/uploads", "vendor"]
 set :use_composer, true
 set :dump_assetic_assets, true
 
-
+# @couac
+# php composer.phar update pour les symlink du twitter bootstrap
+# php app/console assetic:dump génération du less
+# php app/console propel:build --insert-sql
+# php app/console propel:fixtures:load @MazenoviTodoMVCBundle
+# cp -R var/www/clients/client0/web15/shared/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Propel/om vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Propel/
+# cp -R var/www/clients/client0/web15/shared/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Propel/map vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Propel/
 
 # Be more verbose by uncommenting the following line
 # logger.level = Logger::MAX_LEVEL
