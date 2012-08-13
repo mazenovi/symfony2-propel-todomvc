@@ -9,17 +9,16 @@ Big thanks to [@willdurand](https://github.com/willdurand) for his precious help
 
 configure your db connections in app/config/paramaters.yml
 
-configure your compass, sass, and yuo compressor paths in app/config/config.yml. Something like:
+configure your [less](https://github.com/phiamo/MopaBootstrapBundle/blob/master/Resources/doc/less-installation.md)and yui compressor paths in app/config/config.yml. Something like:
+
 
 ``` yml
 assetic:
     filters:
-        compass:
-            sass: /var/lib/gems/1.8/gems/sass-3.1.12/bin/sass
-            bin: /var/lib/gems/1.8/gems/compass-0.11.7/bin/compass
-        sass:
-            bin: /var/lib/gems/1.8/gems/sass-3.1.12/bin/sass
-            compass: /var/lib/gems/1.8/gems/compass-0.11.7/bin/compass
+        less:
+            node: /usr/local/bin/node
+            node_paths: [/usr/local/lib/node_modules]
+            apply_to: "\.less$"
         yui_css:
             jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
         yui_js:
