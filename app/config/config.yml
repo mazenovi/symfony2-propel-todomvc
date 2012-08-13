@@ -27,12 +27,6 @@ assetic:
     use_controller: false
     filters:
         cssrewrite: ~
-        compass:
-            sass: /usr/local/bin/sass
-            bin:  /usr/local/bin/compass
-        sass:
-            bin:        /usr/local/bin/sass
-            compass:    /usr/local/bin/compass
         less:
             node: /usr/local/bin/node
             node_paths: [/usr/local/lib/node_modules]
@@ -51,8 +45,8 @@ propel:
         dsn:                  mysql:host=%database_host%;dbname=%database_name%;charset=UTF8
         options:              {}
         attributes:           {}
-        build_properties:
-            propel.mysql.tableType: InnoDB
+    build_properties:
+        propel.mysql.tableType: InnoDB
 
 # Swiftmailer Configuration
 swiftmailer:
