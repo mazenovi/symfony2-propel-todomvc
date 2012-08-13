@@ -51,6 +51,8 @@ propel:
         dsn:                  mysql:host=%database_host%;dbname=%database_name%;charset=UTF8
         options:              {}
         attributes:           {}
+        build_properties:
+            propel.mysql.tableType: InnoDB
 
 # Swiftmailer Configuration
 swiftmailer:
