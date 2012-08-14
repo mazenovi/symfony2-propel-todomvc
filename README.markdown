@@ -7,9 +7,9 @@ Big thanks to [@willdurand](https://github.com/willdurand) for his precious help
 
 # How to install
 
-configure your db connections, and your social parameters in app/config/paramaters.yml
+configure db connections, and your social parameters in app/config/paramaters.yml
 
-configure your [less](https://github.com/phiamo/MopaBootstrapBundle/blob/master/Resources/doc/less-installation.md) and [yui compressor](http://yuilibrary.com/download/yuicompressor/) paths in app/config/config.yml. Something like:
+configure [less](https://github.com/phiamo/MopaBootstrapBundle/blob/master/Resources/doc/less-installation.md) and [yui compressor](http://yuilibrary.com/download/yuicompressor/) paths in app/config/config.yml. Something like:
 
 
 ``` yml
