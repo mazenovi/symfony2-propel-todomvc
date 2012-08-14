@@ -7,9 +7,9 @@ Big thanks to [@willdurand](https://github.com/willdurand) for his precious help
 
 # How to install
 
-configure your db connections in app/config/paramaters.yml
+configure your db connections, and your social parameters in app/config/paramaters.yml
 
-configure your [less](https://github.com/phiamo/MopaBootstrapBundle/blob/master/Resources/doc/less-installation.md)and yui compressor paths in app/config/config.yml. Something like:
+configure your [less](https://github.com/phiamo/MopaBootstrapBundle/blob/master/Resources/doc/less-installation.md) and [yui compressor](http://yuilibrary.com/download/yuicompressor/) paths in app/config/config.yml. Something like:
 
 
 ``` yml
@@ -76,7 +76,7 @@ $ app/console assetic:dump --env=prod --no-debug
 
 # Roadmap (probably a new project)
 
-* better structure for the backbone part
 * think to gracefull degradation no javascript mod
-* add TwitterBoostrap
-* a myTodoMVC version with [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle) and [FOSFacebookBundle](https://github.com/FriendsOfSymfony/FOSFacebookBundle.git)
+* <s>better structure for the backbone part</s>
+* <s>add TwitterBoostrap</s>
+* <s>a myTodoMVC version with [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle)</s>
