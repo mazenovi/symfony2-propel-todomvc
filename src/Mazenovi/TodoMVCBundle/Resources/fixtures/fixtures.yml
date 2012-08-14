@@ -1,0 +1,41 @@
+FOS\UserBundle\Propel\User:
+    User_1:
+        username: todomvc
+        username_canonical: todomvc
+        email: todomvc@m4z3.me
+        email_canonical: todomvc@m4z3.me
+        enabled: '1'
+        salt: urwtoa86n2oc8kckww08sgkccc8gok
+        password: 88MYvR2+6aL7m1CcLRE+4fjICA/P3EnvoyWJwQYpmvBUrMohcfMrcitscApo9PIuw/Qnptbm/KQ5pbMXwUEIAQ==
+        locked: '0'
+        expired: '0'
+        credentials_expired: '0'
+        roles: [ROLE_ADMIN]
+    User_2:
+        username: todomvcguest
+        username_canonical: todomvcguest
+        email: todomvcguest@m4z3.me
+        email_canonical: todomvcguest@m4z3.me
+        enabled: '1'
+        salt: urwtoa86n2oc8kckww08sgkccc8gok
+        password: 88MYvR2+6aL7m1CcLRE+4fjICA/P3EnvoyWJwQYpmvBUrMohcfMrcitscApo9PIuw/Qnptbm/KQ5pbMXwUEIAQ==
+        locked: '0'
+        expired: '0'
+        credentials_expired: '0'
+        roles: [ROLE_USER]
+Mazenovi\UserBundle\Model\FosUserExtra:
+    FosUserExtra_1_1:
+        fos_user_id: User_1
+        home_page: 'http://perdu.com'
+    FosUserExtra_2_1:
+        fos_user_id: User_2
+        home_page: 'http://mazenod.fr'
+Mazenovi\TodoMVCBundle\Model\Todo:
+    Todo_1:
+        title: 'My todo'
+        completed: '0'
+        fos_user_id: User_1
+    Todo_2:
+        title: 'My done todo'
+        completed: '1'
+        fos_user_id: User_2
