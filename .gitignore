@@ -10,5 +10,6 @@ src/Mazenovi/TodoMVCBundle/Model/om/
 composer.phar
 web/behat.html
 bin
+Capfile
 questions.md
 composer.lock.save

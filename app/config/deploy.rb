@@ -23,7 +23,6 @@ set :shared_children,     [app_path + "/logs", web_path + "/uploads", "vendor"]
 set :use_composer, true
 set :dump_assetic_assets, true
 
-# @couac
 # php composer.phar update pour les symlink du twitter bootstrap
 # php app/console assetic:dump génération du less
 # php app/console propel:build --insert-sql

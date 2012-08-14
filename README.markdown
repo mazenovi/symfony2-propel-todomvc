@@ -82,12 +82,14 @@ $ app/console assetic:dump --env=prod --no-debug
 
 * visit /app.php/todos/
 
+* demo http://mytodo.m4z3.me/todos/
+
 # Roadmap
 
 * fix toggle backbone feature
 * update tests
 * introduce date in todo
-* geolocate todo
+* introduce geolocation todo
 * [visual search](http://documentcloud.github.com/visualsearch/) on user, title, date and location
 * email notification with swiftmailer
 * think to gracefull degradation no javascript mod
