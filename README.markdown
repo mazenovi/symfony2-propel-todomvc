@@ -72,6 +72,8 @@ $ app/console propel:fixtures:load @MazenoviTodoMVCBundle
 
 * visit /app_dev.php/todos/
 
+you can login with todomvc:todomvc to test admin account, and with todomvcguest:todomvcguest to test simple user account
+
 * generate assets
 
 ``` bash
@@ -86,7 +88,8 @@ $ app/console assetic:dump --env=prod --no-debug
 * update tests
 * introduce date in todo
 * geolocate todo
-* visual search on user, title, date and location
+* [visual search](http://documentcloud.github.com/visualsearch/) on user, title, date and location
+* email notification with swiftmailer
 * think to gracefull degradation no javascript mod
 * <s>better structure for the backbone part</s>
 * <s>add TwitterBoostrap</s>

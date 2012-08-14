@@ -1,5 +1,0 @@
-<Fixtures>
-    <Todo Namespace="Mazenovi\TodoMVCBundle\Model">
-        <t1 Content="My todo" Done="false" />
-    </Todo>
-</Fixtures>
