@@ -64,6 +64,12 @@ $ app/console propel:database:create
 $ app/console propel:build --insert-sql
 ```
 
+* load fixtures
+
+``` bash
+$ app/console propel:fixtures:load @MazenoviTodoMVCBundle
+```
+
 * visit /app_dev.php/todos/
 
 * generate assets
