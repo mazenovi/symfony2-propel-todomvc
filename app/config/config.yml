@@ -47,6 +47,7 @@ propel:
         attributes:           {}
     build_properties:
         propel.mysql.tableType: InnoDB
+        propel.behavior.typehintable.class: vendor.TypehintableBehavior.src.TypehintableBehavior
 
 # Swiftmailer Configuration
 swiftmailer:
