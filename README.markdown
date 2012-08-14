@@ -74,8 +74,13 @@ $ app/console assetic:dump --env=prod --no-debug
 
 * visit /app.php/todos/
 
-# Roadmap (probably a new project)
+# Roadmap
 
+* fix toggle backbone feature
+* update tests
+* introduce date in todo
+* geolocate todo
+* visual search on user, title, date and location
 * think to gracefull degradation no javascript mod
 * <s>better structure for the backbone part</s>
 * <s>add TwitterBoostrap</s>
