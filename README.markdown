@@ -88,10 +88,11 @@ $ app/console assetic:dump --env=prod --no-debug
 
 * fix toggle backbone feature
 * update tests
+* Generates documentation with [NelmioApiDocBundle](https://github.com/nelmio/NelmioApiDocBundle)
 * introduce date in todo
-* introduce geolocation todo
+* introduce geolocation todo with  [BazingaGeocoderBundle](https://github.com/willdurand/BazingaGeocoderBundle)
 * [visual search](http://documentcloud.github.com/visualsearch/) on user, title, date and location
-* email notification with swiftmailer
+* email notification with [Swiftmailer](https://github.com/symfony/SwiftmailerBundle)
 * think to gracefull degradation no javascript mod
 * <s>better structure for the backbone part</s>
 * <s>add TwitterBoostrap</s>
