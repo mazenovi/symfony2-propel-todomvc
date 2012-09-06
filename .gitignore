@@ -7,6 +7,8 @@
 /vendor/
 src/Mazenovi/TodoMVCBundle/Model/map/
 src/Mazenovi/TodoMVCBundle/Model/om/
+src/Mazenovi/UserBundle/Model/map/
+src/Mazenovi/UserBundle/Model/om/
 composer.phar
 web/behat.html
 bin
