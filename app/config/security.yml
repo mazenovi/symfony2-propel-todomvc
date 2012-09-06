@@ -17,9 +17,11 @@ security:
 
     firewalls:
         main:
-            pattern: ^/
+            pattern:    ^/
             form_login:
                 provider: fos_userbundle
+                login_path: /connect/
+                check_path: /login/login_check
                 # redirect to /todos after login
                 always_use_default_target_path: true
                 default_target_path: /todos
@@ -27,20 +29,10 @@ security:
             logout:
                 # redirect to /todos after logout
                 target: /todos
-            anonymous:    true        #dev:
-        secured_area:
-            pattern:    ^/
-            form_login:
-                provider: fos_userbundle
-                login_path: /connect/
-                check_path: /login/login_check
             anonymous:    true
             oauth:
                 resource_owners:
-                    github:             "/login/check-github"
-                    google:             "/login/check-google"
                     facebook:           "/login/check-facebook"
-                    my_custom_provider: "/login/check-custom"
                 login_path:        /connect
                 failure_path:      /connect
 
