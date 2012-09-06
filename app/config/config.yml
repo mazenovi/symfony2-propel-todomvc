@@ -113,10 +113,7 @@ hwi_oauth:
 
         # mapping between resource owners (see below) and properties
         properties:
-            github: githubId
-            google: googleId
             facebook: facebookId
-            my_custom_provider: customId
 parameters:
     behat:
         base_url: http://todo/app_dev.php
