@@ -7,5 +7,6 @@
 		<reference local="fos_user_id" foreign="id" />
 	</foreign-key>
     <column name="home_page" type="LONGVARCHAR" />
+    <column name="facebook_id" type="LONGVARCHAR" />
   </table>
 </database>
