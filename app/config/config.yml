@@ -101,7 +101,7 @@ hwi_oauth:
     # name of the firewall in which this bundle is active, this setting MUST be set
     firewall_name: secured_area
     resource_owners:
-        any_name:
+        facebook:
             type:                facebook
             client_id:           %facebook_client_id%
             client_secret:       %facebook_client_secret%
