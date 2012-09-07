@@ -13,7 +13,22 @@ fos_user_resetting:
     resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
     prefix: /resetting
 
-mazenovi_todomvc_api:
+mazenovi_user_api:
   resource:  "@MazenoviUserBundle/Controller/ApiController.php"
   type: annotation
 
+facebook_login:
+    pattern: /login/check-facebook
+
+google_login:
+    pattern: /login/check-google
+
+custom_login:
+    pattern: /login/check-custom
+
+github_login:
+    pattern: /login/check-github
+
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix:   /connect

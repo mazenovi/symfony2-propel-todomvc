@@ -1,7 +1,3 @@
-hwi_oauth_redirect:
-    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
-    prefix:   /connect
-
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
 
@@ -12,15 +8,3 @@ mazenovi_user_bundle:
 mazenovi_todomvc_api:
   resource:  "@MazenoviTodoMVCBundle/Controller/ApiController.php"
   type: annotation
-
-facebook_login:
-    pattern: /login/check-facebook
-
-google_login:
-    pattern: /login/check-google
-
-custom_login:
-    pattern: /login/check-custom
-
-github_login:
-    pattern: /login/check-github
