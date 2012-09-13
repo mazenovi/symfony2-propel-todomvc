@@ -16,12 +16,20 @@ security:
             id: fos_user.user_provider.username
 
     firewalls:
+        wsse_secured:
+            request_matcher: wsse.security.firewall.request_matcher
+            wsse:      
+                nonces_path: %kernel.cache_dir%/security/nonce
+                lifetime: 600
+                protected_urls: 
+                    - { pattern: ^/todos, methods: [ PUT, POST, DELETE ] }
+
         main:
             pattern:    ^/
             form_login:
                 provider:   fos_userbundle
                 login_path: /login
-                check_path: /login/login_check
+                check_path: /login_check
                 # redirect to /todos after login
                 always_use_default_target_path: true
                 default_target_path: /todos
@@ -45,3 +53,6 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/todos, role: IS_AUTHENTICATED_ANONYMOUSLY }
+
+    acl:
+        provider: propel.security.acl.provider

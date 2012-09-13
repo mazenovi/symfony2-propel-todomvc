@@ -93,7 +93,7 @@ fos_user:
         mailer: fos_user.mailer.noop
     user_class:  FOS\UserBundle\Propel\User
     # @todo how to use a custom class
-    #user_class:  Mazenovi\UserBundle\Entity\User
+    #user_class:  Mazenovi\UserBundle\Model\User
     db_driver: propel
     firewall_name: main
 

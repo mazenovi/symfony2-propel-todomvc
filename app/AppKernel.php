@@ -34,7 +34,8 @@ class AppKernel extends Kernel
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Mazenovi\TodoMVCBundle\MazenoviTodoMVCBundle(),
             new Mazenovi\UserBundle\MazenoviUserBundle(),
-            new Mazenovi\SecurityBundle\MazenoviSecurityBundle(),
+            //new Mazenovi\SecurityBundle\MazenoviSecurityBundle(),
+            new Mazenovi\WsseAuthBundle\MazenoviWsseAuthBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
