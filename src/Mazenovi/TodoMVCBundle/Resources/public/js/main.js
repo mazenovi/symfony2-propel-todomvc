@@ -33,10 +33,9 @@ require([
   	Backbone.sync = function(method, model, options) {
     	var new_options =  _.extend({
 	        beforeSend: function(xhr) {
-    	      	if($('body').attr('data-token') != 'undefined')
+    	      	if(typeof Username !== 'undefined' && typeof PasswordDigest !== 'undefined' && Nonce !== 'undefined' && Created !== 'undefined' )
           		{
-		            var token = $('body').attr('data-token');
-            		xhr.setRequestHeader('X-CSRF-Token', token);
+            		xhr.setRequestHeader('X-WSSE', 'UsernameToken Username="' + Username + '", PasswordDigest="' +  PasswordDigest + '", Nonce="' + Nonce + '", Created="' + Created + '"');
 				}	
 			}
     	}, options)
