@@ -19,6 +19,13 @@ use Mazenovi\TodoMVCBundle\Model\TodoQuery,
 
 use FOS\UserBundle\Propel\User;
 
+use JMS\SecurityExtraBundle\Annotation\Secure;
+use JMS\SecurityExtraBundle\Annotation\SecureParam;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+use Symfony\Component\Security\Acl\Domain\ObjectIdentity;
+use Symfony\Component\Security\Acl\Domain\UserSecurityIdentity;
+use Symfony\Component\Security\Acl\Permission\MaskBuilder;
+
 class ApiController extends Controller
 {
     /**
@@ -77,6 +84,7 @@ class ApiController extends Controller
      * @Route("/todos/", defaults = { "_format" = "~" })
      * @Method({"POST"})
      * @View(statusCode=201)
+     * @Secure(roles="ROLE_USER")
      */
     public function createAction(Request $request)
     {
@@ -89,6 +97,18 @@ class ApiController extends Controller
             $todo->setFosUserId($user->getId());
         }
         $todo->save();
+
+        // creating the ACL
+        $aclProvider = $this->get('security.acl.provider');
+        $objectIdentity = ObjectIdentity::fromDomainObject($todo);
+        $acl = $aclProvider->createAcl($objectIdentity);
+
+        // retrieving the security identity of the currently logged-in user
+        $securityIdentity = UserSecurityIdentity::fromAccount($user);
+
+        // grant owner access
+        $acl->insertObjectAce($securityIdentity, MaskBuilder::MASK_OWNER);
+        $aclProvider->updateAcl($acl);
 
         $url = $this->get('router')->generate(
             'mazenovi_todomvc_api_show',
@@ -106,25 +126,18 @@ class ApiController extends Controller
      * @Method({"PUT"})
      * @View(statusCode=200)
      * @View()
+     * @SecureParam(name="todo", permissions="OWNER")
      */
     public function updateAction(Request $request, Todo $todo)
     {
         $user = $this->container->get('security.context')->getToken()->getUser();
         
-        // @todo can we refactoring ACL?
-        if(is_object($user) && $todo->userHasPermission($user))
-        {
-            $values = $request->request->all();
-            $todo->setTitle($values['title']);
-            $todo->setCompleted($values['completed']);
-            $todo->save();
+        $values = $request->request->all();
+        $todo->setTitle($values['title']);
+        $todo->setCompleted($values['completed']);
+        $todo->save();
 
-            return $todo;
-        }
-        else
-        {
-            return false;   
-        }
+        return $todo;
     }
 
     /**
@@ -133,19 +146,11 @@ class ApiController extends Controller
      * @Route("/todos/{id}", defaults = { "_format" = "~" }, requirements = { "id" = "\d+" })
      * @Method({"DELETE"})
      * @View(statusCode=200)
+     * @SecureParam(name="todo", permissions="OWNER")
      */
     public function deleteAction(Request $request, Todo $todo)
     {
         $user = $this->container->get('security.context')->getToken()->getUser();
-        
-        // @todo can we refactoring ACL?
-        if(is_object($user) && $todo->userHasPermission($user))
-        {
-            $todo->delete();
-        }
-        else
-        {
-            return false;   
-        }
+        $todo->delete();
     }
 }
