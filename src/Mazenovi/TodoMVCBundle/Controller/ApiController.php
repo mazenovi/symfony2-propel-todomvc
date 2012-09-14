@@ -22,7 +22,10 @@ use FOS\UserBundle\Propel\User;
 use JMS\SecurityExtraBundle\Annotation\Secure;
 use JMS\SecurityExtraBundle\Annotation\SecureParam;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+
+use Symfony\Component\Security\Acl\Domain\Acl;
 use Symfony\Component\Security\Acl\Domain\ObjectIdentity;
+use Symfony\Component\Security\Acl\Domain\PermissionGrantingStrategy;
 use Symfony\Component\Security\Acl\Domain\UserSecurityIdentity;
 use Symfony\Component\Security\Acl\Permission\MaskBuilder;
 use Symfony\Component\Security\Acl\Exception\AclNotFoundException;
@@ -47,41 +50,39 @@ class ApiController extends Controller
     public function indexAction(Request $request)
     {
         
-        $user = $this->container->get('security.context')->getToken()->getUser();
-        $aclForCurrentUser = array();
-        
-        if(true === $this->get('security.context')->isGranted(
-            'IS_AUTHENTICATED_FULLY'
-            )) {
-
-            $aclProvider = $this->get('security.acl.provider');
-            $securityIdentity = UserSecurityIdentity::fromAccount($user);
-        
-            foreach(TodoQuery::create()->find() as $todo)
-            {
-                $objectIdentity = ObjectIdentity::fromDomainObject($todo);
-                try
-                {
-                    $acls = $aclProvider->findAcls(array($objectIdentity), array($securityIdentity));
-                    foreach($acls as $acl)
-                    {
-                        array_push($aclForCurrentUser, $acl);
-                        /*
-                        echo "<pre>";
-                        echo($acl);
-                        echo($acl->getIdentifier());
-                        echo "-";
-                        echo($acl->getType());
-                        echo "</pre>";
-                        */
-                    }
-                } catch (AclNotFoundException $e) {}
-                
-            } 
-        }
-
         if ('html' === $this->getRequest()->getRequestFormat())
-            return array('todos' => TodoQuery::create()->find());
+        {
+            $user = $this->container->get('security.context')->getToken()->getUser();
+            $acls = array();
+        
+            if(true === $this->get('security.context')->isGranted(
+                'IS_AUTHENTICATED_FULLY'
+                )) {
+
+                $aclProvider = $this->get('security.acl.provider');
+                $securityIdentity = UserSecurityIdentity::fromAccount($user);
+            
+                foreach(TodoQuery::create()->find() as $todo)
+                {
+                    $objectIdentity = ObjectIdentity::fromDomainObject($todo);
+                    try
+                    {
+                        $result = $aclProvider->findAcls(array($objectIdentity), array($securityIdentity));
+                        foreach ($result as $oid) {
+                            $acl = $result->offsetGet($oid);
+                            foreach($acl->getObjectAces() as $ace)
+                            {
+                                $maskBuilder = new MaskBuilder($ace->getMask());
+                                $acls[(string)$objectIdentity] = $maskBuilder->getPattern();
+                            }
+                        }
+                    } catch (AclNotFoundException $e) {}
+                    
+                } 
+
+            }
+            return array('todos' => TodoQuery::create()->find(), 'acls' => $acls);
+        }
         else
             return TodoQuery::create()->find();
     }
