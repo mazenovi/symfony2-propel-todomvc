@@ -6,6 +6,9 @@ use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Core\Exception\NonceExpiredException;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
+
+use Symfony\Component\Filesystem\Filesystem;
+
 use Mazenovi\WsseAuthBundle\Security\Authentication\Token\WsseUserToken;
 
 class WsseProvider implements AuthenticationProviderInterface
@@ -44,6 +47,21 @@ class WsseProvider implements AuthenticationProviderInterface
       
         if (file_exists($this->cacheDir.'/'.$nonce) && file_get_contents($this->cacheDir.'/'.$nonce) + $this->lifetime < time()) {
             throw new NonceExpiredException('Previously used nonce detected');
+        }
+
+        $fs = new Filesystem();
+        if(!$fs->exists($this->cacheDir))
+        {
+            $paths = explode('/',$this->cacheDir);
+            $pathToCreate='';
+            foreach($paths as $path)
+            {
+                $pathToCreate.='/'.$path;
+                if(!$fs->exists($pathToCreate))
+                {
+                   $fs->mkdir($pathToCreate );
+                }
+            }
         }
         file_put_contents($this->cacheDir.'/'.$nonce, time());
 

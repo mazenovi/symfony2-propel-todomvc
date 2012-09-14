@@ -2,7 +2,7 @@
 // see http://stackoverflow.com/questions/11180351/symfony2-after-successful-login-event-perform-set-of-actions
 
 namespace Mazenovi\WsseAuthBundle\Security\Authentication\Login;
-use Symfony\Component\Filesystem\Filesystem;
+
 use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
