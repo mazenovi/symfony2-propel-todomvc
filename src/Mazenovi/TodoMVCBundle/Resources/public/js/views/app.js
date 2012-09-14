@@ -35,18 +35,7 @@ define([
 			this.$footer = $('#footer');
 			this.$main = $('#main');
 
-			// set token as a body tag's attribute
-			// see also http://stackoverflow.com/questions/220231/accessing-http-headers-in-javascript
-      		// @todo best style integrate token?
-      		// @todo set this token with twig will 
-      		var req = new XMLHttpRequest();
-      		req.open('GET', Routing.generate('mazenovi_user_api_getusertoken'), false);
-      		req.setRequestHeader('Accept', 'application/json, text/javascript, */*; q=0.01');
-      		req.send(null);
-      		token = req.getResponseHeader('X-CSRF-Token');
-      		$('body').attr('data-token', token);
-
-      		// get the current user from server
+			// get the current user from server
       		// @todo how to share this user between class (collection) without a ne http request?
       		// @todo set the user attribute somewhere in the dom? (is this the solution?)
       		this.user = new User();
