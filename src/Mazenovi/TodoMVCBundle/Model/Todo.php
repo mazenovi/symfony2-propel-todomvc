@@ -39,10 +39,5 @@ class Todo extends BaseTodo
        	}
         return $returned_value;
     }
-    // @todo look for a better design pattern
-    public function userHasPermission( $user, $action = null )
-    {
-        return in_array('USER_ADMIN', $user->getRoles()) || $this->username == $user->getUsername();
-    }
-
+    
 } // Todo
