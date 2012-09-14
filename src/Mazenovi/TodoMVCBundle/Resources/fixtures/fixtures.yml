@@ -23,6 +23,7 @@ FOS\UserBundle\Propel\User:
         expired: '0'
         credentials_expired: '0'
         roles: [ROLE_USER]
+
 Mazenovi\UserBundle\Model\FosUserExtra:
     FosUserExtra_1_1:
         fos_user_id: User_1
@@ -30,6 +31,7 @@ Mazenovi\UserBundle\Model\FosUserExtra:
     FosUserExtra_2_1:
         fos_user_id: User_2
         home_page: 'http://mazenod.fr'
+
 Mazenovi\TodoMVCBundle\Model\Todo:
     Todo_1:
         title: 'My todo'
