@@ -25,6 +25,8 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\Security\Acl\Domain\ObjectIdentity;
 use Symfony\Component\Security\Acl\Domain\UserSecurityIdentity;
 use Symfony\Component\Security\Acl\Permission\MaskBuilder;
+use Symfony\Component\Security\Acl\Exception\AclNotFoundException;
+use Symfony\Component\Security\Acl\Dbal\AclProvider;
 
 class ApiController extends Controller
 {
@@ -44,8 +46,44 @@ class ApiController extends Controller
      */
     public function indexAction(Request $request)
     {
-        //$request->headers->set('X-CSRF-Token',$this->get('form.csrf_provider')->generateCsrfToken('csrf'));
-        return TodoQuery::create()->find();
+        
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        $aclForCurrentUser = array();
+        
+        if(true === $this->get('security.context')->isGranted(
+            'IS_AUTHENTICATED_FULLY'
+            )) {
+
+            $aclProvider = $this->get('security.acl.provider');
+            $securityIdentity = UserSecurityIdentity::fromAccount($user);
+        
+            foreach(TodoQuery::create()->find() as $todo)
+            {
+                $objectIdentity = ObjectIdentity::fromDomainObject($todo);
+                try
+                {
+                    $acls = $aclProvider->findAcls(array($objectIdentity), array($securityIdentity));
+                    foreach($acls as $acl)
+                    {
+                        array_push($aclForCurrentUser, $acl);
+                        /*
+                        echo "<pre>";
+                        echo($acl);
+                        echo($acl->getIdentifier());
+                        echo "-";
+                        echo($acl->getType());
+                        echo "</pre>";
+                        */
+                    }
+                } catch (AclNotFoundException $e) {}
+                
+            } 
+        }
+
+        if ('html' === $this->getRequest()->getRequestFormat())
+            return array('todos' => TodoQuery::create()->find());
+        else
+            return TodoQuery::create()->find();
     }
 
     /**
@@ -151,6 +189,10 @@ class ApiController extends Controller
     public function deleteAction(Request $request, Todo $todo)
     {
         $user = $this->container->get('security.context')->getToken()->getUser();
+        $aclProvider = $this->get('security.acl.provider');
+        $objectIdentity = ObjectIdentity::fromDomainObject($todo);
+        $aclProvider->deleteAcl($objectIdentity);
         $todo->delete();
+
     }
 }
