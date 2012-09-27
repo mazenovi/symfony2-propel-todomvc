@@ -49,42 +49,7 @@ class ApiController extends Controller
      */
     public function indexAction(Request $request)
     {
-        
-        if ('html' === $this->getRequest()->getRequestFormat())
-        {
-            $user = $this->container->get('security.context')->getToken()->getUser();
-            $acls = array();
-        
-            if(true === $this->get('security.context')->isGranted(
-                'IS_AUTHENTICATED_FULLY'
-                )) {
-
-                $aclProvider = $this->get('security.acl.provider');
-                $securityIdentity = UserSecurityIdentity::fromAccount($user);
-            
-                foreach(TodoQuery::create()->find() as $todo)
-                {
-                    $objectIdentity = ObjectIdentity::fromDomainObject($todo);
-                    try
-                    {
-                        $result = $aclProvider->findAcls(array($objectIdentity), array($securityIdentity));
-                        foreach ($result as $oid) {
-                            $acl = $result->offsetGet($oid);
-                            foreach($acl->getObjectAces() as $ace)
-                            {
-                                $maskBuilder = new MaskBuilder($ace->getMask());
-                                $acls[(string)$objectIdentity] = $maskBuilder->getPattern();
-                            }
-                        }
-                    } catch (AclNotFoundException $e) {}
-                    
-                } 
-
-            }
-            return array('todos' => TodoQuery::create()->find(), 'acls' => $acls);
-        }
-        else
-            return TodoQuery::create()->find();
+        return TodoQuery::create()->find();
     }
 
     /**
@@ -137,13 +102,18 @@ class ApiController extends Controller
         }
         $todo->save();
 
+        // retrieving the security identity of the currently logged-in user
+        $securityIdentity = UserSecurityIdentity::fromAccount($user);
+
         // creating the ACL
         $aclProvider = $this->get('security.acl.provider');
         $objectIdentity = ObjectIdentity::fromDomainObject($todo);
-        $acl = $aclProvider->createAcl($objectIdentity);
-
-        // retrieving the security identity of the currently logged-in user
-        $securityIdentity = UserSecurityIdentity::fromAccount($user);
+        try
+        {
+            $acl = $aclProvider->findacl($objectIdentity);
+        } catch (AclNotFoundException $e) { 
+            $acl = $aclProvider->createAcl($objectIdentity);
+        }
 
         // grant owner access
         $acl->insertObjectAce($securityIdentity, MaskBuilder::MASK_OWNER);

@@ -1,6 +1,16 @@
 # http://jmsyst.com/bundles/JMSSerializerBundle/master/reference/yml_reference
 # @todo get this file working
 Mazenovi\TodoMVCBundle\Model\Todo:
-    virual_properties:
-        getDisplayName:
-            serialized_name: displayName
+    exclusion_policy: ALL 
+    access_type: public_method
+    properties:
+        username:
+            accessor:
+                getter: getUsername
+                setter: setUsername
+            expose: true
+        permissions:
+            accessor:
+                getter: getPermissions
+                setter: setPermissions
+            expose: true

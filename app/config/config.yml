@@ -70,6 +70,8 @@ jms_serializer:
                 path: @MazenoviTodoMVCBundle/Resources/config/serializer
 
 fos_rest:
+    service:
+        view_handler: mazenovi_todomvc.view_handler
     view:
         default_engine: twig
         force_redirects:

@@ -1,10 +1,11 @@
 Mazenovi\TodoMVCBundle\Model\om\BaseTodo:
+    exclusion_policy: ALL
     properties:
-        startCopy:
-            exclude: true
-        alreadyInSave:
-            exclude: true
-        alreadyInValidation:
-            exclude: true
-        validationFailures:
-            exclude: true
+        id:
+            expose: true
+        title:
+            expose: true
+        completed:
+            expose: true
+        fos_user_id:
+            expose: true

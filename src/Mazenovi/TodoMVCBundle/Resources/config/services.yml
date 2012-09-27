@@ -1,0 +1,8 @@
+services:
+    mazenovi_todomvc.json_handler:
+        class: Mazenovi\TodoMVCBundle\View\JSONViewHandler
+        arguments: [@security.context, @fos_rest.serializer]
+    mazenovi_todomvc.view_handler:
+        parent: fos_rest.view_handler.default
+        calls:
+            - ['registerHandler', [ 'json', [@mazenovi_todomvc.json_handler, 'createResponse'] ] ]
