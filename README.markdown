@@ -58,16 +58,10 @@ $ php app/console assets:install web
 $ app/console propel:database:create
 ```
 
-* build your model and your database
+* build your model and your database, load fixtures and acls with
 
 ``` bash
-$ app/console propel:build --insert-sql
-```
-
-* load fixtures
-
-``` bash
-$ app/console propel:fixtures:load @MazenoviTodoMVCBundle
+$ php app/console todomvc:build
 ```
 
 * visit /app_dev.php/todos/
