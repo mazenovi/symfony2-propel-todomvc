@@ -66,6 +66,30 @@ class JSONViewHandler
                 array_push($data, $o);            
             }
         }
+        elseif($view->getData() instanceOf \BaseObject && $user instanceof UserInterface)
+        {    
+            $refl = new \ReflectionClass('Symfony\Component\Security\Acl\Permission\MaskBuilder');
+
+            foreach($refl->getConstants() as $k => $val)
+            {
+                if(preg_match('/^MASK\_/', $k))
+                {
+                    if($this->securityContext->isGranted(substr($k, 5), $view->getData()))
+                    {
+                        $view->getData()->addPermission(substr($k, 5));
+                    }
+                    foreach(call_user_func_array(array(get_class($view->getData()).'Peer','getFieldNames'), array(\BasePeer::TYPE_FIELDNAME)) as $field)
+                    {
+                        if($this->securityContext->isGranted(substr($k, 5), $view->getData(), $field))
+                        {
+                            $view->getData()->addFieldPermission(substr($k, 5), $field);
+                        }
+                    }
+                }
+            }
+            $data = $view->getData();
+            
+        }
         return new Response($this->serializer->serialize($data, $format), 200, $view->getHeaders());
     }
 }

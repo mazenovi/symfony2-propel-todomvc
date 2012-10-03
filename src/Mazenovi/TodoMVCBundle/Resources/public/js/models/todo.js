@@ -1,9 +1,10 @@
 define([
 	'underscore',
-	'backbone'
-], function( _, Backbone ) {
+	'backbone',
+	'models/ACLmodel'
+], function( _, Backbone, ACLmodel ) {
 
-	var Todo = Backbone.Model.extend({
+	var Todo = ACLmodel.extend({
 		
 		url: function() {
 
@@ -41,13 +42,8 @@ define([
 		// Remove this Todo from *localStorage* and delete its view.
 		clear: function() {
 			this.destroy();
-		},
-
-		// @todo search for a better design pattern to implement permissions
-		userHasPermission: function( action, user ) {
-			return jQuery.inArray('USER_ADMIN', user.get('roles')) != -1
-				|| this.get('username') ==  user.get('username');
 		}
+		
 	});
 
 	return Todo;

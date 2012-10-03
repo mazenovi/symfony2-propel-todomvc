@@ -31,6 +31,7 @@ define([
 		// loading any preexisting todos that might be saved in *localStorage*.
 		initialize: function() {
 			this.input = this.$('#new-todo');			
+			this.allCheckbox = this.$('#toggle-all').first();
 			this.$footer = $('#footer');
 			this.$main = $('#main');
 
@@ -42,8 +43,17 @@ define([
 			Todos.on( 'all', this.render, this );
 			Todos.fetch();
 
-			var view = new UserView({ model: this.user });
-			$('#new-todo').after( view.render().el );
+			if(!this.user.id)
+			{
+				this.input.remove();				
+				this.allCheckbox.remove();
+				this.$footer.remove();
+			}
+			else
+			{
+				var view = new UserView({ model: this.user });
+				$('#new-todo').after( view.render().el );
+			}
 
 		},
 
@@ -79,7 +89,7 @@ define([
 		// Add a single todo item to the list by creating a view for it, and
 		// appending its element to the `<ul>`.
 		addOne: function( todo ) {
-			var view = new TodoView({ model: todo, user: this.user });
+			var view = new TodoView({ model: todo });
 			$('#todo-list').append( view.render().el );
 		},
 
@@ -107,6 +117,18 @@ define([
 				order: Todos.nextOrder(),
 				completed: false,
 				username: this.$('#header a.author').text(),
+				permissions: {
+        			"object": [
+            			"VIEW",
+            			"CREATE",
+            			"EDIT",
+            			"DELETE",
+            			"UNDELETE",
+            			"OPERATOR",
+            			"MASTER",
+            			"OWNER"
+        			]
+        		}
 			};
 		},
 
@@ -124,8 +146,7 @@ define([
 		// Clear all completed todo items, destroying their models.
 		clearCompleted: function() {
 			_.each( Todos.completed(), function( todo ) {
-				// @todo better way to condition features
-				if( todo.userHasPermission('clear', user) )
+				if( todo.isGranted('DELETE') )
 				{
 					todo.clear();
 				}
@@ -136,15 +157,10 @@ define([
 
 		// toggle all user's todos
 		toggleAllComplete: function() {
-			var completed = this.$('#toggle-all').first().is(':checked');
+			var completed = this.allCheckbox.is(':checked');
 			var user = this.user;
 			Todos.each(function( todo ) {
-				if(
-					user.can({
-					'object': todo, 
-					'field': 'completed', 
-					'action': 'EDIT'
-				}))	{
+				if( todo.isGranted('EDIT', 'completed') ) {
 					todo.save({
 						'completed': completed
 					});

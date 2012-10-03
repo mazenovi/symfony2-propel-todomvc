@@ -26,8 +26,6 @@ define([
 		// a one-to-one correspondence between a **Todo** and a **TodoView** in this
 		// app, we set a direct reference on the model for convenience.
 		initialize: function() {
-			// @todo we can save this call? true? 
-			// @todo should we return an object rather than a class in user's model?
 			this.user = new User();
 			this.user.set(context['user']);
 			this.model.on( 'change', this.render, this );
@@ -37,9 +35,16 @@ define([
 		// Re-render the titles of the todo item.
 		render: function() {
 			var $el = $( this.el );
-			// @todo how to feed this template with current user to show delete button only if userHasPermission
 			$el.html( this.template( this.model.toJSON() ) );
 			$el.toggleClass( 'completed', this.model.get('completed') );
+			if(!this.model.isGranted('DELETE'))
+			{
+				this.$('.destroy').remove();
+			}
+			if(!this.model.isGranted('EDIT', 'completed'))
+			{
+				this.$('.toggle').first().attr('disabled', true);
+			}
 
 			this.input = this.$('.edit');
 			return this;
@@ -47,12 +52,18 @@ define([
 
 		// Toggle the `"completed"` state of the model.
 		togglecompleted: function() {
-			this.model.toggle();
+			completed = this.$('.toggle').first().is(':checked');
+			console.log(completed);
+			if(this.model.isGranted('EDIT', 'completed'))
+			{
+				this.model.toggle();
+			}
+
 		},
 
 		// Switch this view into `"editing"` mode, displaying the input field.
 		edit: function() {
-			if(this.user.can({'object': this.model, 'action': 'EDIT'}))
+			if(this.model.isGranted('EDIT'))
 			{
 				$( this.el ).addClass('editing');
 				this.input.focus();
@@ -81,7 +92,7 @@ define([
 
 		// Remove the item, destroy the model.
 		clear: function() {
-			if(this.user.can({'object': this.model, 'action': 'DELETE'})) {
+			if(this.model.isGranted('DELETE')) {
 				this.model.clear();
 			}
 		}
