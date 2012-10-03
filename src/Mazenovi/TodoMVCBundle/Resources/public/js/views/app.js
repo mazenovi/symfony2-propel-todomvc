@@ -30,16 +30,12 @@ define([
 		// collection, when items are added or changed. Kick things off by
 		// loading any preexisting todos that might be saved in *localStorage*.
 		initialize: function() {
-			this.input = this.$('#new-todo');
-			this.allCheckbox = this.$('#toggle-all')[0];
+			this.input = this.$('#new-todo');			
 			this.$footer = $('#footer');
 			this.$main = $('#main');
 
-			// get the current user from server
-      		// @todo how to share this user between class (collection) without a ne http request?
-      		// @todo set the user attribute somewhere in the dom? (is this the solution?)
-      		this.user = new User();
-			this.user.fetch();			
+			this.user = new User();
+			this.user.set(context['user']);
 			
 			Todos.on( 'add', this.addOne, this );
 			Todos.on( 'reset', this.addAll, this );
@@ -109,7 +105,8 @@ define([
 			return {
 				title: this.input.val().trim(),
 				order: Todos.nextOrder(),
-				completed: false
+				completed: false,
+				username: this.$('#header a.author').text(),
 			};
 		},
 
@@ -139,12 +136,15 @@ define([
 
 		// toggle all user's todos
 		toggleAllComplete: function() {
-			var completed = this.allCheckbox.checked;
+			var completed = this.$('#toggle-all').first().is(':checked');
 			var user = this.user;
 			Todos.each(function( todo ) {
-				// @todo better way to condition features
-				if( todo.userHasPermission('toggle', user) )
-				{
+				if(
+					user.can({
+					'object': todo, 
+					'field': 'completed', 
+					'action': 'EDIT'
+				}))	{
 					todo.save({
 						'completed': completed
 					});

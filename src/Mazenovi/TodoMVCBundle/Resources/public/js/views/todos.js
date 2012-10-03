@@ -29,8 +29,7 @@ define([
 			// @todo we can save this call? true? 
 			// @todo should we return an object rather than a class in user's model?
 			this.user = new User();
-			this.user.fetch();
-
+			this.user.set(context['user']);
 			this.model.on( 'change', this.render, this );
 			this.model.on( 'destroy', this.remove, this );
 		},
@@ -53,8 +52,7 @@ define([
 
 		// Switch this view into `"editing"` mode, displaying the input field.
 		edit: function() {
-			// @todo better way to condition features
-			if(this.model.userHasPermission('toggle', this.user))
+			if(this.user.can({'object': this.model, 'action': 'EDIT'}))
 			{
 				$( this.el ).addClass('editing');
 				this.input.focus();
@@ -83,9 +81,7 @@ define([
 
 		// Remove the item, destroy the model.
 		clear: function() {
-			// @todo better way to condition features
-			if(this.model.userHasPermission('toggle', this.user))
-			{
+			if(this.user.can({'object': this.model, 'action': 'DELETE'})) {
 				this.model.clear();
 			}
 		}

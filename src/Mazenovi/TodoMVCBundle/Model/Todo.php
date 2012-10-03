@@ -36,7 +36,11 @@ class Todo extends BaseTodo
 
     public function addPermission($perm)
     {
-        array_push($this->permissions, $perm);
+        if(!array_key_exists('object', $this->permissions))
+        {
+            $this->permissions['object'] = array();
+        }
+        array_push($this->permissions['object'], $perm);
     }
 
     public function addFieldPermission($perm, $field)

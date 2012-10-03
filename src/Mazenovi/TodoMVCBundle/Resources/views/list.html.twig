@@ -19,18 +19,33 @@
   <script src="/bundles/mazenovitodomvc/js/base.js"></script>
   <script data-main="/bundles/mazenovitodomvc/js/main" src="/bundles/manymulesrequirejs/js/require.min.js"></script>
   <script>
-  {% if app.user.username is defined %}
-    var Username = '{{ app.user.username }}';
-  {% endif %}
-  {% if app.session.has('Nonce') %}
-    var Nonce = '{{ app.session.get('Nonce') }}';
-  {% endif %}
-  {% if app.session.has('Created') %}
-    var Created = '{{ app.session.get('Created') }}';
-  {% endif %}
-  {% if app.session.has('Nonce') %}
-    var PasswordDigest = '{{ app.session.get('PasswordDigest') }}';
-  {% endif %}
+  var context = {
+    user: {
+      {% if app.user.id is defined %}
+        id: {{ app.user.id }},
+      {% endif %}
+      {% if app.user.avatar is defined %}
+        avatar: '{{ app.user.avatar }}',
+      {% endif %}
+      {% if app.user.roles is defined %}
+        roles: '{{ app.user.roles | join(';')}}',
+      {% endif %}
+      {% if app.user.username is defined %}
+        username: '{{ app.user.username }}'
+      {% endif %}
+    },
+    wsse: {
+      {% if app.session.has('Nonce') %}
+        nonce: '{{ app.session.get('Nonce') }}',
+      {% endif %}
+      {% if app.session.has('Created') %}
+        created: '{{ app.session.get('Created') }}',
+      {% endif %}
+      {% if app.session.has('PasswordDigest') %}
+        password_digest: '{{ app.session.get('PasswordDigest') }}'
+      {% endif %}  
+    }
+  };
   </script>
 {% endblock head_script %}
 

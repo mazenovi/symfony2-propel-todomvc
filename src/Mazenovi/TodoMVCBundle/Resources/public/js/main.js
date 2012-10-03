@@ -33,9 +33,9 @@ require([
   	Backbone.sync = function(method, model, options) {
     	var new_options =  _.extend({
 	        beforeSend: function(xhr) {
-    	      	if(typeof Username !== 'undefined' && typeof PasswordDigest !== 'undefined' && Nonce !== 'undefined' && Created !== 'undefined' )
+    	      	if(typeof context['user']['username'] !== 'undefined' && typeof context['wsse']['password_digest'] !== 'undefined' && context['wsse']['nonce'] !== 'undefined' && context['wsse']['created'] !== 'undefined' )
           		{
-            		xhr.setRequestHeader('X-WSSE', 'UsernameToken Username="' + Username + '", PasswordDigest="' +  PasswordDigest + '", Nonce="' + Nonce + '", Created="' + Created + '"');
+            		xhr.setRequestHeader('X-WSSE', 'UsernameToken Username="' + context['user']['username'] + '", PasswordDigest="' +  context['wsse']['password_digest'] + '", Nonce="' + context['wsse']['nonce'] + '", Created="' + context['wsse']['created'] + '"');
 				}	
 			}
     	}, options)
