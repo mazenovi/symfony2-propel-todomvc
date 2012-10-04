@@ -52,10 +52,10 @@ $ chmod -R 777 app/logs
 $ php app/console assets:install web --symlink
 ```
 
-* create your own paramters.yml
+* create your own parameters.yml
 
 ``` bash
-$ cp app/config/paramters.yml.sample app/config/paramters.yml
+$ cp app/config/parameters.yml.sample app/config/parameters.yml
 ```
 
 * create the database 
@@ -89,10 +89,10 @@ $ app/console assetic:dump --env=prod --no-debug
 * install required bundles
 
 ``` bash
-$ php composer.phar install
+$ php composer.phar install --dev
 ```
 
-* launch test 
+* launch test suite
 
 ``` bash
 $ php bin/behat @MazenoviTodoMVCBundle
