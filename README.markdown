@@ -49,7 +49,13 @@ $ chmod -R 777 app/logs
 * publish assets
 
 ``` bash
-$ php app/console assets:install web
+$ php app/console assets:install web --symlink
+```
+
+* create your own paramters.yml
+
+``` bash
+$ cp app/config/paramters.yml.sample app/config/paramters.yml
 ```
 
 * create the database 
@@ -78,11 +84,25 @@ $ app/console assetic:dump --env=prod --no-debug
 
 * demo http://mytodo.m4z3.me/todos/
 
+# How to test
+
+* install required bundles
+
+``` bash
+$ php composer.phar install
+```
+
+* launch test 
+
+``` bash
+$ php bin/behat @MazenoviTodoMVCBundle
+```
+
 # Roadmap
 
 * update tests
 * Generates documentation with [NelmioApiDocBundle](https://github.com/nelmio/NelmioApiDocBundle)
 * introduce date in todo
-* introduce geolocation todo with  [BazingaGeocoderBundle](https://github.com/willdurand/BazingaGeocoderBundle)
+* introduce geolocation todo with [BazingaGeocoderBundle](https://github.com/willdurand/BazingaGeocoderBundle) and [jquery-addresspicker](git://github.com/sgruhier/jquery-addresspicker.git)
 * [visual search](http://documentcloud.github.com/visualsearch/) on user, title, date and location
 * email notification with [Swiftmailer](https://github.com/symfony/SwiftmailerBundle)
