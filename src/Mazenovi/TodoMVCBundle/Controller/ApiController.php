@@ -87,7 +87,7 @@ class ApiController extends Controller
      *
      * @Route("/todos/", defaults = { "_format" = "~" })
      * @Method({"POST"})
-     * @View(statusCode=201)
+     * @View(statusCode=201) −> invalided by the view handler
      * @Secure(roles="ROLE_USER")
      */
     public function createAction(Request $request)
@@ -133,7 +133,7 @@ class ApiController extends Controller
      *
      * @Route("/todos/{id}", defaults = { "_format" = "~" }, requirements = { "id" = "\d+" })
      * @Method({"PUT"})
-     * @View(statusCode=200)
+     * @View(statusCode=200) −> invalided by the view handler
      * @View()
      * @SecureParam(name="todo", permissions="OWNER")
      */
@@ -154,7 +154,7 @@ class ApiController extends Controller
      *
      * @Route("/todos/{id}", defaults = { "_format" = "~" }, requirements = { "id" = "\d+" })
      * @Method({"DELETE"})
-     * @View(statusCode=200)
+     * @View(statusCode=200) −> invalided by the view handler
      * @SecureParam(name="todo", permissions="OWNER")
      */
     public function deleteAction(Request $request, Todo $todo)

@@ -30,7 +30,15 @@ class buildCommand extends ContainerAwareCommand
         $this
             ->setName('todomvc:build')
             ->setDescription('build and load data for MazenoviTodoMVCBundle')
-        ;
+            ->setHelp(<<<EOT
+The <info>%command.name%</info> command build, load, data and acl for TodoMVCBundle
+
+To have no console output, use the
+<info>--quiet</info> option:
+
+<info>php %command.full_name% --quiet</info>
+EOT
+        );
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -45,12 +53,11 @@ class buildCommand extends ContainerAwareCommand
 
     private function aclCommands(InputInterface $input, OutputInterface $output)
     {
-        /*
+        
         if (!$this->getContainer()->has('security.acl.provider')) {
             $output->writeln('You must setup the ACL system, see the Symfony2 documentation for how to do this.');
             return;
         }
-        */
 
         $todos = TodoQuery::create()->find();        
 
@@ -96,8 +103,6 @@ class buildCommand extends ContainerAwareCommand
         $acl = $aclProvider->findAcl($objectIdentity);        
         $acl->insertObjectFieldAce('completed', $securityIdentity, MaskBuilder::MASK_EDIT);
         $aclProvider->updateAcl($acl);
-
-        
 
     }
     

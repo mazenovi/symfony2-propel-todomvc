@@ -66,10 +66,10 @@ class BrowserContext extends MinkContext
      */
     public function allTheCheckboxesShouldBeChecked()
     {
-        $els = $this->getSession()->getPage()->findAll('css', 'li .check');
+        $els = $this->getSession()->getPage()->findAll('css', 'li .toggle');
         foreach($els as $el)
         {
-            if(!$el->isChecked())
+            if(!$el->isChecked() && !$el->getAttribute('disabled'))
             {
                 throw new \Exception("All todos are marked as done");
             }
@@ -81,25 +81,35 @@ class BrowserContext extends MinkContext
      */
     public function iUncheckFirstTodoCheckbox()
     {
-        $els = $this->getSession()->getPage()->findAll('css', 'li .check');
+        $els = $this->getSession()->getPage()->findAll('css', 'li .toggle');
         $els[0]->uncheck();
     }
 
     /**
-     * @When /^I click on Clear (\d+) completed item$/
+     * @Given /^I click on Login$/
      */
-    public function iClickOnClearCompletedItem($arg1)
+    public function iClickOnLogin()
     {
-        $el = $this->getSession()->getPage()->find('css', '.todo-clear a');
+        $el = $this->getSession()->getPage()->find('css', '.fos_user_login a.btn-primary');
+        $el->click();
+    }
+
+
+    /**
+     * @When /^I click on Clear my completed$/
+     */
+    public function iClickOnClearMyCompleted()
+    {
+        $el = $this->getSession()->getPage()->find('css', '#clear-completed');
         $el->click();
     }
 
     /**
-     * @When /^I click on todo destroy link$/
+     * @When /^I click on first todo destroy link$/
      */
-    public function iClickOnTodoDestroyLink()
+    public function iClickOnFirstTodoDestroyLink()
     {
-        $els = $this->getSession()->getPage()->findAll('css', '.todo-destroy');
+        $els = $this->getSession()->getPage()->findAll('css', '.destroy');
         $els[0]->click();
     }
 }

@@ -51,8 +51,7 @@ class FeatureContext extends BehatContext implements KernelAwareInterface
     /** @BeforeFeature */
     public static function setupFeature(FeatureEvent $event)
     {
-        self::runCommand('propel:build --insert-sql'); // --quiet');
-        self::runCommand('propel:fixtures:load @MazenoviTodoMVCBundle'); // --quiet');
+        self::runCommand('todomvc:build --quiet');
     }
 
     protected static function runCommand($command)

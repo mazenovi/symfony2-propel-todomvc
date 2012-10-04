@@ -25,6 +25,10 @@ use Guzzle\Http\Client,
 
 use Mazenovi\TodoMVCBundle\Model\Todo;
 
+use FOS\UserBundle\Propel\UserQuery;
+use Mazenovi\WsseAuthBundle\Security\Authentication\Token\WsseUserToken;
+
+
 /**
  * Rest context.
  */
@@ -75,6 +79,22 @@ class RestContext extends BehatContext implements KernelAwareInterface
     }
 
     /**
+     * @Given /^that I am loggedin as "([^"]*)"$/
+     */
+    public function thatIAmLoggedinAs($username)
+    {
+        $user = UserQuery::create()->findOneByUsername($username);
+        
+        $token = new WsseUserToken();
+        $token->setUser($username);
+        $token->nonce    = hash('sha512', 'abigsecret');
+        $token->created  = date('m/d/y h:i:s A');
+        $token->digest   = base64_encode(sha1(base64_decode($token->nonce).$token->created.$user->getPassword(), true));
+                
+        $this->kernel->getContainer()->get('security.context')->setToken($token);
+    }
+
+    /**
      * @Given /^that I want to list All "([^"]*)"$/
      */
     public function thatIWantToListAll($objectType)
@@ -82,7 +102,6 @@ class RestContext extends BehatContext implements KernelAwareInterface
         $this->restObjectType   = ucwords(strtolower(substr($objectType, 0, -1)));
         $this->restObjectMethod = 'get';
     }
-
 
     /**
      * @Given /^that I want to make a new "([^"]*)"$/
@@ -129,6 +148,7 @@ class RestContext extends BehatContext implements KernelAwareInterface
         $baseUrl            = $this->getParameter('base_url');
         $this->requestUrl  = $baseUrl.$pageUrl;
         $postFields = array_change_key_case($this->restObject->toArray(), CASE_LOWER);
+        $token = $this->kernel->getContainer()->get('security.context')->getToken();
 
         switch (strtoupper($this->restObjectMethod)) {
             case 'GET':
@@ -140,14 +160,16 @@ class RestContext extends BehatContext implements KernelAwareInterface
             case 'POST':
                 $response = $this->client
                     ->post($this->requestUrl, null, $postFields)
+                    ->setHeader('X-WSSE', 'UsernameToken Username="'.$token->getUser().'", PasswordDigest="'.$token->digest.'", Nonce="'.$token->nonce.'", Created="'.$token->created.'"')
                     ->setHeader('Accept', 'application/json')
                     ->send();
                 break;
             case 'PUT':
-                $postFields['done'] = '1';
+                $postFields['completed'] = '1';
                 $response = $this->client
                     ->put($this->requestUrl.$postFields['id'], null, json_encode($postFields))
                     ->setHeader('Content-Type', 'application/json; charset=UTF-8')
+                    ->setHeader('X-WSSE', 'UsernameToken Username="'.$token->getUser().'", PasswordDigest="'.$token->digest.'", Nonce="'.$token->nonce.'", Created="'.$token->created.'"')
                     ->setHeader('Accept', 'application/json, text/javascript, */*; q=0.01')
                     ->send();
 
@@ -169,6 +191,7 @@ class RestContext extends BehatContext implements KernelAwareInterface
             case 'DELETE':
                 $response = $this->client
                     ->delete($this->requestUrl.$postFields['id'])
+                    ->setHeader('X-WSSE', 'UsernameToken Username="'.$token->getUser().'", PasswordDigest="'.$token->digest.'", Nonce="'.$token->nonce.'", Created="'.$token->created.'"')
                     ->setHeader('Accept', 'application/json')
                     ->send();
                 break;
@@ -193,7 +216,7 @@ class RestContext extends BehatContext implements KernelAwareInterface
     public function theResponseHasALengthEqualsTo($responseLength)
     {
         $data = json_decode($this->response->getBody(true));
-        if (count($data)!=1) {
+        if (count($data)!=$responseLength) {
             throw new \Exception(count($data).' is more than the '.$responseLength.' todo(s) expected');
         }
     }

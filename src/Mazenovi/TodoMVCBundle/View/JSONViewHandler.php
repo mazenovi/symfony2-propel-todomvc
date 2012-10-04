@@ -90,6 +90,15 @@ class JSONViewHandler
             $data = $view->getData();
             
         }
-        return new Response($this->serializer->serialize($data, $format), 200, $view->getHeaders());
+
+        if($request->getMethod() == "POST")
+        {
+            $statusCode = 201;
+        } 
+        else
+        {
+          $statusCode = 200;  
+        }
+        return new Response($this->serializer->serialize($data, $format), $statusCode, $view->getHeaders());
     }
 }
