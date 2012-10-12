@@ -53,7 +53,7 @@
         "friendsofsymfony/jsrouting-bundle": "dev-master",
         "friendsofsymfony/rest-bundle": "dev-master",
         "friendsofsymfony/user-bundle": "*",
-        "friendsofsymfony/facebook-bundle": "*",
+        "hwi/oauth-bundle": "*",
         "jms/metadata": "dev-master as 1.1.2-dev",
         "manymules/backbonejs-bundle": "*",
         "manymules/jquery-bundle": ">1.7",
