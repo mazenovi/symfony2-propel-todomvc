@@ -33,22 +33,6 @@
                     "type": "zip"
                 }
             }
-        },
-        "thomas-mcdonald/bootstrap-sass": {
-            "type":"package",
-            "package": {
-                "version":"dev-master",
-                "name":"thomas-mcdonald/bootstrap-sass",
-                "source": {
-                    "url":"https://github.com/thomas-mcdonald/bootstrap-sass.git",
-                    "type":"git",
-                    "reference":"master"
-                },
-                "dist": {
-                    "url":"https://github.com/thomas-mcdonald/bootstrap-sass/zipball/master",
-                    "type":"zip"
-                }
-            }
         }
     },
     "require": {
@@ -69,7 +53,7 @@
         "friendsofsymfony/jsrouting-bundle": "dev-master",
         "friendsofsymfony/rest-bundle": "dev-master",
         "friendsofsymfony/user-bundle": "*",
-        "hwi/oauth-bundle": "*",
+        "friendsofsymfony/facebook-bundle": "*",
         "jms/metadata": "dev-master as 1.1.2-dev",
         "manymules/backbonejs-bundle": "*",
         "manymules/jquery-bundle": ">1.7",
@@ -78,6 +62,7 @@
         "manymules/underscorejs-bundle": "*",
         "twitter/bootstrap": "master",
         "mopa/bootstrap-bundle": "dev-master",
+        "manymules/fontawesome-bundle": "*",
         "knplabs/knp-menu-bundle": "dev-master"
     },
     "require-dev": {
@@ -94,13 +79,15 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Mopa\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::postInstallSymlinkTwitterBootstrap"
+            "Mopa\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::postInstallSymlinkTwitterBootstrap",
+            "Mazenovi\\TodoMVCBundle\\Composer\\ScriptHandler::postInstallSymlinkTwitterBootstrap"
         ],
         "post-update-cmd": [
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Mopa\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::postInstallSymlinkTwitterBootstrap"
+            "Mopa\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::postInstallSymlinkTwitterBootstrap",
+            "Mazenovi\\TodoMVCBundle\\Composer\\ScriptHandler::postInstallSymlinkTwitterBootstrap"
         ]
     },
     "config": {
@@ -108,6 +95,7 @@
     },
     "extra": {
         "symfony-app-dir": "app",
-        "symfony-web-dir": "web"
+        "symfony-web-dir": "web",
+        "symfony-assets-install": "symlink"
     }
 }
