@@ -46,12 +46,6 @@ $ chmod -R 777 app/cache
 $ chmod -R 777 app/logs
 ```
 
-* publish assets
-
-``` bash
-$ php app/console assets:install web --symlink
-```
-
 * create your own parameters.yml
 
 ``` bash
