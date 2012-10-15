@@ -31,6 +31,8 @@ use Symfony\Component\Security\Acl\Permission\MaskBuilder;
 use Symfony\Component\Security\Acl\Exception\AclNotFoundException;
 use Symfony\Component\Security\Acl\Dbal\AclProvider;
 
+use Nelmio\ApiDocBundle\Annotation\ApiDoc;
+
 class ApiController extends Controller
 {
     /**
@@ -41,11 +43,16 @@ class ApiController extends Controller
      */
 
     /**
-     * List all todos.
-     *
+     * @ApiDoc(
+     *  resource=true,
+     *  description="List all todos",
+     *  return="Mazenovi\TodoMVCBundle\Model\Todo"
+     * )
      * @Route("/todos/", defaults = { "_format" = "~" }, name="mazenovi_todomvc_api_index", options={"expose"=true})
      * @Method({"GET"})
      * @View()
+     *
+     *
      */
     public function indexAction(Request $request)
     {
@@ -53,8 +60,11 @@ class ApiController extends Controller
     }
 
     /**
-     * List all user's todos.
-     *
+     * @ApiDoc(
+     *  resource=true,
+     *  description="List all user's todos",
+     *  return="Mazenovi\TodoMVCBundle\Model\Todo"
+     * )
      * @Route("/users/{id}/todos/", defaults = { "_format" = "~" }, requirements = { "id" = "\d+" }, name="mazenovi_todomvc_api_listuser", options={"expose"=true})
      * @Method({"GET"})
      * @View()
@@ -73,7 +83,12 @@ class ApiController extends Controller
     }
 
     /**
-     * @Route("/todos/{id}", defaults = { "_format" = "~" })
+     * @ApiDoc(
+     *  resource=true,
+     *  description="Show a Todo",
+     *  return="Mazenovi\TodoMVCBundle\Model\Todo"
+     * )
+     * @Route("/todos/{id}", defaults = { "_format" = "~" }, requirements = { "id" = "\d+" })
      * @Method({"GET"})
      * @View()
      */
@@ -83,7 +98,11 @@ class ApiController extends Controller
     }
 
     /**
-     * Create a new todo.
+     * @ApiDoc(
+     *  resource=true,
+     *  description="Create a new todo",
+     *  return="url"
+     * )
      *
      * @Route("/todos/", defaults = { "_format" = "~" })
      * @Method({"POST"})
@@ -129,7 +148,11 @@ class ApiController extends Controller
     }
 
     /**
-     * update an existing todo.
+     * @ApiDoc(
+     *  resource=true,
+     *  description="update an existing todo",
+     *  return="Mazenovi\TodoMVCBundle\Model\Todo"
+     * )
      *
      * @Route("/todos/{id}", defaults = { "_format" = "~" }, requirements = { "id" = "\d+" })
      * @Method({"PUT"})
@@ -150,7 +173,10 @@ class ApiController extends Controller
     }
 
     /**
-     * delete an existing todo.
+     * @ApiDoc(
+     *  resource=true,
+     *  description="delete an existing todo"
+     * )
      *
      * @Route("/todos/{id}", defaults = { "_format" = "~" }, requirements = { "id" = "\d+" })
      * @Method({"DELETE"})
@@ -165,5 +191,20 @@ class ApiController extends Controller
         $aclProvider->deleteAcl($objectIdentity);
         $todo->delete();
 
+    }
+
+    /**
+     * @ApiDoc(
+     *  resource=false,
+     *  description="get user details"
+     * )
+     *
+     * @Route("/todos/users/me", defaults = { "_format" = "~" }, name="mazenovi_user_api_getme", options={"expose"=true})
+     * @Method({"GET"})
+     * @View()
+     */
+    public function getMeAction()
+    {
+        return $this->get('security.context')->getToken()->getUser();
     }
 }

@@ -8,3 +8,7 @@ mazenovi_user_bundle:
 mazenovi_todomvc_api:
   resource:  "@MazenoviTodoMVCBundle/Controller/ApiController.php"
   type: annotation
+
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc

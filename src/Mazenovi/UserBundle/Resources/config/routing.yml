@@ -13,10 +13,6 @@ fos_user_resetting:
     resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
     prefix: /resetting
 
-mazenovi_user_api:
-  resource:  "@MazenoviUserBundle/Controller/ApiController.php"
-  type: annotation
-
 facebook_login:
     pattern: /login/check-facebook
 
