@@ -24,7 +24,6 @@ class AppKernel extends Kernel
             new ManyMules\ManyMulesJson2JsBundle\ManyMulesJson2JsBundle(),
             new ManyMules\ManyMulesUnderscoreJsBundle\ManyMulesUnderscoreJsBundle(),
             new ManyMules\ManyMulesRequireJsBundle\ManyMulesRequireJsBundle(),               
-            // two lines to enable FOSRest
             new JMS\SerializerBundle\JMSSerializerBundle($this),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new FOS\RestBundle\FOSRestBundle(),
@@ -34,8 +33,8 @@ class AppKernel extends Kernel
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Mazenovi\TodoMVCBundle\MazenoviTodoMVCBundle(),
             new Mazenovi\UserBundle\MazenoviUserBundle(),
-            //new Mazenovi\SecurityBundle\MazenoviSecurityBundle(),
             new Mazenovi\WsseAuthBundle\MazenoviWsseAuthBundle(),
+            new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

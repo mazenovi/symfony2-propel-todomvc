@@ -81,6 +81,7 @@ fos_rest:
             xml: true
         templating_formats:
             html: true
+        view_response_listener: 'force'
         failed_validation: HTTP_BAD_REQUEST
     format_listener:
         default_priorities: [html, json, '*/*']
@@ -162,3 +163,5 @@ services:
         scope: request
         tags:
             - { name: knp_menu.menu, alias: main }
+
+nelmio_api_doc: ~
