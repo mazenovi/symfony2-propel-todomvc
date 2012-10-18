@@ -39,7 +39,6 @@
         "php": ">=5.3.3",
         "symfony/symfony": "2.1.x-dev",
         "twig/extensions": "dev-master",
-        "symfony/assetic-bundle": "dev-master",
         "symfony/swiftmailer-bundle": "dev-master",
         "symfony/monolog-bundle": "dev-master",
         "sensio/distribution-bundle": "*",

@@ -1,13 +1,5 @@
 {% extends "MazenoviTodoMVCBundle::layout.html.twig" %}
 
-{% block head_style %}
-
-  <link rel="stylesheet" href="/bundles/mazenovitodomvc/css/all.css">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-{% endblock head_style %}
-
 {% block head_script %}
   
   {% if app.request.get('debug') == 'true' %}
@@ -52,7 +44,7 @@
       };
     });
   </script>
-  
+
   {% if app.request.get('debug') != 'true' %}
     <script src="/bundles/mazenovitodomvc/js/build/app.js"></script>
   {% endif %}
