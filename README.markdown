@@ -8,17 +8,8 @@ Big thanks to [@willdurand](https://github.com/willdurand) and [@themouette](htt
 # How to install
 
 * install [`nodejs`](http://nodejs.org/) and [`npm`](https://npmjs.org/) ([in 30 secondes](https://gist.github.com/579814#file_node_and_npm_in_30_seconds.sh))
-* install [`less`](https://github.com/phiamo/MopaBootstrapBundle/blob/master/Resources/doc/less-installation.md)
 * install [`grunt`](https://github.com/backbone-boilerplate/grunt-bbb#getting-started)
-
-``` yml
-assetic:
-    filters:
-        less:
-            node: /usr/local/bin/node
-            node_paths: [/usr/local/lib/node_modules]
-            apply_to: "\.less$"
-```
+* install [`less`](https://github.com/phiamo/MopaBootstrapBundle/blob/master/Resources/doc/less-installation.md)
 
 Run in your shell the nexts commands lines
 
