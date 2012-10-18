@@ -52,7 +52,7 @@ $ cp app/config/parameters.yml.sample app/config/parameters.yml
 * create the database 
 
 ``` bash
-$ app/console propel:database:create
+$ php app/console propel:database:create
 ```
 
 * build your model and your database, load fixtures and acls with
