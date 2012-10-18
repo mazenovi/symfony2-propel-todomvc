@@ -7,8 +7,9 @@ define([
 	'models/user',
 	'views/users',
 	'text!templates/stats.html',
-	'common'
-], function( $, _, Backbone, Todos, TodoView, User, UserView, statsTemplate, Common ) {
+	'common',
+	'context'
+], function( $, _, Backbone, Todos, TodoView, User, UserView, statsTemplate, Common, Context ) {
 
 	var AppView = Backbone.View.extend({
 
@@ -36,7 +37,7 @@ define([
 			this.$main = $('#main');
 
 			this.user = new User();
-			this.user.set(context['user']);
+			this.user.set(Context.user);
 			
 			Todos.on( 'add', this.addOne, this );
 			Todos.on( 'reset', this.addAll, this );

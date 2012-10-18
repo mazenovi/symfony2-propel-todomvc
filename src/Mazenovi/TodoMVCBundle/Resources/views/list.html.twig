@@ -1,55 +1,67 @@
 {% extends "MazenoviTodoMVCBundle::layout.html.twig" %}
 
-{#% block head_script %}
-    {% javascripts  '@ManyMulesJQueryBundle/Resources/public/jquery.js'
-                    '@ManyMulesJSON2JSBundle/Resources/public/json2.js'
-                    '@ManyMulesUnderscoreJSBundle/Resources/public/underscore.js'
-                    '@ManyMulesBackboneJSBundle/Resources/public/backbone.js'
-                    '@MazenoviTodoMVCBundle/Resources/public/js/todos.js'                     
-                    filter='yui_js' %}
-                    <!-- '@FOSJsRoutingBundle/Resources/js/router.js' -->
-            <script src="{{ asset_url }}"></script>
-            <script type="text/javascript" src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-            <script type="text/javascript" src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
-    {% endjavascripts %}
-{% endblock head_script %#}
+{% block head_style %}
+
+  <link rel="stylesheet" href="/bundles/mazenovitodomvc/css/all.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+{% endblock head_style %}
+
 {% block head_script %}
-  <script type="text/javascript" src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-  <script type="text/javascript" src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
-  <script src="/bundles/mazenovitodomvc/js/base.js"></script>
-  <script data-main="/bundles/mazenovitodomvc/js/main" src="/bundles/manymulesrequirejs/js/require.min.js"></script>
+  
+  {% if app.request.get('debug') == 'true' %}
+    <script data-main="/bundles/mazenovitodomvc/js/main" src="/bundles/manymulesrequirejs/js/require.min.js"></script>  
+    <script type="text/javascript" src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script type="text/javascript" src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+  {% else %}
+    <script src="/bundles/mazenovitodomvc/js/build/require.js"></script>
+    <script>
+    fos.Router.setData({"base_url":"\/app_dev.php","routes":{"mazenovi_user_api_getme":{"tokens":[["text","\/users\/me"]],"defaults":[]},"mazenovi_user_api_getusertoken":{"tokens":[["text","\/users\/token"]],"defaults":[]},"mazenovi_todomvc_api_index":{"tokens":[["text","\/todos\/"]],"defaults":[]},"mazenovi_todomvc_api_listuser":{"tokens":[["text","\/todos\/"],["variable","\/","\\d+","id"],["text","\/users"]],"defaults":[]}}});
+    </script>
+  {% endif %}
+
   <script>
-  var context = {
-    user: {
-      {% if app.user.id is defined %}
-        id: {{ app.user.id }},
-      {% endif %}
-      {% if app.user.avatar is defined %}
-        avatar: '{{ app.user.avatar }}',
-      {% endif %}
-      {% if app.user.roles is defined %}
-        roles: '{{ app.user.roles | join(';')}}',
-      {% endif %}
-      {% if app.user.username is defined %}
-        username: '{{ app.user.username }}'
-      {% endif %}
-    },
-    wsse: {
-      {% if app.session.has('Nonce') %}
-        nonce: '{{ app.session.get('Nonce') }}',
-      {% endif %}
-      {% if app.session.has('Created') %}
-        created: '{{ app.session.get('Created') }}',
-      {% endif %}
-      {% if app.session.has('PasswordDigest') %}
-        password_digest: '{{ app.session.get('PasswordDigest') }}'
-      {% endif %}  
-    }
-  };
-</script>
+    define("context", function () {
+      return {
+        user: {
+        {% if app.user.id is defined %}
+          id: {{ app.user.id }},
+        {% endif %}
+        {% if app.user.avatar is defined %}
+          avatar: '{{ app.user.avatar }}',
+        {% endif %}
+        {% if app.user.roles is defined %}
+          roles: '{{ app.user.roles | join(';')}}',
+        {% endif %}
+        {% if app.user.username is defined %}
+          username: '{{ app.user.username }}'
+        {% endif %}
+        },
+        wsse: {
+        {% if app.session.has('Nonce') %}
+          nonce: '{{ app.session.get('Nonce') }}',
+        {% endif %}
+        {% if app.session.has('Created') %}
+          created: '{{ app.session.get('Created') }}',
+        {% endif %}
+        {% if app.session.has('PasswordDigest') %}
+          password_digest: '{{ app.session.get('PasswordDigest') }}'
+        {% endif %}  
+        }
+      };
+    });
+  </script>
+  
+  {% if app.request.get('debug') != 'true' %}
+    <script src="/bundles/mazenovitodomvc/js/build/app.js"></script>
+  {% endif %}
+
 {% endblock head_script %}
 
-{% block content_title %}Todos{% endblock content_title %}
+{% block content_title %}
+  <i class="icon-cloud"></i> Todos
+{% endblock content_title %}
 
 {% block new_todo %}<input id="new-todo" autofocus="" placeholder="What needs to be done?">{% endblock new_todo %}
 

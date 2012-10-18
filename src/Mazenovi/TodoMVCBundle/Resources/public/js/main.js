@@ -2,6 +2,17 @@
 require.config({
 	// The shim config allows us to configure dependencies for
 	// scripts that do not call define() to register a module
+	deps: ["bootstrap", "google_analytics"],
+	excludeShallow: ["context"],
+	paths: {
+		jquery: '../../manymulesjquery/js/jquery',
+		underscore: '../../manymulesunderscorejs/js/underscore',
+		backbone: '../../manymulesbackbonejs/js/backbone',
+		text: '../../manymulesrequirejs/js/plugins/text',
+		bootstrap: 'assets/bootstrap',
+		google_analytics: 'libs/google_analytics',
+		context: 'empty:'
+	},
 	shim: {
 		'underscore': {
 			exports: '_'
@@ -12,20 +23,18 @@ require.config({
 				'jquery'
 			],
 			exports: 'Backbone'
-		}
-	},
-	paths: {
-		jquery: '/bundles/manymulesjquery/js/jquery.min',
-		underscore: '/bundles/manymulesunderscorejs/js/underscore.min',
-		backbone: '/bundles/manymulesbackbonejs/js/backbone.min',
-		text: '/bundles/manymulesrequirejs/js/plugins/text.min'
+		},
+		'bootstrap': {
+     		deps: ["jquery"]
+    	}
 	}
 });
 
 require([
 	'views/app',
-	'routers/router'
-], function( AppView, Workspace ) {
+	'routers/router',
+	'context'
+], function( AppView, Workspace, Context ) {
 	
 	// see also http://stackoverflow.com/questions/7785079/how-use-token-authentication-with-rails-devise-and-backbone-js
 	// @todo où est la bonne place / quelle est la bonne façon de faire
@@ -33,9 +42,9 @@ require([
   	Backbone.sync = function(method, model, options) {
     	var new_options =  _.extend({
 	        beforeSend: function(xhr) {
-    	      	if(typeof context['user']['username'] !== 'undefined' && typeof context['wsse']['password_digest'] !== 'undefined' && context['wsse']['nonce'] !== 'undefined' && context['wsse']['created'] !== 'undefined' )
+    	      	if(typeof Context.user.username !== 'undefined' && typeof Context.wsse.password_digest !== 'undefined' && Context.wsse.nonce !== 'undefined' && Context.wsse.created !== 'undefined' )
           		{
-            		xhr.setRequestHeader('X-WSSE', 'UsernameToken Username="' + context['user']['username'] + '", PasswordDigest="' +  context['wsse']['password_digest'] + '", Nonce="' + context['wsse']['nonce'] + '", Created="' + context['wsse']['created'] + '"');
+            		xhr.setRequestHeader('X-WSSE', 'UsernameToken Username="' + Context.user.username + '", PasswordDigest="' +  Context.wsse.password_digest + '", Nonce="' + Context.wsse.nonce + '", Created="' + Context.wsse.created + '"');
 				}	
 			}
     	}, options)

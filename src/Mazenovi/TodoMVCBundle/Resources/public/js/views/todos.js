@@ -4,8 +4,9 @@ define([
 	'backbone',
 	'text!templates/todos.html',
 	'models/user',
-	'common'
-], function( $, _, Backbone, todosTemplate, User, Common ) {
+	'common',
+	'context'
+], function( $, _, Backbone, todosTemplate, User, Common, Context ) {
 
 	var TodoView = Backbone.View.extend({
 
@@ -27,7 +28,7 @@ define([
 		// app, we set a direct reference on the model for convenience.
 		initialize: function() {
 			this.user = new User();
-			this.user.set(context['user']);
+			this.user.set( Context.user );
 			this.model.on( 'change', this.render, this );
 			this.model.on( 'destroy', this.remove, this );
 		},
