@@ -52,7 +52,7 @@
         "TypehintableBehavior": "master",
         "friendsofsymfony/jsrouting-bundle": "dev-master",
         "friendsofsymfony/rest-bundle": "dev-master",
-        "friendsofsymfony/user-bundle": "*",
+        "friendsofsymfony/user-bundle": "dev-master",
         "hwi/oauth-bundle": "*",
         "jms/metadata": "dev-master as 1.1.2-dev",
         "manymules/backbonejs-bundle": "*",

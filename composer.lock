@@ -1,5 +1,5 @@
 {
-    "hash": "494a3ac70db7e5f7114c27a6b6050bb5",
+    "hash": "1948197ae78b0925432d83f860edbd35",
     "packages": [
         {
             "name": "TypehintableBehavior",
@@ -1168,19 +1168,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ManyMules/ManyMulesRequireJsBundle",
-                "reference": "2.1.0"
+                "reference": "2.1.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/ManyMules/ManyMulesRequireJsBundle/zipball/2.1.0",
-                "reference": "2.1.0",
+                "url": "https://github.com/ManyMules/ManyMulesRequireJsBundle/zipball/2.1.1",
+                "reference": "2.1.1",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
                 "symfony/framework-bundle": "2.*"
             },
-            "time": "1349344144",
+            "time": "1350396926",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
@@ -1214,19 +1214,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ManyMules/ManyMulesUnderscoreJsBundle",
-                "reference": "1.4.0"
+                "reference": "1.4.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/ManyMules/ManyMulesUnderscoreJsBundle/zipball/1.4.0",
-                "reference": "1.4.0",
+                "url": "https://github.com/ManyMules/ManyMulesUnderscoreJsBundle/zipball/1.4.2",
+                "reference": "1.4.2",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
                 "symfony/framework-bundle": "2.*"
             },
-            "time": "1348834433",
+            "time": "1350396569",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
@@ -1423,7 +1423,7 @@
             "source": {
                 "type": "git",
                 "url": "http://github.com/nelmio/NelmioApiDocBundle",
-                "reference": "bd625aebed21c6abc494490ed7965cd4ea21caee"
+                "reference": "6aac4a001e4ac9d38cd863bcd1afe7b516daedcc"
             },
             "dist": {
                 "type": "zip",
@@ -1432,20 +1432,20 @@
                 "shasum": ""
             },
             "require": {
-                "symfony/framework-bundle": "2.1.*",
-                "symfony/twig-bundle": "2.1.*",
-                "symfony/form": "2.1.*",
-                "dflydev/markdown": "1.0.*"
+                "dflydev/markdown": "1.0.*",
+                "symfony/framework-bundle": ">=2.1,<2.3-dev",
+                "symfony/twig-bundle": ">=2.1,<2.3-dev",
+                "symfony/form": ">=2.1,<2.3-dev"
             },
             "require-dev": {
-                "symfony/css-selector": "2.1.*",
-                "symfony/browser-kit": "2.1.*",
-                "symfony/validator": "2.1.*",
-                "symfony/yaml": "2.1.*",
                 "friendsofsymfony/rest-bundle": "dev-master",
-                "jms/serializer-bundle": "0.9.*"
+                "jms/serializer-bundle": "0.9.*",
+                "symfony/css-selector": ">=2.1,<2.3-dev",
+                "symfony/browser-kit": ">=2.1,<2.3-dev",
+                "symfony/validator": ">=2.1,<2.3-dev",
+                "symfony/yaml": ">=2.1,<2.3-dev"
             },
-            "time": "1349974955",
+            "time": "1350302687",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1686,19 +1686,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensio/SensioFrameworkExtraBundle",
-                "reference": "53a2a5e5ba052b2ae281f3b8bd9b530947a328b4"
+                "reference": "6a63ea91085be5073d8928fd48fa53734b3c2a57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/sensio/SensioFrameworkExtraBundle/zipball/53a2a5e5ba052b2ae281f3b8bd9b530947a328b4",
-                "reference": "53a2a5e5ba052b2ae281f3b8bd9b530947a328b4",
+                "url": "https://github.com/sensio/SensioFrameworkExtraBundle/zipball/6a63ea91085be5073d8928fd48fa53734b3c2a57",
+                "reference": "6a63ea91085be5073d8928fd48fa53734b3c2a57",
                 "shasum": ""
             },
             "require": {
                 "symfony/framework-bundle": "2.1.*",
                 "doctrine/common": ">=2.1,<2.4-dev"
             },
-            "time": "1349786071",
+            "time": "1350448707",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1948,12 +1948,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/SwiftmailerBundle",
-                "reference": "231d05f51c3dddd0d45500ec7d22a5315a0ce84f"
+                "reference": "2393ba6d4f1b544349123e24a16bbc749bef9e55"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/SwiftmailerBundle/zipball/231d05f51c3dddd0d45500ec7d22a5315a0ce84f",
-                "reference": "231d05f51c3dddd0d45500ec7d22a5315a0ce84f",
+                "url": "https://github.com/symfony/SwiftmailerBundle/zipball/2393ba6d4f1b544349123e24a16bbc749bef9e55",
+                "reference": "2393ba6d4f1b544349123e24a16bbc749bef9e55",
                 "shasum": ""
             },
             "require": {
@@ -1967,7 +1967,7 @@
                 "symfony/config": ">=2.1.0,<2.3-dev",
                 "symfony/yaml": ">=2.1.0,<2.3-dev"
             },
-            "time": "1350120593",
+            "time": "1350447491",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -2002,12 +2002,12 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/symfony/symfony.git",
-                "reference": "8731cc30fff6e34891270ad7db9d1d4fd26800a6"
+                "reference": "defccb35161e29c99cb0b2f18b6d6e97a6a1632b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/symfony/zipball/8731cc30fff6e34891270ad7db9d1d4fd26800a6",
-                "reference": "8731cc30fff6e34891270ad7db9d1d4fd26800a6",
+                "url": "https://github.com/symfony/symfony/zipball/defccb35161e29c99cb0b2f18b6d6e97a6a1632b",
+                "reference": "defccb35161e29c99cb0b2f18b6d6e97a6a1632b",
                 "shasum": ""
             },
             "require": {
@@ -2054,9 +2054,9 @@
                 "doctrine/orm": ">=2.2.3,<2.4-dev",
                 "doctrine/data-fixtures": "1.0.*",
                 "propel/propel1": "dev-master",
-                "monolog/monolog": "dev-master"
+                "monolog/monolog": "1.*"
             },
-            "time": "1350286083",
+            "time": "1350396939",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -2142,18 +2142,18 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/fabpot/Twig.git",
-                "reference": "f48f23a34da75d11b26f250a3e491e7d6bab7981"
+                "reference": "bac6bc7851c51692af1d855065e88b564e047b3b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/fabpot/Twig/zipball/f48f23a34da75d11b26f250a3e491e7d6bab7981",
-                "reference": "f48f23a34da75d11b26f250a3e491e7d6bab7981",
+                "url": "https://github.com/fabpot/Twig/zipball/bac6bc7851c51692af1d855065e88b564e047b3b",
+                "reference": "bac6bc7851c51692af1d855065e88b564e047b3b",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4"
             },
-            "time": "1350286697",
+            "time": "1350391198",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -2224,6 +2224,7 @@
         "propel/propel-bundle": 20,
         "friendsofsymfony/jsrouting-bundle": 20,
         "friendsofsymfony/rest-bundle": 20,
+        "friendsofsymfony/user-bundle": 20,
         "mopa/bootstrap-bundle": 20,
         "knplabs/knp-menu-bundle": 20,
         "nelmio/api-doc-bundle": 20,
