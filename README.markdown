@@ -3,7 +3,7 @@ symfony2-propel-todomvc
 
 Symfony2 + Propel variation around todomvc theme (see [http://addyosmani.github.com/todomvc/](http://addyosmani.github.com/todomvc/))
 
-Big thanks to [@willdurand](https://github.com/willdurand) for his precious help
+Big thanks to [@willdurand](https://github.com/willdurand) and [@themouette](https://github.com/themouette) for their precious help
 
 # How to install
 
