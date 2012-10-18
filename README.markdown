@@ -53,7 +53,7 @@ $ php app/console todomvc:build
 * generate minified assets
 
 ``` bash
-$ cd web/mazenovitodomvc/js
+$ cd web/bundles/mazenovitodomvc/js
 $ bbb debug
 ```
 
