@@ -13,18 +13,26 @@ fos_user_resetting:
     resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
     prefix: /resetting
 
-facebook_login:
-    pattern: /login/check-facebook
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix:   /connect
+
+linkedin_login:
+    pattern: /login/check-linkedin
 
 google_login:
     pattern: /login/check-google
 
-custom_login:
-    pattern: /login/check-custom
+windows_live_login:
+    pattern: /login/check-windows_live
+
+facebook_login:
+    pattern: /login/check-facebook
+
+twitter_login:
+    pattern: /login/check-twitter
 
 github_login:
     pattern: /login/check-github
 
-hwi_oauth_redirect:
-    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
-    prefix:   /connect
+

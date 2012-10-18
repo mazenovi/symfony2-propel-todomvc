@@ -28,7 +28,13 @@
         <column name="credentials_expire_at" type="timestamp" required="false" />
         <column name="roles" type="array" />
         <column name="avatar" type="varchar" size="255" required="true" />
+        <column name="linkedin_id" type="varchar" size="255" required="true" />
+        <column name="google_id" type="varchar" size="255" required="true" />
+        <column name="windows_live_id" type="varchar" size="255" required="true" />
         <column name="facebook_id" type="varchar" size="255" required="true" />
+        <column name="twitter_id" type="varchar" size="255" required="true" />
+        <column name="github_id" type="varchar" size="255" required="true" />
+
 
         <behavior name="typehintable">
             <parameter name="last_login" value="DateTime" />

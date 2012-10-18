@@ -11,17 +11,14 @@ framework:
     form:            true
     csrf_protection: true
     validation:      { enable_annotations: true }
-    templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
+    templating:      { engines: ['twig'] }
     default_locale:  %locale%
     session: ~
-        #auto_start:     true
 
-# Twig Configuration
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
 
-# Assetic Configuration
 assetic:
     debug:          %kernel.debug%
     use_controller: false
@@ -36,7 +33,6 @@ assetic:
         yui_js:
             jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
 
-# Propel Configuration
 propel:
     dbal:
         driver:               mysql
@@ -49,7 +45,6 @@ propel:
         propel.mysql.tableType: InnoDB
         propel.behavior.typehintable.class: vendor.TypehintableBehavior.src.TypehintableBehavior
 
-# Swiftmailer Configuration
 swiftmailer:
     transport: %mailer_transport%
     host:      %mailer_host%
@@ -60,7 +55,6 @@ swiftmailer:
 sensio_framework_extra:
     view:    { annotations: false }
     router:  { annotations: true }
-
 
 jms_serializer:
     metadata:
@@ -94,29 +88,67 @@ fos_rest:
 fos_user:
     service:
         mailer: fos_user.mailer.noop
-    user_class:  FOS\UserBundle\Propel\User
-    # @todo how to use a custom class
-    #user_class:  Mazenovi\UserBundle\Model\User
-    db_driver: propel
     firewall_name: main
+    db_driver: propel
+    user_class:  FOS\UserBundle\Propel\User    
+    #db_driver: custom
+    #user_class:  Mazenovi\UserBundle\Model\User
+    #service:
+    #    user_manager: mazenovi.user_manager    
+    #profile:
+    #    form:
+    #        type: mazenovi_user_profile
+    #        handler: mazenovi.form.handler.profile
 
 hwi_oauth:
     # name of the firewall in which this bundle is active, this setting MUST be set
     firewall_name: main
     resource_owners:
+        linkedin:
+            type:                linkedin
+            client_id:           %linkedin_client_id%
+            client_secret:       %linkedin_client_secret%
+        google:
+            type:                google
+            client_id:           %google_client_id%
+            client_secret:       %google_client_secret%
+            scope:               "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"
+        windows_live:
+            type:                windows_live
+            client_id:           %windows_live_client_id%
+            client_secret:       %windows_live_client_secret%
+            scope:               ""
         facebook:
             type:                facebook
             client_id:           %facebook_client_id%
             client_secret:       %facebook_client_secret%
-            scope:               ""
+            scope:               "email, user_location"
+            paths:
+                identifier: id
+                nickname:   username
+                realname:   name
+                email:      email
+        twitter:
+            type:                twitter
+            client_id:           %twitter_client_id%
+            client_secret:       %twitter_client_secret%
+        github:
+            type:                github
+            client_id:           %github_client_id%
+            client_secret:       %github_client_secret%
+            scope:               ""        
     # optional FOSUserBundle integration
     fosub:
         # try 30 times to check if a username is available (foo, foo1, foo2 etc)
         username_iterations: 30
-
         # mapping between resource owners (see below) and properties
         properties:
-            facebook: facebookId
+            linkedin:     linkedinId
+            google:       googleId
+            windows_live: windowsLiveId
+            facebook:     facebookId
+            twitter:      twitterId
+            github:       githubId
 parameters:
     behat:
         base_url: http://todo/app_dev.php

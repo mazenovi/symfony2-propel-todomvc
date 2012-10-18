@@ -40,13 +40,18 @@ security:
             anonymous:    true
             oauth:
                 resource_owners:
+                    linkedin:        /login/check-linkedin
+                    google:          /login/check-google
+                    windows_live:    /login/check-windows_live
                     facebook:        /login/check-facebook
+                    twitter:         /login/check-twitter
+                    github:          /login/check-github                    
                 login_path:          /login
                 failure_path:        /login
                 default_target_path: /todos
 
                 oauth_user_provider:
-                    service: hwi_oauth.user.provider.fosub_bridge
+                    service: mazenovi.oauth.user.provider
 
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }

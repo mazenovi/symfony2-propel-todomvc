@@ -1,7 +1,29 @@
-parameters:
-#    mazenovi_user.example.class: Mazenovi\UserBundle\Example
-
 services:
-#    mazenovi_user.example:
-#        class: %mazenovi_user.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    mazenovi.oauth.user.provider:
+        class: Mazenovi\UserBundle\Security\User\Provider\OAuthUserProvider
+        arguments:
+            userManager: "@fos_user.user_manager"
+            properties: 
+                linkedin:     linkedinId
+                google:       googleId
+                windows_live: windowsLiveId
+                facebook:     facebookId
+                twitter:      twitterId
+                github:       githubId
+
+
+    mazenovi.user_manager:
+        class: Mazenovi\UserBundle\Model\UserManager
+        arguments: [@security.encoder_factory, @fos_user.util.username_canonicalizer, @fos_user.util.email_canonicalizer, %fos_user.model.user.class%]
+
+    mazenovi.profile.form.type:
+        class: Mazenovi\UserBundle\Form\Type\ProfileFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: mazenovi_user_profile }
+
+    mazenovi.form.handler.profile:
+        class: Mazenovi\UserBundle\Form\Handler\ProfileFormHandler
+        arguments: ["@fos_user.profile.form", "@request", "@fos_user.user_manager", "@fos_user.mailer", "@fos_user.util.token_generator"]
+        scope: request
+        public: false
