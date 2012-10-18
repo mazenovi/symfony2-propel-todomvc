@@ -419,6 +419,6 @@ label[for='toggle-all'] {
 	}
 }
 
-.fos_user_profile_edit, .fos_user_login, .fos_user_registration_register{
+.fos_user_profile_edit, .fos_user_login, .fos_user_registration_register, .fos_user_resetting_request{
 	margin-left: 60px;
 }
