@@ -94,8 +94,6 @@ $ php bin/behat @MazenoviTodoMVCBundle
 
 # Roadmap
 
-* update tests
-* Generates documentation with [NelmioApiDocBundle](https://github.com/nelmio/NelmioApiDocBundle)
 * introduce date in todo
 * introduce geolocation todo with [BazingaGeocoderBundle](https://github.com/willdurand/BazingaGeocoderBundle) and [jquery-addresspicker](git://github.com/sgruhier/jquery-addresspicker.git)
 * [visual search](http://documentcloud.github.com/visualsearch/) on user, title, date and location
