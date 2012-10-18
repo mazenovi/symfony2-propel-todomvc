@@ -9,8 +9,9 @@ Big thanks to [@willdurand](https://github.com/willdurand) for his precious help
 
 configure db connections, and your social parameters in app/config/paramaters.yml
 
-configure [less](https://github.com/phiamo/MopaBootstrapBundle/blob/master/Resources/doc/less-installation.md) and [yui compressor](http://yuilibrary.com/download/yuicompressor/) paths in app/config/config.yml. Something like:
-
+* install [`nodejs`](http://nodejs.org/) and [`npm`](https://npmjs.org/) ([in 30 secondes](https://gist.github.com/579814#file_node_and_npm_in_30_seconds.sh))
+* install [`less](https://github.com/phiamo/MopaBootstrapBundle/blob/master/Resources/doc/less-installation.md)
+* install [`grunt`](https://github.com/backbone-boilerplate/grunt-bbb#getting-started)
 
 ``` yml
 assetic:
@@ -19,10 +20,6 @@ assetic:
             node: /usr/local/bin/node
             node_paths: [/usr/local/lib/node_modules]
             apply_to: "\.less$"
-        yui_css:
-            jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
-        yui_js:
-            jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
 ```
 
 Run in your shell the nexts commands lines
@@ -64,15 +61,16 @@ $ app/console propel:database:create
 $ php app/console todomvc:build
 ```
 
+* generate minified assets
+
+``` bash
+$ cd web/mazenovitodomvc/js
+$ bbb debug
+```
+
 * visit /app_dev.php/todos/
 
 you can login with todomvc:todomvc to test admin account, and with todomvcguest:todomvcguest to test simple user account
-
-* generate assets
-
-``` bash
-$ app/console assetic:dump --env=prod --no-debug
-```
 
 * visit /app.php/todos/
 
