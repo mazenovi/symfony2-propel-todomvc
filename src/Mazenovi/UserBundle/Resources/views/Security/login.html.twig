@@ -19,42 +19,48 @@
 		Authentification
 		<ul>
 			<li>
+				<a href="/connect/linkedin">
+					<img class="icon16" src="https://hwiconnect.net/img/social/linkedin_16.png">
+					LinkedIn
+				</a>
+			</li>
+			<li>
+				<a href="/connect/google">
+					<img class="icon16" src="https://hwiconnect.net/img/social/google_16.png">
+					Google
+				</a>
+			</li>
+			<li>
+				<a href="/connect/windows_live">
+					<img class="icon16" src="https://hwiconnect.net/img/social/windows_16.png">
+					Windows Live
+				</a>
+			</li>
+			<li>
 				<a href="/connect/facebook">
 					<img class="icon16" src="https://hwiconnect.net/img/social/facebook_16.png">
 					Facebook
 				</a>
 			</li>
 			<li>
-				<a href="#login2">
-					<img class="icon16" src="https://hwiconnect.net/img/social/google_16.png">
-					Google
-				</a>
-			</li>
-			<li>
-				<a href="#login4">
-					<img class="icon16" src="https://hwiconnect.net/img/social/windows_16.png">
-					Windows Live
-				</a>
-			</li>
-			<li>
-				<a href="#login5">
-					<img class="icon16" src="https://hwiconnect.net/img/social/github_16.png">
-					GitHub
-				</a>
-			</li>
-			<li>
-				<a href="#login6">
+				<a href="/connect/twitter">
 					<img class="icon16" src="https://hwiconnect.net/img/social/twitter_16.png">
 					Twitter
 				</a>
-			</li>
+			</li>			
 			<li>
-				<a href="#login7">
-					<img class="icon16" src="https://hwiconnect.net/img/social/linkedin_16.png">
-					LinkedIn
+				<a href="/connect/github">
+					<img class="icon16" src="https://hwiconnect.net/img/social/github_16.png">
+					GitHub
 				</a>
-			</li>
+			</li>			
+			
 		</ul>
+		<div id="reset_request">
+			<a href="{{ url('fos_user_resetting_request')}}" class="btn btn-inverse">
+				{{ 'resetting.request.submit'|trans({}, 'FOSUserBundle') }}
+			</a>
+		</div>
 	</div>
 
 	<form action="{{ path("fos_user_security_check") }}" onkeypress="if (event.keyCode == 13) $(this).submit()" method="post" class="fos_user_login">
@@ -87,5 +93,7 @@
 		</a>
 
 	</form>
+
+</div>
 
 {% endblock content %}
