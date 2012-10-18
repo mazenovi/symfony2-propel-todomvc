@@ -11,8 +11,12 @@ require.config({
 		text: '../../manymulesrequirejs/js/plugins/text',
 		bootstrap: 'assets/bootstrap',
 		google_analytics: 'libs/google_analytics',
+		tpl: 'libs/tpl',
 		context: 'empty:'
 	},
+	pragmasOnSave: {
+        excludeTpl: true
+    },
 	shim: {
 		'underscore': {
 			exports: '_'

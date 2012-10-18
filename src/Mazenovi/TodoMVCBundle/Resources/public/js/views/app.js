@@ -6,7 +6,7 @@ define([
 	'views/todos',
 	'models/user',
 	'views/users',
-	'text!templates/stats.html',
+	'tpl!templates/stats.html',
 	'common',
 	'context'
 ], function( $, _, Backbone, Todos, TodoView, User, UserView, statsTemplate, Common, Context ) {
@@ -18,7 +18,7 @@ define([
 		el: $('#todoapp'),
 
 		// Compile our stats template
-		template: _.template( statsTemplate ),
+		//template: _.template( statsTemplate ),
 
 		// Delegated events for creating new items, and clearing completed ones.
 		events: {
@@ -68,7 +68,7 @@ define([
 				this.$main.show();
 				this.$footer.show();
 
-				this.$footer.html(this.template({
+				this.$footer.html(statsTemplate({
 					completed: completed,
 					remaining: remaining
 				}));

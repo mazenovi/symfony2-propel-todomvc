@@ -2,7 +2,7 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'text!templates/todos.html',
+	'tpl!templates/todos.html',
 	'models/user',
 	'common',
 	'context'
@@ -12,7 +12,7 @@ define([
 
 		tagName:  'li',
 
-		template: _.template( todosTemplate ),
+		//template: _.template( todosTemplate ),
 
 		// The DOM events specific to an item.
 		events: {
@@ -36,7 +36,7 @@ define([
 		// Re-render the titles of the todo item.
 		render: function() {
 			var $el = $( this.el );
-			$el.html( this.template( this.model.toJSON() ) );
+			$el.html( todosTemplate( this.model.toJSON() ) );
 			$el.toggleClass( 'completed', this.model.get('completed') );
 			if(!this.model.isGranted('DELETE'))
 			{
