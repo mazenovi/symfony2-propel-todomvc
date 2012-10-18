@@ -10,7 +10,7 @@ Big thanks to [@willdurand](https://github.com/willdurand) for his precious help
 configure db connections, and your social parameters in app/config/paramaters.yml
 
 * install [`nodejs`](http://nodejs.org/) and [`npm`](https://npmjs.org/) ([in 30 secondes](https://gist.github.com/579814#file_node_and_npm_in_30_seconds.sh))
-* install [`less](https://github.com/phiamo/MopaBootstrapBundle/blob/master/Resources/doc/less-installation.md)
+* install [`less`](https://github.com/phiamo/MopaBootstrapBundle/blob/master/Resources/doc/less-installation.md)
 * install [`grunt`](https://github.com/backbone-boilerplate/grunt-bbb#getting-started)
 
 ``` yml
