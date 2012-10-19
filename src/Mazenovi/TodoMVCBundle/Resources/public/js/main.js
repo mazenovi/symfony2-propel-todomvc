@@ -12,7 +12,7 @@ require.config({
 		bootstrap: 'assets/bootstrap',
 		google_analytics: 'libs/google_analytics',
 		tpl: 'libs/tpl',
-		context: 'empty:'
+		context: 'empty'
 	},
 	pragmasOnSave: {
         excludeTpl: true
