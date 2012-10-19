@@ -16,11 +16,13 @@ class WsseProvider implements AuthenticationProviderInterface
     private $userProvider;
     private $cacheDir;
 
-    public function __construct(UserProviderInterface $userProvider, $cacheDir, $lifetime)
+    public function __construct(UserProviderInterface $userProvider, $noncesCacheDir, $lifetime, $cacheDir)
     {
-        $this->userProvider = $userProvider;
-        $this->cacheDir     = $cacheDir;
-        $this->lifetime     = $lifetime;
+        $this->userProvider        = $userProvider;
+        $this->noncesCacheDir      = $noncesCacheDir;
+        $this->lifetime            = $lifetime;
+        $this->cacheDir            = $cacheDir;
+        $this->noncesFullCachePath = $this->cacheDir.'/'. $this->noncesCacheDir;
     }
 
     public function authenticate(TokenInterface $token)
@@ -40,30 +42,33 @@ class WsseProvider implements AuthenticationProviderInterface
 
     protected function validateDigest($digest, $nonce, $created, $secret)
     {
-        // Expire timestamp after 5 minutes        
+        // Expire timestamp after lifetime seconds
         if (time() - strtotime($created) > $this->lifetime) {
             return false;
         }
       
-        if (file_exists($this->cacheDir.'/'.$nonce) && file_get_contents($this->cacheDir.'/'.$nonce) + $this->lifetime < time()) {
+        if (file_exists($this->noncesFullCachePath .'/'. $nonce) 
+            && file_get_contents($this->noncesFullCachePath .'/'. $nonce) + $this->lifetime < time()
+        ) {
             throw new NonceExpiredException('Previously used nonce detected');
         }
 
         $fs = new Filesystem();
-        if(!$fs->exists($this->cacheDir))
+
+        if(!$fs->exists($this->noncesFullCachePath))
         {
-            $paths = explode('/',$this->cacheDir);
-            $pathToCreate='';
+            $paths = explode('/', $this->noncesCacheDir);
+            $pathToCreate = $this->cacheDir;
             foreach($paths as $path)
             {
                 $pathToCreate.='/'.$path;
                 if(!$fs->exists($pathToCreate))
                 {
-                   $fs->mkdir($pathToCreate );
+                   $fs->mkdir($pathToCreate);
                 }
             }
         }
-        file_put_contents($this->cacheDir.'/'.$nonce, time());
+        file_put_contents($this->noncesFullCachePath.'/'.$nonce, time());
 
         // Validate Secret
         $expected = base64_encode(sha1(base64_decode($nonce).$created.$secret, true));

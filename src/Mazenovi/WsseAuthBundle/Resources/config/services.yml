@@ -4,13 +4,13 @@ parameters:
 services:
   wsse.security.authentication.provider:
     class:  Mazenovi\WsseAuthBundle\Security\Authentication\Provider\WsseProvider
-    arguments: ['', %security.authentication.login.listener.wsse.nonces_path%, %security.authentication.login.listener.wsse.lifetime%]
+    arguments: ['', %security.authentication.login.listener.wsse.nonces_cache_path%, %security.authentication.login.listener.wsse.lifetime%, %kernel.cache_dir%]
 
   wsse.security.authentication.login.listener:
     class:  Mazenovi\WsseAuthBundle\Security\Authentication\Login\WsseListener
     tags:
         -  { name: kernel.event_listener, event: security.interactive_login, method: onSecurityInteractiveLogin }
-    arguments: [@security.context, @session, %security.authentication.login.listener.wsse.nonces_path%]
+    arguments: [@security.context, @session]
 
   wsse.security.firewall.listener:
     class:  Mazenovi\WsseAuthBundle\Security\Firewall\WsseListener

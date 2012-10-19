@@ -15,13 +15,13 @@ class WsseFactory implements SecurityFactoryInterface
         $container
             ->setDefinition($providerId, new DefinitionDecorator('wsse.security.authentication.provider'))
             ->replaceArgument(0, new Reference($userProvider))
-            ->replaceArgument(1, $config['nonces_path'])
+            ->replaceArgument(1, $config['nonces_cache_path'])
             ->replaceArgument(2, $config['lifetime']);
 
         $listenerId = 'security.firewall.listener.wsse.'.$id;
         $listener = $container->setDefinition($listenerId, new DefinitionDecorator('wsse.security.firewall.listener'));
 
-        $container->setParameter('security.authentication.login.listener.wsse.nonces_path', $config['nonces_path']);
+        $container->setParameter('security.authentication.login.listener.wsse.nonces_cache_path', $config['nonces_cache_path']);
         $container->setParameter('security.authentication.login.listener.wsse.lifetime', $config['lifetime']);
         $container->setParameter('security.authentication.login.listener.wsse.protected_urls', $config['protected_urls']);
         
@@ -43,7 +43,7 @@ class WsseFactory implements SecurityFactoryInterface
         $node
         ->children()
         ->scalarNode('lifetime')->defaultValue(300)->end()
-        ->scalarNode('nonces_path')->defaultValue('%kernel.cache_dir%/security/nonces')->end()
+        ->scalarNode('nonces_cache_path')->defaultValue('security/nonces')->end()
         ->arrayNode('protected_urls')
             ->requiresAtLeastOneElement()
             ->prototype('array')

@@ -9,11 +9,10 @@ use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
 
 class WsseListener
 {
-    public function __construct(SecurityContext $security, Session $session, $cacheDir)
+    public function __construct(SecurityContext $security, Session $session)
     {
         $this->security = $security;
         $this->session = $session;
-        $this->cacheDir = $cacheDir;
     }
 
     public function onSecurityInteractiveLogin(InteractiveLoginEvent $event)
