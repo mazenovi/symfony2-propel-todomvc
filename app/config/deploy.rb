@@ -25,6 +25,15 @@ set :dump_assetic_assets, false
 
 set :use_sudo, false
 
+namespace :deploy do
+  task :grunt, :roles => :web do
+  	run "ln -s " + deploy_to + "/shared/vendor/twitter/bootstrap " + deploy_to + "/web/bundles/twitter"
+    run "cd web/bundles/mazenovitodomvc/js && bbb debug"
+  end
+end
+
+after "deploy", "deploy:grunt" 
+
 # php composer.phar update pour les symlink du twitter bootstrap
 # php app/console assetic:dump génération du less
 # php app/console propel:build --insert-sql
