@@ -20,7 +20,12 @@ define([
 			title: '',
 			completed: false,
 			fos_user_id: 0,
-			username: 'anonymous'
+			username: 'anonymous',
+			permissions: {
+        		"object": [
+            		"VIEW"
+        		]
+        	}
 		},
 
 		// Ensure that each todo created has `title`.

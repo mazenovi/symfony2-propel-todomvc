@@ -37,8 +37,7 @@ class JSONViewHandler
     public function createResponse(ViewHandler $handler, View $view, Request $request, $format)
     {
         $data = $view->getData();
-        $user = $this->securityContext->getToken()->getUser();
-        if($view->getData() instanceOf \PropelObjectCollection && $user instanceof UserInterface)
+        if($view->getData() instanceOf \PropelObjectCollection)
         {    
             $data = array();
             foreach($view->getData() as $k => $o)
@@ -66,7 +65,7 @@ class JSONViewHandler
                 array_push($data, $o);            
             }
         }
-        elseif($view->getData() instanceOf \BaseObject && $user instanceof UserInterface)
+        elseif($view->getData() instanceOf \BaseObject)
         {    
             $refl = new \ReflectionClass('Symfony\Component\Security\Acl\Permission\MaskBuilder');
 

@@ -11,6 +11,7 @@
 
 namespace Mazenovi\UserBundle\Controller;
 
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\DependencyInjection\ContainerAware;
 use Symfony\Component\Security\Core\SecurityContext;
@@ -20,9 +21,9 @@ use FOS\UserBundle\Controller\SecurityController as BaseController;
 
 class SecurityController extends BaseController
 {
-    public function loginAction()
+    public function loginAction(Request $request)
     {
-        $request = $this->container->get('request');
+        //$request = $this->container->get('request');
         /* @var $request \Symfony\Component\HttpFoundation\Request */
         $session = $request->getSession();
         /* @var $session \Symfony\Component\HttpFoundation\Session */
