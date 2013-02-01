@@ -1,5 +1,5 @@
 {
-    "hash": "3b201f51be7231be73374a8818bf65ab",
+    "hash": "a1a8e1c004170fded34aa8bf75ea6503",
     "packages": [
         {
             "name": "TypehintableBehavior",
@@ -9,9 +9,278 @@
                 "url": "git://github.com/willdurand/TypehintableBehavior.git",
                 "reference": "master"
             },
-            "type": "library",
-            "installation-source": "source",
-            "time": "2012-07-15 14:03:24"
+            "time": "2012-07-15 14:03:24",
+            "type": "library"
+        },
+        {
+            "name": "bmatzner/backbone-bundle",
+            "version": "dev-master",
+            "target-dir": "Bmatzner/BackboneBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bmatzner/BmatznerBackboneBundle",
+                "reference": "0.9.10"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bmatzner/BmatznerBackboneBundle/zipball/0.9.10",
+                "reference": "0.9.10",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/framework-bundle": ">=2.1",
+                "bmatzner/underscore-bundle": "*"
+            },
+            "time": "2013-01-16 00:08:18",
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Bmatzner\\BackboneBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bernd Matzner",
+                    "email": "bernd@matznermatzner.de",
+                    "homepage": "http://berndmatzner.de"
+                }
+            ],
+            "description": "Backbone.js Bundle for Symfony2",
+            "homepage": "http://backbonejs.org/",
+            "keywords": [
+                "symfony",
+                "javascript",
+                "backbone"
+            ]
+        },
+        {
+            "name": "bmatzner/fontawesome-bundle",
+            "version": "dev-master",
+            "target-dir": "Bmatzner/FontAwesomeBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bmatzner/BmatznerFontAwesomeBundle",
+                "reference": "3.0.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/bmatzner/BmatznerFontAwesomeBundle/archive/3.0.2.zip",
+                "reference": "3.0.2",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/framework-bundle": ">=2.1"
+            },
+            "time": "2013-01-18 09:49:16",
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Bmatzner\\FontAwesomeBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT",
+                "CC BY 3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Bernd Matzner",
+                    "email": "bernd@matznermatzner.de",
+                    "homepage": "http://berndmatzner.de"
+                }
+            ],
+            "description": "FontAwesome Bundle for Symfony2",
+            "homepage": "http://fortawesome.github.com/Font-Awesome/",
+            "keywords": [
+                "graphics",
+                "symfony",
+                "css",
+                "webfonts",
+                "typography"
+            ]
+        },
+        {
+            "name": "bmatzner/jquery-bundle",
+            "version": "dev-master",
+            "target-dir": "Bmatzner/JQueryBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bmatzner/BmatznerJQueryBundle",
+                "reference": "1.9.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bmatzner/BmatznerJQueryBundle/zipball/1.9.0",
+                "reference": "1.9.0",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/framework-bundle": ">=2.1"
+            },
+            "time": "2013-01-15 22:01:02",
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Bmatzner\\JQueryBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT",
+                "GPLv2"
+            ],
+            "authors": [
+                {
+                    "name": "Bernd Matzner",
+                    "email": "bernd@matznermatzner.de",
+                    "homepage": "http://berndmatzner.de"
+                }
+            ],
+            "description": "jQuery Bundle for Symfony2",
+            "homepage": "http://jquery.com/",
+            "keywords": [
+                "symfony",
+                "jquery",
+                "javascript"
+            ]
+        },
+        {
+            "name": "bmatzner/json2-bundle",
+            "version": "dev-master",
+            "target-dir": "Bmatzner/Json2Bundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bmatzner/BmatznerJson2Bundle",
+                "reference": "2012-10-08"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bmatzner/BmatznerJson2Bundle/zipball/2012-10-08",
+                "reference": "2012-10-08",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/framework-bundle": ">=2.1"
+            },
+            "time": "2013-01-13 12:01:35",
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Bmatzner\\Json2Bundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Public Domain"
+            ],
+            "authors": [
+                {
+                    "name": "Bernd Matzner",
+                    "email": "bernd@matznermatzner.de",
+                    "homepage": "http://berndmatzner.de"
+                }
+            ],
+            "description": "JSON-js Bundle for Symfony2",
+            "homepage": "https://github.com/douglascrockford/JSON-js",
+            "keywords": [
+                "symfony",
+                "json",
+                "javascript"
+            ]
+        },
+        {
+            "name": "bmatzner/require-bundle",
+            "version": "dev-master",
+            "target-dir": "Bmatzner/RequireBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bmatzner/BmatznerRequireBundle",
+                "reference": "2.1.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/bmatzner/BmatznerRequireBundle/archive/2.1.4.zip",
+                "reference": "2.1.4",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/framework-bundle": ">=2.1"
+            },
+            "time": "2013-01-25 19:06:44",
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Bmatzner\\RequireBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT",
+                "BSD-3"
+            ],
+            "authors": [
+                {
+                    "name": "Bernd Matzner",
+                    "email": "bernd@matznermatzner.de",
+                    "homepage": "http://berndmatzner.de"
+                }
+            ],
+            "description": "RequireJS Bundle for Symfony2",
+            "homepage": "http://requirejs.com/",
+            "keywords": [
+                "symfony",
+                "javascript",
+                "amd"
+            ]
+        },
+        {
+            "name": "bmatzner/underscore-bundle",
+            "version": "dev-master",
+            "target-dir": "Bmatzner/UnderscoreBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bmatzner/BmatznerUnderscoreBundle",
+                "reference": "1.4.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bmatzner/BmatznerUnderscoreBundle/zipball/1.4.3",
+                "reference": "1.4.3",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/framework-bundle": ">=2.1"
+            },
+            "time": "2013-01-16 00:12:25",
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Bmatzner\\UnderscoreBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bernd Matzner",
+                    "email": "bernd@matznermatzner.de",
+                    "homepage": "http://berndmatzner.de"
+                }
+            ],
+            "description": "Underscore.js Bundle for Symfony2",
+            "homepage": "http://documentcloud.github.com/underscore/",
+            "keywords": [
+                "symfony",
+                "javascript",
+                "underscore"
+            ]
         },
         {
             "name": "dflydev/markdown",
@@ -37,7 +306,6 @@
                     "dev-master": "1.0-dev"
                 }
             },
-            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "dflydev\\markdown": "src"
@@ -89,13 +357,13 @@
             "require": {
                 "php": ">=5.3.2"
             },
+            "time": "2012-09-20 05:55:18",
             "type": "library",
             "extra": {
                 "branch-alias": {
                     "dev-master": "2.3.x-dev"
                 }
             },
-            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Doctrine\\Common": "lib/"
@@ -137,8 +405,7 @@
                 "eventmanager",
                 "annotations",
                 "persistence"
-            ],
-            "time": "2012-09-20 05:55:18"
+            ]
         },
         {
             "name": "friendsofsymfony/jsrouting-bundle",
@@ -168,7 +435,6 @@
                     "dev-master": "1.1-dev"
                 }
             },
-            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "FOS\\JsRoutingBundle": ""
@@ -214,13 +480,13 @@
                 "php": ">=5.3.2",
                 "symfony/http-foundation": ">=2.0,<2.3-dev"
             },
+            "time": "2012-09-08 20:12:46",
             "type": "library",
             "extra": {
                 "branch-alias": {
                     "dev-master": "0.8.x-dev"
                 }
             },
-            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "FOS\\Rest": ""
@@ -243,8 +509,7 @@
             "homepage": "http://friendsofsymfony.github.com",
             "keywords": [
                 "rest"
-            ],
-            "time": "2012-09-08 20:12:46"
+            ]
         },
         {
             "name": "friendsofsymfony/rest-bundle",
@@ -288,7 +553,6 @@
                     "dev-master": "0.11.x-dev"
                 }
             },
-            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "FOS\\RestBundle": ""
@@ -359,7 +623,6 @@
                     "dev-master": "2.0.x-dev"
                 }
             },
-            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "FOS\\UserBundle": ""
@@ -424,7 +687,6 @@
             },
             "time": "2012-12-13 12:15:50",
             "type": "symfony-bundle",
-            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "HWI\\Bundle\\OAuthBundle": ""
@@ -488,7 +750,6 @@
             },
             "time": "2012-01-02 20:50:26",
             "type": "symfony-bundle",
-            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "JMS\\AopBundle": ""
@@ -530,7 +791,6 @@
             },
             "time": "2012-01-02 20:40:52",
             "type": "library",
-            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "CG\\": "src/"
@@ -595,7 +855,6 @@
                     "dev-master": "1.3-dev"
                 }
             },
-            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "JMS\\DiExtraBundle": ""
@@ -650,7 +909,6 @@
                     "dev-master": "1.3.x-dev"
                 }
             },
-            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Metadata\\": "src/"
@@ -700,7 +958,6 @@
                     "dev-master": "1.1-dev"
                 }
             },
-            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "JMS\\": "src/"
@@ -734,7 +991,6 @@
             },
             "time": "2012-01-02 21:38:12",
             "type": "symfony-bundle",
-            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "JMS\\SecurityExtraBundle": ""
@@ -797,7 +1053,6 @@
                     "dev-master": "1.0-dev"
                 }
             },
-            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "JMS\\Serializer": "src/"
@@ -869,7 +1124,6 @@
                     "dev-master": "1.0-dev"
                 }
             },
-            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "JMS\\SerializerBundle": ""
@@ -931,7 +1185,6 @@
                     "dev-master": "2.0.x-dev"
                 }
             },
-            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Knp\\Menu\\": "src/"
@@ -988,7 +1241,6 @@
                     "dev-master": "2.0.x-dev"
                 }
             },
-            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Knp\\Bundle\\MenuBundle": ""
@@ -1039,7 +1291,6 @@
             },
             "time": "2012-06-25 19:01:38",
             "type": "library",
-            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Buzz": "lib/"
@@ -1063,291 +1314,6 @@
             ]
         },
         {
-            "name": "manymules/backbonejs-bundle",
-            "version": "dev-master",
-            "target-dir": "ManyMules/BackboneJsBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ManyMules/ManyMulesBackboneJsBundle",
-                "reference": "0.9.9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/ManyMules/ManyMulesBackboneJsBundle/archive/0.9.9.zip",
-                "reference": "0.9.9",
-                "shasum": ""
-            },
-            "require": {
-                "symfony/framework-bundle": "2.*",
-                "php": ">=5.3.3",
-                "manymules/underscorejs-bundle": "*"
-            },
-            "suggest": {
-                "manymules/lodash-bundle": "*"
-            },
-            "time": "2012-12-14 09:54:18",
-            "type": "symfony-bundle",
-            "installation-source": "source",
-            "autoload": {
-                "psr-0": {
-                    "ManyMules\\BackboneJsBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Bernd Matzner",
-                    "email": "bernd@manymules.com",
-                    "homepage": "http://manymules.com"
-                }
-            ],
-            "description": "Backbone.js Bundle for Symfony2",
-            "homepage": "http://backbonejs.org/",
-            "keywords": [
-                "javascript",
-                "backbone",
-                "manymules"
-            ]
-        },
-        {
-            "name": "manymules/fontawesome-bundle",
-            "version": "dev-master",
-            "target-dir": "ManyMules/FontAwesomeBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ManyMules/ManyMulesFontAwesomeBundle",
-                "reference": "3.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/ManyMules/ManyMulesFontAwesomeBundle/archive/3.0.zip",
-                "reference": "3.0",
-                "shasum": ""
-            },
-            "require": {
-                "symfony/framework-bundle": "2.*",
-                "php": ">=5.3.3"
-            },
-            "time": "2013-01-03 17:44:56",
-            "type": "symfony-bundle",
-            "installation-source": "source",
-            "autoload": {
-                "psr-0": {
-                    "ManyMules\\FontAwesomeBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT",
-                "CC BY 3.0"
-            ],
-            "authors": [
-                {
-                    "name": "Bernd Matzner",
-                    "email": "bernd@manymules.com",
-                    "homepage": "http://manymules.com"
-                }
-            ],
-            "description": "FontAwesome Bundle for Symfony2",
-            "homepage": "http://fortawesome.github.com/Font-Awesome/",
-            "keywords": [
-                "graphics",
-                "css",
-                "manymules",
-                "webfonts",
-                "typography"
-            ]
-        },
-        {
-            "name": "manymules/jquery-bundle",
-            "version": "dev-master",
-            "target-dir": "ManyMules/JQueryBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ManyMules/ManyMulesJQueryBundle",
-                "reference": "1.8.3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/ManyMules/ManyMulesJQueryBundle/archive/1.8.3.zip",
-                "reference": "1.8.3",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.2",
-                "symfony/framework-bundle": "2.*"
-            },
-            "time": "2012-11-21 07:50:09",
-            "type": "symfony-bundle",
-            "installation-source": "source",
-            "autoload": {
-                "psr-0": {
-                    "ManyMules\\JQueryBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT",
-                "GPLv2"
-            ],
-            "authors": [
-                {
-                    "name": "Bernd Matzner",
-                    "email": "bernd@manymules.com",
-                    "homepage": "http://manymules.com"
-                }
-            ],
-            "description": "jQuery Bundle for Symfony2",
-            "homepage": "http://jquery.com/",
-            "keywords": [
-                "jquery",
-                "javascript",
-                "manymules"
-            ]
-        },
-        {
-            "name": "manymules/json2js-bundle",
-            "version": "dev-master",
-            "target-dir": "ManyMules/Json2JsBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ManyMules/ManyMulesJson2JsBundle",
-                "reference": "2012-10-08"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/ManyMules/ManyMulesJson2JsBundle/archive/2012-10-08.zip",
-                "reference": "2012-10-08",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.2",
-                "symfony/framework-bundle": "2.*"
-            },
-            "time": "2012-12-05 12:56:31",
-            "type": "symfony-bundle",
-            "installation-source": "source",
-            "autoload": {
-                "psr-0": {
-                    "ManyMules\\Json2JsBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Public Domain"
-            ],
-            "authors": [
-                {
-                    "name": "Bernd Matzner",
-                    "email": "bernd@manymules.com",
-                    "homepage": "http://manymules.com"
-                }
-            ],
-            "description": "JSON-js Bundle for Symfony2",
-            "homepage": "https://github.com/douglascrockford/JSON-js",
-            "keywords": [
-                "json",
-                "javascript",
-                "manymules"
-            ]
-        },
-        {
-            "name": "manymules/requirejs-bundle",
-            "version": "dev-master",
-            "target-dir": "ManyMules/RequireJsBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ManyMules/ManyMulesRequireJsBundle",
-                "reference": "2.1.2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/ManyMules/ManyMulesRequireJsBundle/archive/2.1.2.zip",
-                "reference": "2.1.2",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.2",
-                "symfony/framework-bundle": "2.*"
-            },
-            "time": "2012-12-05 13:04:14",
-            "type": "symfony-bundle",
-            "installation-source": "source",
-            "autoload": {
-                "psr-0": {
-                    "ManyMules\\RequireJsBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT",
-                "BSD-3"
-            ],
-            "authors": [
-                {
-                    "name": "Bernd Matzner",
-                    "email": "bernd@manymules.com",
-                    "homepage": "http://manymules.com"
-                }
-            ],
-            "description": "RequireJS Bundle for Symfony2",
-            "homepage": "http://requirejs.com/",
-            "keywords": [
-                "javascript",
-                "manymules",
-                "amd"
-            ]
-        },
-        {
-            "name": "manymules/underscorejs-bundle",
-            "version": "dev-master",
-            "target-dir": "ManyMules/UnderscoreJsBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ManyMules/ManyMulesUnderscoreJsBundle",
-                "reference": "1.4.3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/ManyMules/ManyMulesUnderscoreJsBundle/archive/1.4.3.zip",
-                "reference": "1.4.3",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.2",
-                "symfony/framework-bundle": "2.*"
-            },
-            "time": "2012-12-05 12:55:55",
-            "type": "symfony-bundle",
-            "installation-source": "source",
-            "autoload": {
-                "psr-0": {
-                    "ManyMules\\UnderscoreJsBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Bernd Matzner",
-                    "email": "bernd@manymules.com",
-                    "homepage": "http://manymules.com"
-                }
-            ],
-            "description": "Underscore.js Bundle for Symfony2",
-            "homepage": "http://documentcloud.github.com/underscore/",
-            "keywords": [
-                "javascript",
-                "manymules",
-                "underscore"
-            ]
-        },
-        {
             "name": "monolog/monolog",
             "version": "1.2.1",
             "source": {
@@ -1357,7 +1323,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Seldaek/monolog/zipball/1.2.1",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/1.2.1",
                 "reference": "1.2.1",
                 "shasum": ""
             },
@@ -1372,14 +1338,13 @@
                 "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
                 "ext-mongo": "Allow sending log messages to a MongoDB server"
             },
-            "time": "2012-08-29 04:53:20",
+            "time": "2012-08-29 11:53:20",
             "type": "library",
             "extra": {
                 "branch-alias": {
                     "dev-master": "1.3.x-dev"
                 }
             },
-            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Monolog": "src/"
@@ -1411,12 +1376,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phiamo/MopaBootstrapBundle.git",
-                "reference": "1c24caefbd25b508b39811d402bf6682a26fcf74"
+                "reference": "ea4d0840e99bc3f676bf4ae71625b6ebcddecb82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/phiamo/MopaBootstrapBundle/archive/1c24caefbd25b508b39811d402bf6682a26fcf74.zip",
-                "reference": "1c24caefbd25b508b39811d402bf6682a26fcf74",
+                "url": "https://api.github.com/repos/phiamo/MopaBootstrapBundle/zipball/ea4d0840e99bc3f676bf4ae71625b6ebcddecb82",
+                "reference": "ea4d0840e99bc3f676bf4ae71625b6ebcddecb82",
                 "shasum": ""
             },
             "require": {
@@ -1430,14 +1395,13 @@
                 "knplabs/knp-menu-bundle": "1.1.*",
                 "jlong/sass-twitter-bootstrap": "dev-master"
             },
-            "time": "2012-12-19 11:26:30",
+            "time": "2013-01-09 16:27:46",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
                     "dev-master": "2.1.x-dev"
                 }
             },
-            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Mopa\\Bundle\\BootstrapBundle": ""
@@ -1477,7 +1441,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/phiamo/MopaComposerBridge/archive/v1.0.0.zip",
+                "url": "https://api.github.com/repos/phiamo/MopaComposerBridge/zipball/v1.0.0",
                 "reference": "v1.0.0",
                 "shasum": ""
             },
@@ -1486,7 +1450,6 @@
             },
             "time": "2012-10-11 18:29:49",
             "type": "symfony-bridge",
-            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Mopa\\Bridge\\Composer": "src/"
@@ -1525,7 +1488,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/nelmio/NelmioApiDocBundle/archive/c946fbcf4f89a4049b537dfab46c857c1f469710.zip",
+                "url": "https://api.github.com/repos/nelmio/NelmioApiDocBundle/zipball/c946fbcf4f89a4049b537dfab46c857c1f469710",
                 "reference": "c946fbcf4f89a4049b537dfab46c857c1f469710",
                 "shasum": ""
             },
@@ -1550,7 +1513,6 @@
                     "dev-master": "2.0.x-dev"
                 }
             },
-            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Nelmio\\ApiDocBundle": ""
@@ -1595,14 +1557,14 @@
             "require": {
                 "php": ">=5.2.0"
             },
-            "time": "2012-04-06 18:33:25",
+            "time": "2012-04-06 11:33:25",
             "type": "library",
-            "installation-source": "dist",
             "autoload": {
                 "classmap": [
                     "classes/phing/"
                 ]
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "LGPL3"
             ],
@@ -1648,7 +1610,6 @@
                     "dev-master": "0.2-dev"
                 }
             },
-            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "PhpCollection": "src/"
@@ -1681,25 +1642,24 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/schmittjoh/php-option",
-                "reference": "7c3d959ac1ab7677cca6463dbb7d443ef9eea8ed"
+                "reference": "c899903cbc4cadc2b6fb7ab74a1470d59e4c2d27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/schmittjoh/php-option/archive/7c3d959ac1ab7677cca6463dbb7d443ef9eea8ed.zip",
-                "reference": "7c3d959ac1ab7677cca6463dbb7d443ef9eea8ed",
+                "url": "https://github.com/schmittjoh/php-option/archive/c899903cbc4cadc2b6fb7ab74a1470d59e4c2d27.zip",
+                "reference": "c899903cbc4cadc2b6fb7ab74a1470d59e4c2d27",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
             },
-            "time": "2012-12-07 09:34:13",
+            "time": "2013-01-21 09:59:49",
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1-dev"
+                    "dev-master": "1.2-dev"
                 }
             },
-            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "PhpOption\\": "src/"
@@ -1732,25 +1692,24 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/propelorm/PropelBundle",
-                "reference": "9faeb85693d5f1d0e1c268acd19b1b9c6c83b37a"
+                "reference": "81c940b4e6c2ddc24ea4cbc1cc2041dd1f31ed8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/propelorm/PropelBundle/archive/9faeb85693d5f1d0e1c268acd19b1b9c6c83b37a.zip",
-                "reference": "9faeb85693d5f1d0e1c268acd19b1b9c6c83b37a",
+                "url": "https://github.com/propelorm/PropelBundle/archive/81c940b4e6c2ddc24ea4cbc1cc2041dd1f31ed8c.zip",
+                "reference": "81c940b4e6c2ddc24ea4cbc1cc2041dd1f31ed8c",
                 "shasum": ""
             },
             "require": {
-                "propel/propel1": "1.6.*",
-                "symfony/symfony": ">=2.1,<2.3-dev"
+                "symfony/symfony": ">=2.1,<2.2",
+                "propel/propel1": ">=1.6,<1.7"
             },
             "require-dev": {
                 "fzaninotto/faker": "dev-master",
-                "sensio/framework-extra-bundle": ">=2.1"
+                "sensio/framework-extra-bundle": ">=2.1,<2.2"
             },
-            "time": "2013-01-04 21:48:07",
+            "time": "2013-01-11 20:47:45",
             "type": "symfony-bundle",
-            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Propel\\PropelBundle": ""
@@ -1780,19 +1739,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/propelorm/Propel",
-                "reference": "a84ffd47f1422e7ac1799a7eb2f1bfdddffcc5e2"
+                "reference": "68dcfcebf85544c9d715f307ca34e4efcd300430"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/propelorm/Propel/archive/a84ffd47f1422e7ac1799a7eb2f1bfdddffcc5e2.zip",
-                "reference": "a84ffd47f1422e7ac1799a7eb2f1bfdddffcc5e2",
+                "url": "https://api.github.com/repos/propelorm/Propel/zipball/68dcfcebf85544c9d715f307ca34e4efcd300430",
+                "reference": "68dcfcebf85544c9d715f307ca34e4efcd300430",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4",
                 "phing/phing": "2.4.12"
             },
-            "time": "2013-01-03 20:12:44",
+            "time": "2013-01-24 22:13:22",
             "bin": [
                 "generator/bin/propel-gen",
                 "generator/bin/propel-gen.bat"
@@ -1803,7 +1762,6 @@
                     "dev-master": "1.6-dev"
                 }
             },
-            "installation-source": "source",
             "autoload": {
                 "classmap": [
                     "runtime/lib",
@@ -1842,25 +1800,24 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensio/SensioDistributionBundle",
-                "reference": "781e1e585fc57cfaf37dc16275ebcaa19c8279b5"
+                "reference": "66545ed7d60342dd1ffdcebd72fe43b11941fef9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/sensio/SensioDistributionBundle/archive/781e1e585fc57cfaf37dc16275ebcaa19c8279b5.zip",
-                "reference": "781e1e585fc57cfaf37dc16275ebcaa19c8279b5",
+                "url": "https://api.github.com/repos/sensio/SensioDistributionBundle/zipball/66545ed7d60342dd1ffdcebd72fe43b11941fef9",
+                "reference": "66545ed7d60342dd1ffdcebd72fe43b11941fef9",
                 "shasum": ""
             },
             "require": {
                 "symfony/framework-bundle": "2.1.*"
             },
-            "time": "2013-01-04 17:11:22",
+            "time": "2013-01-31 08:08:03",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
                     "dev-master": "2.1.x-dev"
                 }
             },
-            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Sensio\\Bundle\\DistributionBundle": ""
@@ -1889,12 +1846,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensio/SensioFrameworkExtraBundle",
-                "reference": "f050aa93cb1aa780f668020dddd6333b5c5d95c3"
+                "reference": "v2.1.7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/sensio/SensioFrameworkExtraBundle/archive/f050aa93cb1aa780f668020dddd6333b5c5d95c3.zip",
-                "reference": "f050aa93cb1aa780f668020dddd6333b5c5d95c3",
+                "url": "https://api.github.com/repos/sensio/SensioFrameworkExtraBundle/zipball/v2.1.7",
+                "reference": "v2.1.7",
                 "shasum": ""
             },
             "require": {
@@ -1908,7 +1865,6 @@
                     "dev-master": "2.1.x-dev"
                 }
             },
-            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Sensio\\Bundle\\FrameworkExtraBundle": ""
@@ -1937,12 +1893,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensio/SensioGeneratorBundle",
-                "reference": "74f519a1c4414d4a45dd12c9e86e29efb5a90b2c"
+                "reference": "v2.1.7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/sensio/SensioGeneratorBundle/archive/74f519a1c4414d4a45dd12c9e86e29efb5a90b2c.zip",
-                "reference": "74f519a1c4414d4a45dd12c9e86e29efb5a90b2c",
+                "url": "https://api.github.com/repos/sensio/SensioGeneratorBundle/zipball/v2.1.7",
+                "reference": "v2.1.7",
                 "shasum": ""
             },
             "require": {
@@ -1961,7 +1917,6 @@
                     "dev-master": "2.1.x-dev"
                 }
             },
-            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Sensio\\Bundle\\GeneratorBundle": ""
@@ -1981,29 +1936,28 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v4.2.2",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git://github.com/swiftmailer/swiftmailer.git",
-                "reference": "v4.2.2"
+                "reference": "3aec9a30346ebf54100a38ba7c71fb8aafae3e9a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/swiftmailer/swiftmailer/zipball/v4.2.2",
-                "reference": "v4.2.2",
+                "url": "https://github.com/swiftmailer/swiftmailer/archive/3aec9a30346ebf54100a38ba7c71fb8aafae3e9a.zip",
+                "reference": "3aec9a30346ebf54100a38ba7c71fb8aafae3e9a",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4"
             },
-            "time": "2012-10-25 01:30:40",
+            "time": "2013-01-21 16:17:20",
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.2-dev"
+                    "dev-master": "4.3-dev"
                 }
             },
-            "installation-source": "source",
             "autoload": {
                 "files": [
                     "lib/swift_required.php"
@@ -2031,38 +1985,37 @@
         },
         {
             "name": "symfony/monolog-bundle",
-            "version": "dev-master",
+            "version": "2.1.x-dev",
             "target-dir": "Symfony/Bundle/MonologBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/MonologBundle",
-                "reference": "0e9e829acaff387adbf62862ebe3e07abedd3845"
+                "reference": "253fcda1128a0301aa68d040302cade65095f2c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/MonologBundle/archive/0e9e829acaff387adbf62862ebe3e07abedd3845.zip",
-                "reference": "0e9e829acaff387adbf62862ebe3e07abedd3845",
+                "url": "https://github.com/symfony/MonologBundle/archive/253fcda1128a0301aa68d040302cade65095f2c6.zip",
+                "reference": "253fcda1128a0301aa68d040302cade65095f2c6",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
-                "symfony/monolog-bridge": ">=2.1.0,<2.3-dev",
                 "symfony/dependency-injection": ">=2.1.0,<2.3-dev",
                 "symfony/config": ">=2.1.0,<2.3-dev",
-                "monolog/monolog": ">=1.0,<1.3-dev"
+                "monolog/monolog": ">=1.0,<1.3-dev",
+                "symfony/monolog-bridge": "2.1.*"
             },
             "require-dev": {
                 "symfony/yaml": ">=2.1.0,<2.3-dev",
                 "symfony/config": ">=2.1.0,<2.3-dev"
             },
-            "time": "2013-01-07 10:57:41",
+            "time": "2013-01-28 10:06:42",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
                     "dev-master": "2.1.x-dev"
                 }
             },
-            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Symfony\\Bundle\\MonologBundle": ""
@@ -2096,18 +2049,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/SwiftmailerBundle",
-                "reference": "2bf9cdefd8102e6409ec0762652cf81cb3b4c21a"
+                "reference": "v2.2.0-BETA2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/SwiftmailerBundle/archive/2bf9cdefd8102e6409ec0762652cf81cb3b4c21a.zip",
-                "reference": "2bf9cdefd8102e6409ec0762652cf81cb3b4c21a",
+                "url": "https://api.github.com/repos/symfony/SwiftmailerBundle/zipball/v2.2.0-BETA2",
+                "reference": "v2.2.0-BETA2",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
-                "swiftmailer/swiftmailer": ">=4.2.0,<4.3-dev",
-                "symfony/swiftmailer-bridge": ">=2.1.0,<2.3-dev"
+                "symfony/swiftmailer-bridge": ">=2.1.0,<2.3-dev",
+                "swiftmailer/swiftmailer": ">=4.2.0,<4.4-dev"
             },
             "require-dev": {
                 "symfony/dependency-injection": ">=2.1.0,<2.3-dev",
@@ -2115,14 +2068,13 @@
                 "symfony/config": ">=2.1.0,<2.3-dev",
                 "symfony/yaml": ">=2.1.0,<2.3-dev"
             },
-            "time": "2013-01-04 17:04:29",
+            "time": "2013-01-08 20:24:29",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.1-dev"
+                    "dev-master": "2.2-dev"
                 }
             },
-            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Symfony\\Bundle\\SwiftmailerBundle": ""
@@ -2207,7 +2159,6 @@
             },
             "time": "2013-01-08 12:06:20",
             "type": "library",
-            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Symfony": "src/",
@@ -2258,7 +2209,6 @@
                     "dev-master": "1.0.x-dev"
                 }
             },
-            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Twig_Extensions_": "lib/"
@@ -2306,7 +2256,6 @@
                     "dev-master": "1.12-dev"
                 }
             },
-            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Twig_": "lib/"
@@ -2347,7 +2296,6 @@
                 "shasum": null
             },
             "type": "library",
-            "installation-source": "source",
             "time": "2012-12-22 02:54:36"
         }
     ],

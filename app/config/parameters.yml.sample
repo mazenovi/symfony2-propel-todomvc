@@ -14,5 +14,20 @@ parameters:
     locale:            en
     secret:            ThisTokenIsNotSoSecretChangeIt
 
+    linkedin_client_id:           1000000000000000
+    linkedin_client_secret:       ThisTokenIsNotSoSecretChangeIt
+
+    google_client_id:           1000000000000000
+    google_client_secret:       ThisTokenIsNotSoSecretChangeIt
+
+    windows_live_client_id:           1000000000000000
+    windows_live_client_secret:       ThisTokenIsNotSoSecretChangeIt
+
     facebook_client_id:           1000000000000000
     facebook_client_secret:       ThisTokenIsNotSoSecretChangeIt
+
+    twitter_client_id:           1000000000000000
+    twitter_client_secret:       ThisTokenIsNotSoSecretChangeIt
+
+    github_client_id:           1000000000000000
+    github_client_secret:       ThisTokenIsNotSoSecretChangeIt

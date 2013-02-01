@@ -9,7 +9,7 @@ module.exports = function(grunt) {
         },
         files: {
           "../css/styles.css": ["assets/main.less"],
-          "../css/ie7.css": ["../../manymulesfontawesome/less/font-awesome-ie7.less"]
+          "../css/ie7.css": ["../../bmatznerfontawesome/less/font-awesome-ie7.less"]
         }
       }
     },
@@ -17,7 +17,7 @@ module.exports = function(grunt) {
     concat: {
       dist: {
         src: [
-          "../../manymulesrequirejs/js/require.min.js",
+          "../../bmatznerrequire/js/require.min.js",
           "../../fosjsrouting/js/router.js",
         ],
         dest: "build/require.js",

@@ -3,7 +3,7 @@
 {% block head_script %}
   
   {% if app.request.get('debug') == 'true' %}
-    <script data-main="/bundles/mazenovitodomvc/js/main" src="/bundles/manymulesrequirejs/js/require.min.js"></script>  
+    <script data-main="/bundles/mazenovitodomvc/js/main" src="/bundles/bmatznerrequire/js/require.min.js"></script>  
     <script type="text/javascript" src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
     <script type="text/javascript" src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
   {% else %}

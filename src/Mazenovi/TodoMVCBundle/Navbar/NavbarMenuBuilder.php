@@ -35,7 +35,7 @@ class NavbarMenuBuilder extends AbstractNavbarMenuBuilder
         $this->addDivider($menu, true);
 
         if ($this->isLoggedIn) {
-            $dropdown = $this->createDropdownMenuItem($menu, "Profile");
+            $dropdown = $this->createDropdownMenuItem($menu, "Profile", true, array('icon' => 'icon-caret-down'));
             $dropdown->addChild('My Todos', array('route' => 'mazenovi_todomvc_api_listuser', 'routeParameters' => array('id' => $this->securityContext->getToken()->getUser()->getId())));
             $dropdown->addChild('My account', array('route' => 'fos_user_profile_edit'));
             $this->addDivider($menu, true);
